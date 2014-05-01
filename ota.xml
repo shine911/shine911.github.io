@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SlimOTA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ota.xsd">
+        <Stable>
+        <codina>
+                        <Filename>Slim-codina-4.4.2.build.4.6-UNOFFICIAL-20140425-0517.zip</Filename>
+                        <DownloadUrl>http://shine911.nazuka.net/download/rom/slimkat/Slim-codina-4.4.2.build.4.6-UNOFFICIAL-20140425-0517.zip</DownloadUrl>
+        </codina>
+        </Stable>
+</SlimOTA>
