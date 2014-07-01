@@ -2,8 +2,8 @@
 <SlimOTA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ota.xsd">
         <Stable>
         <codina>
-                        <Filename>Slim-codina-4.4.3.build.5.7-UNOFFICIAL-20140609-0641.zip</Filename>
-                        <DownloadUrl>http://shine911.nazuka.net/download/rom/slimkat/Slim-codina-4.4.3.build.5.7-UNOFFICIAL-20140609-0641.zip</DownloadUrl>
+                        <Filename>Slim-codina-4.4.4.build.6-UNOFFICIAL-20140630-2156.zip</Filename>
+                        <DownloadUrl>http://fs1.d-h.st/download/00127/LWB/Slim-codina-4.4.4.build.6-UNOFFICIAL-20140630-2156.zip</DownloadUrl>
         </codina>
         </Stable>
 </SlimOTA>
