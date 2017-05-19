@@ -55,7 +55,7 @@ for($j =0;$j<=$totalid; $j++){
 		echo puaru('https://graph.facebook.com/'.$puaru[data][$i-1][id].'/reactions?type='.$camxuc.'&method=post&access_token='.$Account[$id]['token'].'');
 		}
 }
-
+unset($Account);///Optimized
 
 function puaru($url){
 $data = curl_init();
