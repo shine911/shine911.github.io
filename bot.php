@@ -23,7 +23,7 @@ $Account=array(
 		//Nhi
 		"1" => array(
 						"token" => 'EAAAAAYsX7TsBAEM2AfliKITRmdJbLMm3Uw2qBt4qeYQIfShTpFrashaLuqZAIQt7dwNizQHGZBTZCoeLRv1dsc2UzqJiTeaa7BKNpUsYOvsX8zfJOVhXRZBtISAHQOP5oSsR1jHzv61iQc8AdCZBZAmSisSIbsXYRkIDVGYXyJFIWS4DswaZCAq',
-						"limits" => 5,
+						"limits" => 4,
 						"func" => 'LOVE',
 						//"expdays" => '0/0/0',
 					),
