@@ -8,7 +8,7 @@
  * Updated: 16/05/2017
  * Version: beta-0.2
  ***/
-$totalid=9;//TOTAL ID OF ACCOUNT MUST BE WRITE HERE
+$totalid=3;//TOTAL ID OF ACCOUNT MUST BE WRITE HERE
 
 $Account=array(
 		//Qui
@@ -20,27 +20,28 @@ $Account=array(
 						//"expdays" => '0/0/0',
 					),
 		***/
-		//Nhi
+		//CamThuy
 		"1" => array(
-						"token" => 'EAAAAAYsX7TsBAEM2AfliKITRmdJbLMm3Uw2qBt4qeYQIfShTpFrashaLuqZAIQt7dwNizQHGZBTZCoeLRv1dsc2UzqJiTeaa7BKNpUsYOvsX8zfJOVhXRZBtISAHQOP5oSsR1jHzv61iQc8AdCZBZAmSisSIbsXYRkIDVGYXyJFIWS4DswaZCAq',
-						"limits" => 5,
+						"token" => 'EAAAAAYsX7TsBAEJXgaF6vwZAPT7DscZCRQZB0jlVH0YH25Ca3g92jOeujdIiPcWyY3QCmiOW0sw4ZAv5M5gj4ZCRTXACCjGnA7QjsEnMGhUu5GVdU1WljjQ1GeHbCN1eikpDxUyFd3yxeuDqJWJ89ZBbi8VlLGVvEZD',
+						"limits" => 1,
 						"func" => 'LOVE',
 						//"expdays" => '0/0/0',
 					),
-		//DoQuyen
+		//HongTuyen
 		"2" => array(
-						"token" => 'EAAAAAYsX7TsBACNpbNrITduscCea0pWVo1RZANDeKGEZCbaRx3ctBz0GeqYBT0CmLXzFsXZCWmvigZCRfxZBZBtkZBIjzqFZAXdlZCxT0eyrLkPifPvdPZA4JkL5MtKyLSz3TpiacQalwNSXZCcoIZAafLuMC0CjeAYBLh0ZD',
+						"token" => 'EAAAAAYsX7TsBAIG3E56PZA1LlmpRIhmMGeGLeKoBvlZBRhUOaeZCnCRvG0zbxQIfWVkipq56WA8ZA1ltYUiIZC9bdL4CEYNLa1UZAqRIYnsrUCkrZCzhIqI8pGbBP0QyLqOZBPPZB8NOrSIOH5AIUaHuaJHBcR6nYMPQZD',
 						"limits" => 2,
 						"func" => 'LOVE',
 						//"expdays" => '0/0/0',
 					),
-		//TranVi
+		//Kim
 		"3" => array(
-						"token" => 'EAAAAAYsX7TsBAMzMcgEcVKrbz9sh7WhWlKXKeS4NerlV4aUB2Iqpi3ZCII3ehFoaitK1yYfcmwX9BOhBmubVA7nxdUkwMQDdeoGBV0FUkDYX4b8c2TWwV2RtupeRZBfxaCqbWHbAgU6XyMy0SD1ZA6uS3BgRT8YPxedOI4YuAZDZD',
+						"token" => 'EAAAAAYsX7TsBADAIVeAncqwsL4fWrZAlJjljFOuFNy5H0py8zdIRPUVZAnD94mlJBxpZACSwZBGA3iGvrzwF8M22KAf05C4ZBpKqy2FbZB9DaAa1kMIPACostRcAqS80RnVS2S1ZCTtV2kZBoZCNPbn0kq70xpmCuo1wZD',
 						"limits" => 2,
 						"func" => 'LOVE',
 						//"expdays" => '0/0/0',
 					),
+
 		/***
 		"7" => array(
 						"token" => '',

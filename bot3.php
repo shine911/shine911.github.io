@@ -8,39 +8,31 @@
  * Updated: 16/05/2017
  * Version: beta-0.2
  ***/
-$totalid=9;//TOTAL ID OF ACCOUNT MUST BE WRITE HERE
+$totalid=3;//TOTAL ID OF ACCOUNT MUST BE WRITE HERE
 
 $Account=array(
-		//Qui
-		/***
-		"0" => array(
-						"token" => 'EAAAAAYsX7TsBAENrusUsNEWWhtpYIstY5SebJ7hQPupODlJwnD2uFJ1BzZAmadnk8IbPr9MOGGE2GVyAJZAMxrjrHZBCvTYaELwbj2MEZCOBqZBqZBZBKUzlSDTSBI44KuefGMZBE0mDURAep1Dx6U4AFq46mMK9FqwhQyZBftVrE0gZDZD',
-						"limits" => 3,
-						"func" => 'THANKFUL',
-						//"expdays" => '0/0/0',
-					),
-		***/
-		//Nhi
+		//Nhu Huynh
 		"1" => array(
-						"token" => 'EAAAAAYsX7TsBAEM2AfliKITRmdJbLMm3Uw2qBt4qeYQIfShTpFrashaLuqZAIQt7dwNizQHGZBTZCoeLRv1dsc2UzqJiTeaa7BKNpUsYOvsX8zfJOVhXRZBtISAHQOP5oSsR1jHzv61iQc8AdCZBZAmSisSIbsXYRkIDVGYXyJFIWS4DswaZCAq',
-						"limits" => 5,
-						"func" => 'LOVE',
+						"token" => 'EAAAAAYsX7TsBACzvJOGAZAZBWI3N7TSZCsReI2ODZCsyQLIY97BxFovOpzuZBW7HSNyMRU053gy1i3UN5VBoHMMZAQdjtHI1nRX2RRlmw3vmCgsbx21vq3x1pEZA035nKZBf5AF68hGueSTOLBAZCJfYZCz8sKIXsOS6JVGw7U140oJlK6JyPbo5Ye',
+						"limits" => 2,
+						"func" => 'LIKE',
 						//"expdays" => '0/0/0',
 					),
-		//DoQuyen
+		//Huynh Nhu
 		"2" => array(
-						"token" => 'EAAAAAYsX7TsBACNpbNrITduscCea0pWVo1RZANDeKGEZCbaRx3ctBz0GeqYBT0CmLXzFsXZCWmvigZCRfxZBZBtkZBIjzqFZAXdlZCxT0eyrLkPifPvdPZA4JkL5MtKyLSz3TpiacQalwNSXZCcoIZAafLuMC0CjeAYBLh0ZD',
+						"token" => 'EAAAAAYsX7TsBABGKdbUbjLtZChQQT8ZAvrDqm7LbBAW00KSOKHJopihPr6fGWSvEEWZAY1GQTF4RbDGkNvahZCEE1rdkdRqgtjZA1j9mezywaQrfQZBdITNfi4ZCDOGiXH9kEaWlLkDhsFvpPS9p5Qhcil5iRzTVfgZD',
 						"limits" => 2,
 						"func" => 'LOVE',
 						//"expdays" => '0/0/0',
 					),
-		//TranVi
+		//Ngoc Han
 		"3" => array(
-						"token" => 'EAAAAAYsX7TsBAMzMcgEcVKrbz9sh7WhWlKXKeS4NerlV4aUB2Iqpi3ZCII3ehFoaitK1yYfcmwX9BOhBmubVA7nxdUkwMQDdeoGBV0FUkDYX4b8c2TWwV2RtupeRZBfxaCqbWHbAgU6XyMy0SD1ZA6uS3BgRT8YPxedOI4YuAZDZD',
+						"token" => 'EAAAAAYsX7TsBAFRQAcIBdUL3cB8QdeYGyc6LDs9LbzlyeVsRES0QowK1ZCYW1pAkTHXuB5TSkPHWvOHoD7ds26dWZB8tiXYpakoJpLu7NZABSVaAnBxSTmDOB8qlARKz25JISvkvmla5PcvZBwtCANwIuJt34YoZD',
 						"limits" => 2,
 						"func" => 'LOVE',
 						//"expdays" => '0/0/0',
 					),
+
 		/***
 		"7" => array(
 						"token" => '',
