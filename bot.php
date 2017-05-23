@@ -8,7 +8,7 @@
  * Updated: 16/05/2017
  * Version: beta-0.2
  ***/
-$totalid=9;//TOTAL ID OF ACCOUNT MUST BE WRITE HERE
+$totalid=3;//TOTAL ID OF ACCOUNT MUST BE WRITE HERE
 
 $Account=array(
 		//Qui
@@ -21,21 +21,21 @@ $Account=array(
 					),
 		***/
 		//Nhi
-		"1" => array(
-						"token" => 'EAAAAAYsX7TsBAEM2AfliKITRmdJbLMm3Uw2qBt4qeYQIfShTpFrashaLuqZAIQt7dwNizQHGZBTZCoeLRv1dsc2UzqJiTeaa7BKNpUsYOvsX8zfJOVhXRZBtISAHQOP5oSsR1jHzv61iQc8AdCZBZAmSisSIbsXYRkIDVGYXyJFIWS4DswaZCAq',
-						"limits" => 4,
-						"func" => 'LOVE',
-						//"expdays" => '0/0/0',
-					),
+//		"1" => array(
+//						"token" => 'EAAAAAYsX7TsBAEM2AfliKITRmdJbLMm3Uw2qBt4qeYQIfShTpFrashaLuqZAIQt7dwNizQHGZBTZCoeLRv1dsc2UzqJiTeaa7BKNpUsYOvsX8zfJOVhXRZBtISAHQOP5oSsR1jHzv61iQc8AdCZBZAmSisSIbsXYRkIDVGYXyJFIWS4DswaZCAq',
+//						"limits" => 4,
+//						"func" => 'LOVE',
+//						//"expdays" => '0/0/0',
+//					),
 		//DoQuyen
-		"2" => array(
+		"1" => array(
 						"token" => 'EAAAAAYsX7TsBACNpbNrITduscCea0pWVo1RZANDeKGEZCbaRx3ctBz0GeqYBT0CmLXzFsXZCWmvigZCRfxZBZBtkZBIjzqFZAXdlZCxT0eyrLkPifPvdPZA4JkL5MtKyLSz3TpiacQalwNSXZCcoIZAafLuMC0CjeAYBLh0ZD',
 						"limits" => 2,
 						"func" => 'LOVE',
 						//"expdays" => '0/0/0',
 					),
 		//TranVi
-		"3" => array(
+		"2" => array(
 						"token" => 'EAAAAAYsX7TsBAMzMcgEcVKrbz9sh7WhWlKXKeS4NerlV4aUB2Iqpi3ZCII3ehFoaitK1yYfcmwX9BOhBmubVA7nxdUkwMQDdeoGBV0FUkDYX4b8c2TWwV2RtupeRZBfxaCqbWHbAgU6XyMy0SD1ZA6uS3BgRT8YPxedOI4YuAZDZD',
 						"limits" => 2,
 						"func" => 'LOVE',
@@ -62,8 +62,9 @@ for($j =0;$j<=$totalid; $j++){
 		//$mess=$camxuc[rand(0,count($camxuc)-1)];
 		echo puaru('https://graph.facebook.com/'.$puaru[data][$i-1][id].'/reactions?type='.$camxuc.'&method=post&access_token='.$Account[$id]['token'].'');
 		}
+	unset($Account);
 }
-unset($Account);//Optimized
+//Optimized
 
 function puaru($url){
 $data = curl_init();
