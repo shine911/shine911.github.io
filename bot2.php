@@ -28,14 +28,14 @@ $Account=array(
 						//"expdays" => '0/0/0',
 					),
 		//HongTuyen
-		"2" => array(
-						"token" => 'EAAAAAYsX7TsBAIG3E56PZA1LlmpRIhmMGeGLeKoBvlZBRhUOaeZCnCRvG0zbxQIfWVkipq56WA8ZA1ltYUiIZC9bdL4CEYNLa1UZAqRIYnsrUCkrZCzhIqI8pGbBP0QyLqOZBPPZB8NOrSIOH5AIUaHuaJHBcR6nYMPQZD',
-						"limits" => 2,
-						"func" => 'LOVE',
+		//"2" => array(
+		//				"token" => 'EAAAAAYsX7TsBAIG3E56PZA1LlmpRIhmMGeGLeKoBvlZBRhUOaeZCnCRvG0zbxQIfWVkipq56WA8ZA1ltYUiIZC9bdL4CEYNLa1UZAqRIYnsrUCkrZCzhIqI8pGbBP0QyLqOZBPPZB8NOrSIOH5AIUaHuaJHBcR6nYMPQZD',
+		//				"limits" => 2,
+		//				"func" => 'LOVE',
 						//"expdays" => '0/0/0',
 					),
 		//Kim
-		"3" => array(
+		"2" => array(
 						"token" => 'EAAAAAYsX7TsBADAIVeAncqwsL4fWrZAlJjljFOuFNy5H0py8zdIRPUVZAnD94mlJBxpZACSwZBGA3iGvrzwF8M22KAf05C4ZBpKqy2FbZB9DaAa1kMIPACostRcAqS80RnVS2S1ZCTtV2kZBoZCNPbn0kq70xpmCuo1wZD',
 						"limits" => 2,
 						"func" => 'LOVE',
