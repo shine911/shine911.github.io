@@ -28,20 +28,32 @@ $Account=array(
 						//"expdays" => '0/0/0',
 					),
 		//HongTuyen
-		//"2" => array(
-		//				"token" => 'EAAAAAYsX7TsBAIG3E56PZA1LlmpRIhmMGeGLeKoBvlZBRhUOaeZCnCRvG0zbxQIfWVkipq56WA8ZA1ltYUiIZC9bdL4CEYNLa1UZAqRIYnsrUCkrZCzhIqI8pGbBP0QyLqOZBPPZB8NOrSIOH5AIUaHuaJHBcR6nYMPQZD',
-		//				"limits" => 2,
-		//				"func" => 'LOVE',
+		"2" => array(
+						"token" => 'EAAAAAYsX7TsBAIG3E56PZA1LlmpRIhmMGeGLeKoBvlZBRhUOaeZCnCRvG0zbxQIfWVkipq56WA8ZA1ltYUiIZC9bdL4CEYNLa1UZAqRIYnsrUCkrZCzhIqI8pGbBP0QyLqOZBPPZB8NOrSIOH5AIUaHuaJHBcR6nYMPQZD',
+						"limits" => 2,
+					"func" => 'LOVE',
 						//"expdays" => '0/0/0',
 					),
 		//Kim
-		"2" => array(
+		"3" => array(
 						"token" => 'EAAAAAYsX7TsBADAIVeAncqwsL4fWrZAlJjljFOuFNy5H0py8zdIRPUVZAnD94mlJBxpZACSwZBGA3iGvrzwF8M22KAf05C4ZBpKqy2FbZB9DaAa1kMIPACostRcAqS80RnVS2S1ZCTtV2kZBoZCNPbn0kq70xpmCuo1wZD',
 						"limits" => 2,
 						"func" => 'LOVE',
 						//"expdays" => '0/0/0',
 					),
-
+		//Bao Han
+		"4" => array(
+						"token" => 'EAAAAAYsX7TsBAOZAuJWJNG78Vlq1T6ctiEHjQ0PsXI6Y4PccMT5Pqs5UH6JhKpw9tijPjJDL1jK7WQ2XFH3dasrG2bmgpnIOmA8At8YpzZBRU3i24Yk0GMkaZAalMRmy6fTRCnN8S6V5ues9YTsfVzCpYM5FTUCaLZBjm3U0QCgmNJOrhTpX',
+						"limits" => 3,
+						"func" => 'LOVE',
+						//"expdays" => '0/0/0',
+					),
+		"5" => array(
+						"token" => 'EAAAAAYsX7TsBAMXK5jKnrWe688VIjXVzSnNNbMt4yTJD4NSjL66sWOPhQeVNnnRe56p0LEhH629EVUxpJZCrAoueAHyzu0qa54PLTtfrAYKcbCZCtXAOouwXSvEwsduPkckNh9WXBLDhNaOZAOxNQuRKEtGT1wZD',
+						"limits" => 2,
+						"func" => 'LOVE',
+						//"expdays" => '0/0/0',
+					),
 		/***
 		"7" => array(
 						"token" => '',
