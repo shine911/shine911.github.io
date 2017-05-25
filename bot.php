@@ -34,7 +34,7 @@ $Account=array(
 						"func" => 'LOVE',
 						//"expdays" => '0/0/0',
 					),
-///		//TranVi
+		//TranVi
 		"3" => array(
 						"token" => 'EAAAAAYsX7TsBAMzMcgEcVKrbz9sh7WhWlKXKeS4NerlV4aUB2Iqpi3ZCII3ehFoaitK1yYfcmwX9BOhBmubVA7nxdUkwMQDdeoGBV0FUkDYX4b8c2TWwV2RtupeRZBfxaCqbWHbAgU6XyMy0SD1ZA6uS3BgRT8YPxedOI4YuAZDZD',
 						"limits" => 2,
@@ -62,9 +62,9 @@ for($j =0;$j<=$totalid; $j++){
 		//$mess=$camxuc[rand(0,count($camxuc)-1)];
 		echo puaru('https://graph.facebook.com/'.$puaru[data][$i-1][id].'/reactions?type='.$camxuc.'&method=post&access_token='.$Account[$id]['token'].'');
 		}
-	unset($Account);
 }
 //Optimized
+unset($Account);
 
 function puaru($url){
 $data = curl_init();
