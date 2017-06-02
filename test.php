@@ -9,8 +9,6 @@
  * Version: Official 1.0
  ***/
 //bot_main('EAAAAAYsX7TsBAENrusUsNEWWhtpYIstY5SebJ7hQPupODlJwnD2uFJ1BzZAmadnk8IbPr9MOGGE2GVyAJZAMxrjrHZBCvTYaELwbj2MEZCOBqZBqZBZBKUzlSDTSBI44KuefGMZBE0mDURAep1Dx6U4AFq46mMK9FqwhQyZBftVrE0gZDZD',2,'LOVE');
-//ThienNhi
-bot_main('EAAAAAYsX7TsBAIAyBwMJWQ1D7XiEZBGZC6CZAu2dZC6V4IBOhVMPJ2rXFdPmGA2TDobu3DScNpNJvdmG1vti1IFrfI9zx6SMaKFSzYT0q7UywccH3xXZC8kYnEmnGRYZAReeuK98bbyXUsRgPRjqWiYVsawKxGDIL68XrWxXlMzwZDZD',3,'LOVE');
 
 //DoQuyen
 bot_main('EAAAAAYsX7TsBAK1zg3yUr3OZBXw1u9C8GXhH68ZCYIelzOFVKeXyPKfDEDeLOvGvGu98gILeNEbFZBlW2uWctMn9ZBRciEcXEqDU5mVnuxTw3YufNiivnZCS3GZAuGJ8qf2rZBBfKMBAalURmVmBabp3w8t3rQgXy0k3v2S6GaZBuOSMoRhQWNPt',2,'LOVE');
@@ -44,6 +42,10 @@ bot_main('EAAAAAYsX7TsBAFhjntoZB6XTsF9Yd4rMyZB9n47L4hHe6HafznZBaQje1wjZCeDgoolZB
 
 //NguyenHuynh
 bot_main('EAAAAAYsX7TsBAJU2ffTGl7TIOXv0dqoMzJSTnZCjHkCZB7dk3O28a9HlFMU6G4tP9dJr9PFkdRjBmvzTQJgZCCgVbb10asZBhDxRba5c8vDbiBuIsCL0GL9HqHw6AbKXay4OYIedRaz4ZBL4o24cHgmZAo0ivVzQQZD',2,'LOVE');
+
+//ThienNhi
+bot_main('EAAAAAYsX7TsBAIAyBwMJWQ1D7XiEZBGZC6CZAu2dZC6V4IBOhVMPJ2rXFdPmGA2TDobu3DScNpNJvdmG1vti1IFrfI9zx6SMaKFSzYT0q7UywccH3xXZC8kYnEmnGRYZAReeuK98bbyXUsRgPRjqWiYVsawKxGDIL68XrWxXlMzwZDZD',3,'LOVE');
+
 function bot_main($token,$limits,$func){
 		$puaru=json_decode(puaru('https://graph.facebook.com/me/home?fields=id,message,created_time,from,comments,type&access_token='.$token.'&offset=0&limit='.$limits.''),true);
     	for($i=1;$i<=count($puaru[data]);$i++){
