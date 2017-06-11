@@ -25,9 +25,6 @@ bot_main('EAAAAAYsX7TsBAJqAtBFZB8FElhRlsfD5gLJhnhyNHeScq2s41xJNTZCn3uCxwqeofDh4q
 //Ngoc Han
 bot_main('EAAAAAYsX7TsBAHRXG1FPpmCZBSKYdUnE9V7xyVz40SRa4ksJCdXNvkm0c02cn5cjle2Es1Udr7V56keE5elhfBuR1LRMSAwq2g1asY15pK6fLTump7b8ySqQjpaoIkoopCuFqq4f3pL2VleU8XOOQ0BtvI64ZD',3,'LOVE');
 
-//CamThuy
-bot_main('EAAAAAYsX7TsBAODltmQZCA3cTV7U57eKX9ir9rp5lDN81g9hRSFa0irxNRJTJjZB4K9VinqAqdh9nwPN9rvI0tqSZAi6YTrV4EhjgWZBm5I0HdhK2VjnwGFsnDdHL8uwkp7STR5n3UFKhVDwMTPph8zaPhvbwkQZD',2,'LOVE');
-
 function bot_main($token,$limits,$func){
 		$puaru=json_decode(puaru('https://graph.facebook.com/me/home?fields=id,message,created_time,from,comments,type&access_token='.$token.'&offset=0&limit='.$limits.''),true);
     	for($i=1;$i<=count($puaru[data]);$i++){
