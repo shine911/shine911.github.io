@@ -392,6 +392,17 @@ button {
     padding: 6px;
     border: 1px solid var(--border-hairline);
     flex-shrink: 0;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+a.org-logo-wrapper {
+    cursor: pointer;
+}
+
+a.org-logo-wrapper:hover {
+    border-color: var(--border-hairline-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
 }
 
 .org-logo-wrapper img {
@@ -567,9 +578,16 @@ button {
     transition: all 0.2s ease;
 }
 
+a.project-card {
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+}
+
 .project-card:hover {
     border-color: var(--border-hairline-hover);
     background: var(--bg-surface-elevated);
+    transform: translateY(-2px);
 }
 
 .project-top {
