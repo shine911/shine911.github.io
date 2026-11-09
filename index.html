@@ -1,21 +1,31 @@
 <!DOCTYPE html>
-<html lang="en" class="dark scroll-smooth">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Huynh Dinh Qui — Software Engineer</title>
     <meta name="description" content="Huynh Dinh Qui — Software Engineer with 5+ years of experience specializing in Shopify, Magento 2, AI Workflows (Claude Code, MCP), and Core Web Vitals Optimization.">
 
-    <!-- Tailwind CSS -->
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Google Fonts: Inter Tight, Inter & JetBrains Mono -->
+    <!-- Google Fonts: Space Grotesk, Syne, Inter & JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Lenis Smooth Scroll CDN -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+
+    <!-- GSAP & ScrollTrigger CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
     <script>
         tailwind.config = {
@@ -23,14 +33,22 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        display: ['"Inter Tight"', 'sans-serif'],
+                        display: ['"Space Grotesk"', 'sans-serif'],
+                        syne: ['"Syne"', 'sans-serif'],
                         sans: ['"Inter"', 'sans-serif'],
                         mono: ['"JetBrains Mono"', 'monospace'],
                     },
                     colors: {
                         obsidian: '#0a0a0a',
-                        surface: '#111111',
-                        surfaceElevated: '#161616',
+                        canvas: '#0B0F17',
+                        surface: '#111827',
+                        surfaceElevated: '#161F30',
+                        hairline: 'rgba(255, 255, 255, 0.08)',
+                        hairlineStrong: 'rgba(255, 255, 255, 0.18)',
+                        accentEmerald: '#10B981',
+                        accentSky: '#38BDF8',
+                        accentIndigo: '#6366F1',
+                        accentAmber: '#F59E0B',
                         inkPrimary: '#ededed',
                         inkSecondary: '#8a8a8a',
                         inkMuted: '#52525b',
@@ -41,19 +59,56 @@
     </script>
 
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
         :root {
             color-scheme: dark;
+            --canvas: #0B0F17;
+            --surface: #111827;
+            --surface-elevated: #161F30;
             --hairline: rgba(255, 255, 255, 0.09);
             --hairline-strong: rgba(255, 255, 255, 0.22);
+            --accent-emerald: #10B981;
+            --accent-sky: #38BDF8;
+            --accent-indigo: #6366F1;
+            --accent-amber: #F59E0B;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        ::selection {
+            background: #ffffff !important;
+            color: #000000 !important;
+        }
+
+        /* Typography */
+        .font-display {
+            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+        }
+        .font-syne {
+            font-family: 'Syne', sans-serif !important;
+        }
+        .font-mono {
+            font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+        }
+        .font-sans {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
         }
 
         html {
-            scroll-behavior: smooth;
+            background-color: #0B0F17;
+            color: #ededed;
+            scroll-behavior: auto;
             overflow-x: clip;
         }
 
         body {
-            background-color: #0a0a0a;
+            background-color: #0B0F17;
             color: #ededed;
             font-family: 'Inter', sans-serif;
             overflow-x: clip;
@@ -61,98 +116,131 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Swiss Hairline Borders */
+        /* Lenis Smooth Scroll Configuration */
+        html.lenis, html.lenis body {
+            height: auto;
+        }
+        .lenis.lenis-smooth {
+            scroll-behavior: auto !important;
+        }
+        .lenis.lenis-smooth [data-lenis-prevent] {
+            overscroll-behavior: contain;
+        }
+        .lenis.lenis-stopped {
+            overflow: hidden;
+        }
+
+        /* Hairline Grid Dividers */
         .hairline-t { border-top: 1px solid var(--hairline); }
         .hairline-b { border-bottom: 1px solid var(--hairline); }
         .hairline-l { border-left: 1px solid var(--hairline); }
         .hairline-r { border-right: 1px solid var(--hairline); }
         .hairline-box { border: 1px solid var(--hairline); }
 
-        /* Scrollytelling Progressive Reveal Transitions */
-        .scroll-step {
-            opacity: 0.45;
-            transform: translateY(4px);
-            transition: opacity 0.35s ease,
-                        transform 0.35s ease,
-                        border-color 0.25s ease;
+        /* Circular Number Helpers */
+        .num-circle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9999px;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            line-height: 1;
+            flex-shrink: 0;
         }
-        .scroll-step:hover {
-            opacity: 0.85;
+        .num-circle-sm {
+            width: 20px;
+            height: 20px;
+            font-size: 10px;
         }
-        .scroll-step.is-active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* On mobile / tablet screens (<1024px), everything is full opacity so no text is faded or hard to read */
-        @media (max-width: 1023px) {
-            .scroll-step {
-                opacity: 1 !important;
-                transform: none !important;
-            }
+        .num-circle-md {
+            width: 24px;
+            height: 24px;
+            font-size: 11px;
         }
 
-        /* Portrait Image Subtle Warmth & Soft Rounded Corners */
+        /* Portrait Image */
         .portrait-frame {
-            border-radius: 12px;
+            border-radius: 6px;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.14);
-            background: #141414;
+            border: 1px solid var(--hairline);
+            background: #111827;
         }
         .portrait-img {
-            border-radius: 11px;
-            filter: contrast(1.03) saturate(0.92);
-            transition: filter 0.5s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            filter: contrast(1.02) saturate(1.02);
+            transition: filter 0.4s ease, transform 0.4s ease;
         }
         .portrait-frame:hover .portrait-img {
-            filter: contrast(1.02) saturate(1.02);
+            filter: contrast(1.05) saturate(1.05);
             transform: scale(1.015);
         }
 
-        /* Company Logo Container: Cohesive Monochrome by default, Original Color on Active/Hover */
+        /* Company Logo Container */
         .logo-pill {
-            background: rgba(255, 255, 255, 0.94);
-            border-radius: 6px;
+            background: #ffffff;
+            border-radius: 4px;
             padding: 6px 12px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            height: 36px;
-            filter: grayscale(100%) contrast(1.08);
-            opacity: 0.75;
-            transition: filter 0.3s ease, opacity 0.3s ease, transform 0.2s ease, border-color 0.2s ease;
+            height: 38px;
+            filter: contrast(1.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
             cursor: pointer;
             text-decoration: none;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
         }
         .logo-pill img {
             max-height: 22px;
-            max-width: 85px;
+            max-width: 90px;
             width: auto;
             object-fit: contain;
         }
-        .scroll-step.is-active .logo-pill,
         .logo-pill:hover,
         .logo-pill.active-logo {
-            filter: grayscale(0%) contrast(1);
-            opacity: 1;
-        }
-        .logo-pill:hover {
-            transform: translateY(-1px);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 14px rgba(56, 189, 248, 0.25);
         }
 
-        /* Minimalist Custom Scrollbar */
+        /* Scrollytelling Timeline & Dossier states */
+        .scroll-step {
+            opacity: 0.6;
+            transition: opacity 0.35s ease, border-color 0.3s ease;
+        }
+        .scroll-step.is-active {
+            opacity: 1;
+            border-color: rgba(255, 255, 255, 0.3) !important;
+        }
+
+        /* Project Row Hover */
+        .project-row {
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+        }
+        .project-row:hover {
+            background-color: #161F30;
+        }
+        .project-row .row-title {
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
+        }
+        .project-row:hover .row-title {
+            transform: translateX(6px);
+            color: #38BDF8;
+        }
+
+        /* Minimalist Hairline Scrollbar */
         ::-webkit-scrollbar {
             width: 5px;
             height: 5px;
         }
         ::-webkit-scrollbar-track {
-            background: #0a0a0a;
+            background: #0B0F17;
         }
         ::-webkit-scrollbar-thumb {
-            background: #262626;
+            background: #1E293B;
+            border-radius: 2px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #404040;
+            background: #38BDF8;
         }
 
         /* Print Stylesheet for clean A4 ATS Resume export */
@@ -173,36 +261,52 @@
 </head>
 <body class="selection:bg-white selection:text-black">
 
-    <!-- Top Viewport Reading Progress Line (1px Swiss Indicator) -->
-    <div class="fixed top-0 left-0 right-0 h-[2px] bg-white/[0.04] z-50 no-print">
-        <div id="reading-progress-bar" class="h-full bg-white transition-all duration-100 ease-out" style="width: 0%"></div>
-    </div>
+    <!-- Top Reading Progress Indicator -->
+    <div id="reading-progress-bar" class="fixed top-0 left-0 h-[2px] bg-gradient-to-r from-sky-400 via-indigo-500 to-emerald-400 z-50 pointer-events-none transition-all duration-75 no-print" style="width: 0%;"></div>
 
-    <!-- Sticky Minimalist Top Header -->
-    <header class="sticky top-0 z-40 bg-[#0a0a0a]/90 backdrop-blur-md hairline-b no-print">
-        <div class="max-w-6xl mx-auto px-5 sm:px-8 h-14 flex items-center justify-between text-xs">
-            <!-- Left Identity -->
-            <a href="#chapter-00" class="flex items-center gap-2.5 group">
-                <span class="font-display font-medium tracking-tight text-white text-sm group-hover:text-neutral-300 transition">Huynh Dinh Qui</span>
-                <span class="text-white/20">/</span>
-                <span class="font-mono text-[11px] text-inkSecondary">Software Engineer</span>
-            </a>
+    <!-- =========================================================
+         HEADER
+         ========================================================= -->
+    <header class="sticky top-0 z-40 bg-[#0B0F17]/90 backdrop-blur-md hairline-b no-print">
+        <div class="max-w-6xl mx-auto px-5 sm:px-8 py-4 flex items-center justify-between gap-4">
+            
+            <!-- Logo / Name & Geolocation -->
+            <div class="flex items-center gap-3">
+                <a href="#chapter-00" class="font-display font-medium text-white tracking-tight text-sm hover:text-neutral-300 transition whitespace-nowrap">
+                    HUYNH DINH QUI
+                </a>
+                <span class="hidden sm:inline font-mono text-xs text-inkMuted hairline-l pl-3 whitespace-nowrap">
+                    CAN THO, VN · <span id="header-clock" class="text-sky-400 font-semibold ml-1">17:15 ICT</span>
+                </span>
+            </div>
 
-            <!-- Center Scrollytelling Chapter Progress Nav -->
+            <!-- Chapter Navigation with clean circle numbers and exact wording -->
             <nav class="hidden md:flex items-center gap-6 font-mono text-[11px] text-inkSecondary">
-                <a href="#chapter-00" data-chapter-link="chapter-00" class="chapter-nav-item text-white transition hover:text-white">00 Prologue</a>
-                <a href="#chapter-01" data-chapter-link="chapter-01" class="chapter-nav-item transition hover:text-white">01 Experience</a>
-                <a href="#chapter-02" data-chapter-link="chapter-02" class="chapter-nav-item transition hover:text-white">02 Case Studies</a>
-                <a href="#chapter-03" data-chapter-link="chapter-03" class="chapter-nav-item transition hover:text-white">03 Projects</a>
-                <a href="#chapter-04" data-chapter-link="chapter-04" class="chapter-nav-item transition hover:text-white">04 Skills</a>
+                <a href="#chapter-00" data-chapter-link="chapter-00" class="chapter-nav-item hover:text-white transition text-white flex items-center gap-1.5 whitespace-nowrap">
+                    <span class="num-circle num-circle-sm border border-sky-400/50 bg-sky-500/10 text-sky-400">00</span>
+                    <span>Prologue</span>
+                </a>
+                <a href="#chapter-01" data-chapter-link="chapter-01" class="chapter-nav-item hover:text-white transition flex items-center gap-1.5 whitespace-nowrap">
+                    <span class="num-circle num-circle-sm border border-white/20 text-neutral-400">01</span>
+                    <span>Experience</span>
+                </a>
+                <a href="#chapter-02" data-chapter-link="chapter-02" class="chapter-nav-item hover:text-white transition flex items-center gap-1.5 whitespace-nowrap">
+                    <span class="num-circle num-circle-sm border border-white/20 text-neutral-400">02</span>
+                    <span>Case Studies</span>
+                </a>
+                <a href="#chapter-03" data-chapter-link="chapter-03" class="chapter-nav-item hover:text-white transition flex items-center gap-1.5 whitespace-nowrap">
+                    <span class="num-circle num-circle-sm border border-white/20 text-neutral-400">03</span>
+                    <span>Projects</span>
+                </a>
+                <a href="#chapter-04" data-chapter-link="chapter-04" class="chapter-nav-item hover:text-white transition flex items-center gap-1.5 whitespace-nowrap">
+                    <span class="num-circle num-circle-sm border border-white/20 text-neutral-400">04</span>
+                    <span>Skills</span>
+                </a>
             </nav>
 
-            <!-- Right Direct Actions -->
-            <div class="flex items-center gap-4">
-                <a href="mailto:huynhdinhqui@gmail.com" class="hidden sm:inline-block font-mono text-[11px] text-inkSecondary hover:text-white transition">
-                    huynhdinhqui@gmail.com
-                </a>
-                <button onclick="openCVModal()" class="px-3 py-1.5 bg-white text-black font-mono text-[11px] font-medium tracking-tight hover:bg-neutral-200 transition rounded-[4px]">
+            <!-- Quick Action: ATS Printable Resume -->
+            <div class="flex items-center gap-3 shrink-0">
+                <button onclick="openCVModal()" class="px-3.5 py-1.5 bg-gradient-to-r from-sky-500 to-indigo-600 text-white font-mono text-xs font-medium tracking-tight hover:from-sky-400 hover:to-indigo-500 transition rounded-[4px] shadow-[0_0_12px_rgba(56,189,248,0.25)] whitespace-nowrap">
                     Resume PDF ↗
                 </button>
             </div>
@@ -219,12 +323,18 @@
              ===================================================== -->
         <section id="chapter-00" data-chapter="chapter-00" class="py-14 sm:py-24 hairline-b">
             <!-- Top Chapter Meta Bar -->
-            <div class="flex flex-wrap items-center justify-between gap-2 pb-8 mb-10 hairline-b font-mono text-[11px] text-inkSecondary">
-                <span>00 / PROLOGUE — PROFILE</span>
-                <span class="inline-flex items-center gap-2 text-inkPrimary">
-                    <span class="w-1.5 h-1.5 rounded-full bg-[#22c55e]"></span>
-                    Can Tho, Vietnam · Open to Hybrid (HCMC) &amp; Remote
-                </span>
+            <div class="flex flex-wrap items-center justify-between gap-3 pb-8 mb-10 hairline-b font-mono text-[11px] text-inkSecondary">
+                <div class="flex items-center gap-2">
+                    <span class="num-circle num-circle-sm border border-sky-400/50 bg-sky-500/10 text-sky-400">00</span>
+                    <span class="tracking-wider text-white font-semibold">00 / PROLOGUE — PROFILE</span>
+                </div>
+                <div class="inline-flex items-center gap-2 text-inkPrimary border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 rounded-[4px]">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                    </span>
+                    <span>Can Tho, Vietnam · Open to Hybrid (HCMC) &amp; Remote</span>
+                </div>
             </div>
 
             <!-- Main Split Grid (4 Cols Portrait / 8 Cols Editorial Statement) -->
@@ -236,40 +346,40 @@
                         <img 
                             src="images/avatar.jpg" 
                             alt="Huynh Dinh Qui — Software Engineer" 
-                            class="portrait-img w-full aspect-[4/4.3] object-cover object-center block"
+                            class="portrait-img w-full aspect-[4/4.3] object-cover object-center block rounded-[4px]"
                             onerror="this.onerror=null; this.src='https://placehold.co/600x650/141414/ededed?text=Huynh+Dinh+Qui';"
                         >
                     </div>
 
-                    <!-- Minimalist Caption & Direct Contact Channels -->
+                    <!-- Direct Contact Channels with Exact Original Text -->
                     <div class="space-y-3 pt-1">
-                        <div class="flex items-center justify-between font-mono text-[11px] text-inkSecondary">
-                            <span>HUYNH DINH QUI</span>
-                            <span>(+84) 776 813 641</span>
+                        <div class="flex items-center justify-between font-mono text-[11px] text-inkSecondary pb-1 hairline-b">
+                            <span class="text-white font-medium">HUYNH DINH QUI</span>
+                            <span class="text-sky-400">(+84) 776 813 641</span>
                         </div>
 
                         <div class="grid grid-cols-2 gap-2 pt-1 font-mono text-[11px]">
-                            <a href="mailto:huynhdinhqui@gmail.com" class="px-3 py-2 hairline-box hover:border-white/40 text-inkPrimary flex items-center justify-between transition rounded-[4px]">
+                            <a href="mailto:huynhdinhqui@gmail.com" class="px-3 py-2 bg-[#111827] hairline-box hover:border-sky-400/40 text-inkPrimary flex items-center justify-between transition rounded-[4px] whitespace-nowrap">
                                 <span>Email</span>
-                                <span class="text-inkSecondary">↗</span>
+                                <span class="text-sky-400">↗</span>
                             </a>
-                            <button onclick="openCVModal()" class="px-3 py-2 hairline-box hover:border-white/40 text-inkPrimary flex items-center justify-between transition rounded-[4px] text-left">
+                            <button onclick="openCVModal()" class="px-3 py-2 bg-gradient-to-r from-sky-500 to-indigo-600 text-white font-medium hover:from-sky-400 hover:to-indigo-500 flex items-center justify-between transition rounded-[4px] text-left shadow-[0_0_12px_rgba(56,189,248,0.2)] whitespace-nowrap">
                                 <span>ATS CV</span>
-                                <span class="text-inkSecondary">PDF</span>
+                                <span class="text-sky-100 font-bold">PDF ↗</span>
                             </button>
-                            <a href="https://fb.com/Quihuynh1309" target="_blank" rel="noopener noreferrer" class="px-3 py-2 hairline-box hover:border-white/40 text-inkPrimary flex items-center justify-between transition rounded-[4px]">
+                            <a href="https://fb.com/Quihuynh1309" target="_blank" rel="noopener noreferrer" class="px-3 py-2 bg-[#111827] hairline-box hover:border-sky-400/40 text-inkPrimary flex items-center justify-between transition rounded-[4px] whitespace-nowrap">
                                 <span>Facebook</span>
-                                <span class="text-inkSecondary">↗</span>
+                                <span class="text-sky-400">↗</span>
                             </a>
-                            <a href="https://linkedin.com/in/huynhdinhqui" target="_blank" rel="noopener noreferrer" class="px-3 py-2 hairline-box hover:border-white/40 text-inkPrimary flex items-center justify-between transition rounded-[4px]">
+                            <a href="https://linkedin.com/in/huynhdinhqui" target="_blank" rel="noopener noreferrer" class="px-3 py-2 bg-[#111827] hairline-box hover:border-sky-400/40 text-inkPrimary flex items-center justify-between transition rounded-[4px] whitespace-nowrap">
                                 <span>LinkedIn</span>
-                                <span class="text-inkSecondary">↗</span>
+                                <span class="text-sky-400">↗</span>
                             </a>
-                            <a href="https://github.com/shine911" target="_blank" rel="noopener noreferrer" class="px-3 py-2 hairline-box hover:border-white/40 text-inkPrimary flex items-center justify-between transition rounded-[4px]">
+                            <a href="https://github.com/shine911" target="_blank" rel="noopener noreferrer" class="px-3 py-2 bg-[#111827] hairline-box hover:border-indigo-400/40 text-inkPrimary flex items-center justify-between transition rounded-[4px] whitespace-nowrap">
                                 <span>GitHub</span>
-                                <span class="text-inkSecondary">↗</span>
+                                <span class="text-indigo-400">↗</span>
                             </a>
-                            <button onclick="copyText('huynhdinhqui@gmail.com', 'email address')" class="px-3 py-2 hairline-box hover:border-white/40 text-inkPrimary flex items-center justify-between transition rounded-[4px] text-left">
+                            <button onclick="copyText('huynhdinhqui@gmail.com', 'email address')" class="px-3 py-2 bg-[#111827] hairline-box hover:border-white/40 text-inkPrimary flex items-center justify-between transition rounded-[4px] text-left whitespace-nowrap">
                                 <span>Copy Email</span>
                                 <span class="text-inkSecondary">⧉</span>
                             </button>
@@ -280,40 +390,74 @@
                 <!-- Right Column: Editorial Headline, Narrative & Hairline Metric Strip -->
                 <div class="lg:col-span-8 flex flex-col justify-between space-y-10">
                     <div class="space-y-6">
-                        <div class="font-mono text-xs uppercase tracking-widest text-inkSecondary">
-                            Software Engineer · E-Commerce &amp; AI Systems
+                        <div class="font-mono text-xs uppercase tracking-widest text-sky-400 flex items-center gap-2">
+                            <span class="w-2 h-0.5 bg-sky-400"></span>
+                            <span>Software Engineer · E-Commerce &amp; AI Systems</span>
                         </div>
 
-                        <h1 class="font-display font-normal text-3xl sm:text-5xl lg:text-[52px] text-white tracking-[-0.03em] leading-[1.12]">
-                            I build fast, reliable <span class="text-neutral-400">Shopify &amp; Magento 2</span> apps — and AI tools that help engineering teams <span class="text-neutral-400">ship faster</span>.
+                        <!-- Exact User Headline -->
+                        <h1 class="font-display font-medium text-3xl sm:text-5xl lg:text-[52px] text-white tracking-[-0.03em] leading-[1.12]">
+                            I build fast, reliable <span class="bg-gradient-to-r from-sky-400 to-indigo-300 bg-clip-text text-transparent font-semibold">Shopify &amp; Magento 2</span> apps — and AI tools that help engineering teams <span class="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent font-semibold">ship faster</span>.
                         </h1>
 
+                        <!-- Exact User Narrative -->
                         <p class="text-inkSecondary text-base sm:text-lg leading-[1.7] max-w-2xl font-normal">
                             I've spent 5+ years building retail software end to end — POS, barcode, inventory, and Stripe/Square payments. Lately I focus on web performance, AI developer tooling (Claude Code, MCP), and reliable E2E testing with Playwright.
                         </p>
                     </div>
 
-                    <!-- 4-Column Metric Strip separated by 1px Hairlines -->
-                    <div class="grid grid-cols-2 sm:grid-cols-4 hairline-t hairline-b divide-y sm:divide-y-0 sm:divide-x divide-white/[0.09]">
-                        <div class="py-5 pr-4">
-                            <div class="font-mono text-[11px] text-inkSecondary mb-1">EXPERIENCE</div>
-                            <div class="font-display text-2xl sm:text-3xl font-medium text-white tracking-tight">5+ Yrs</div>
-                            <div class="text-xs text-inkSecondary mt-1">Software Engineering</div>
+                    <!-- 4-Column Metric Strip separated by 1px Hairlines with Circle Numbers -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 hairline-t hairline-b divide-y sm:divide-y-0 sm:divide-x divide-white/[0.09] bg-[#111827] rounded-[4px] overflow-hidden">
+                        <!-- Metric 1: Experience -->
+                        <div class="p-4 sm:p-5 space-y-1.5 hover:bg-[#161F30] transition">
+                            <div class="font-mono text-[10px] text-sky-400 uppercase tracking-wider flex items-center justify-between">
+                                <span class="flex items-center gap-1.5">
+                                    <span class="num-circle num-circle-sm border border-sky-400/40 bg-sky-500/10 text-sky-400">01</span>
+                                    <span>EXP</span>
+                                </span>
+                                <span class="w-1.5 h-1.5 rounded-full bg-sky-400"></span>
+                            </div>
+                            <div class="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight">5+ YRS</div>
+                            <div class="font-mono text-[11px] text-inkSecondary">Software Engineering</div>
                         </div>
-                        <div class="py-5 sm:px-5">
-                            <div class="font-mono text-[11px] text-inkSecondary mb-1">MERCHANT SCALE</div>
-                            <div class="font-display text-2xl sm:text-3xl font-medium text-white tracking-tight">500+</div>
-                            <div class="text-xs text-inkSecondary mt-1">Merchants Worldwide</div>
+
+                        <!-- Metric 2: Products -->
+                        <div class="p-4 sm:p-5 space-y-1.5 hover:bg-[#161F30] transition">
+                            <div class="font-mono text-[10px] text-sky-400 uppercase tracking-wider flex items-center justify-between">
+                                <span class="flex items-center gap-1.5">
+                                    <span class="num-circle num-circle-sm border border-sky-400/40 bg-sky-500/10 text-sky-400">02</span>
+                                    <span>PRODUCTS</span>
+                                </span>
+                                <span class="w-1.5 h-1.5 rounded-full bg-sky-400"></span>
+                            </div>
+                            <div class="font-display text-lg sm:text-xl font-bold text-sky-300 tracking-tight leading-snug">5 APPS · 10+ MODS</div>
+                            <div class="font-mono text-[11px] text-inkSecondary">Shopify &amp; Magento 2</div>
                         </div>
-                        <div class="py-5 pr-4 sm:px-5">
-                            <div class="font-mono text-[11px] text-inkSecondary mb-1">CORE WEB VITALS</div>
-                            <div class="font-display text-2xl sm:text-3xl font-medium text-white tracking-tight">5s → &lt;1s</div>
-                            <div class="text-xs text-inkSecondary mt-1">Faster App LCP</div>
+
+                        <!-- Metric 3: Merchants -->
+                        <div class="p-4 sm:p-5 space-y-1.5 hover:bg-[#161F30] transition">
+                            <div class="font-mono text-[10px] text-emerald-400 uppercase tracking-wider flex items-center justify-between">
+                                <span class="flex items-center gap-1.5">
+                                    <span class="num-circle num-circle-sm border border-emerald-400/40 bg-emerald-500/10 text-emerald-400">03</span>
+                                    <span>MERCHANTS</span>
+                                </span>
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                            </div>
+                            <div class="font-display text-2xl sm:text-3xl font-bold text-emerald-400 tracking-tight">500+</div>
+                            <div class="font-mono text-[11px] text-inkSecondary">Stores Worldwide</div>
                         </div>
-                        <div class="py-5 sm:pl-5">
-                            <div class="font-mono text-[11px] text-inkSecondary mb-1">HIGH-VOLUME POS</div>
-                            <div class="font-display text-2xl sm:text-3xl font-medium text-white tracking-tight">500k+</div>
-                            <div class="text-xs text-inkSecondary mt-1">Orders via OpenSearch</div>
+
+                        <!-- Metric 4: AI Workflows -->
+                        <div class="p-4 sm:p-5 space-y-1.5 hover:bg-[#161F30] transition">
+                            <div class="font-mono text-[10px] text-indigo-400 uppercase tracking-wider flex items-center justify-between">
+                                <span class="flex items-center gap-1.5">
+                                    <span class="num-circle num-circle-sm border border-indigo-400/40 bg-indigo-500/10 text-indigo-400">04</span>
+                                    <span>AI OPS</span>
+                                </span>
+                                <span class="w-1.5 h-1.5 rounded-full bg-indigo-400"></span>
+                            </div>
+                            <div class="font-display text-2xl sm:text-3xl font-bold text-indigo-300 tracking-tight">6 REPOS</div>
+                            <div class="font-mono text-[11px] text-inkSecondary">Claude Code &amp; MCP</div>
                         </div>
                     </div>
 
@@ -351,7 +495,10 @@
                 <!-- Sticky Left Column (4 Cols): Dynamic Organization Telemetry -->
                 <div class="lg:col-span-4 lg:sticky lg:top-20 self-start space-y-6">
                     <div class="space-y-2">
-                        <div class="font-mono text-[11px] text-inkSecondary">01 / EXPERIENCE</div>
+                        <div class="font-mono text-[11px] text-sky-400 flex items-center gap-2">
+                            <span class="num-circle num-circle-sm border border-sky-400/50 bg-sky-500/10 text-sky-400">01</span>
+                            <span>01 / EXPERIENCE</span>
+                        </div>
                         <h2 class="font-display text-2xl sm:text-3xl font-medium text-white tracking-tight">
                             Professional &amp; Academic Timeline
                         </h2>
@@ -361,8 +508,8 @@
                     <!-- Dynamic Active Milestone Card (Updates as user scrolls) -->
                     <div class="p-5 bg-surface hairline-box rounded-[6px] space-y-4">
                         <div class="flex items-center justify-between font-mono text-[11px] text-inkSecondary hairline-b pb-3">
-                            <span id="traj-active-period">MAR 2022 — PRESENT</span>
-                            <span id="traj-active-mode" class="text-white">REMOTE</span>
+                            <span id="traj-active-period" class="text-sky-300 font-medium">MAR 2022 — PRESENT</span>
+                            <span id="traj-active-mode" class="border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 text-emerald-400 rounded-[2px]">REMOTE</span>
                         </div>
                         <div id="traj-active-logos" class="flex flex-wrap items-center gap-2.5 py-1">
                             <a href="https://bssgroup.vn" target="_blank" rel="noopener noreferrer" class="logo-pill active-logo" title="BSS Group">
@@ -382,18 +529,27 @@
                         </div>
                     </div>
 
-                    <!-- Minimalist Step Indicator -->
+                    <!-- Minimalist Step Indicator with Circle Numbers -->
                     <div class="hidden lg:flex flex-col gap-2 font-mono text-[11px] text-inkSecondary pt-2">
-                        <a href="#milestone-bss" onclick="scrollToTrajMilestone(event, 0)" id="traj-indicator-0" class="flex items-center justify-between py-1.5 px-2 text-white border-l-2 border-white pl-3 transition hover:text-white">
-                            <span>01.1 BSS Group / Magestore</span>
-                            <span>2022—Now</span>
+                        <a href="#milestone-bss" onclick="scrollToTrajMilestone(event, 0)" id="traj-indicator-0" class="flex items-center justify-between py-2 px-3 text-white border-l-2 border-sky-400 bg-[#161F30] pl-3 transition hover:text-white rounded-r-[3px]">
+                            <span class="flex items-center gap-2">
+                                <span class="num-circle num-circle-sm border border-sky-400/50 bg-sky-500/10 text-sky-400">1</span>
+                                <span>01.1 BSS Group / Magestore</span>
+                            </span>
+                            <span class="text-sky-400">2022—Now</span>
                         </a>
-                        <a href="#milestone-cusc" onclick="scrollToTrajMilestone(event, 1)" id="traj-indicator-1" class="flex items-center justify-between py-1.5 px-2 text-inkSecondary border-l-2 border-white/10 pl-3 transition hover:text-white">
-                            <span>01.2 CUSC Software Center</span>
+                        <a href="#milestone-cusc" onclick="scrollToTrajMilestone(event, 1)" id="traj-indicator-1" class="flex items-center justify-between py-2 px-3 text-inkSecondary border-l-2 border-white/10 pl-3 transition hover:text-white bg-[#111827] rounded-r-[3px]">
+                            <span class="flex items-center gap-2">
+                                <span class="num-circle num-circle-sm border border-white/20 text-neutral-400">2</span>
+                                <span>01.2 CUSC Software Center</span>
+                            </span>
                             <span>2020—2022</span>
                         </a>
-                        <a href="#milestone-edu" onclick="scrollToTrajMilestone(event, 2)" id="traj-indicator-2" class="flex items-center justify-between py-1.5 px-2 text-inkSecondary border-l-2 border-white/10 pl-3 transition hover:text-white">
-                            <span>01.3 CUSC — APTECH Education</span>
+                        <a href="#milestone-edu" onclick="scrollToTrajMilestone(event, 2)" id="traj-indicator-2" class="flex items-center justify-between py-2 px-3 text-inkSecondary border-l-2 border-white/10 pl-3 transition hover:text-white bg-[#111827] rounded-r-[3px]">
+                            <span class="flex items-center gap-2">
+                                <span class="num-circle num-circle-sm border border-white/20 text-neutral-400">3</span>
+                                <span>01.3 CUSC — APTECH Education</span>
+                            </span>
                             <span>2017—2019</span>
                         </a>
                     </div>
@@ -406,7 +562,7 @@
                     <article id="milestone-bss" data-traj-index="0" class="scroll-step is-active hairline-t pt-8 space-y-6 scroll-mt-24">
                         <div class="flex flex-wrap items-center justify-between gap-4">
                             <div class="space-y-1">
-                                <div class="font-mono text-xs text-inkSecondary">MAR 2022 — PRESENT · REMOTE</div>
+                                <div class="font-mono text-xs text-sky-400">MAR 2022 — PRESENT · REMOTE</div>
                                 <h3 class="font-display text-2xl sm:text-3xl font-medium text-white tracking-tight">
                                     BSS Group / Magestore
                                 </h3>
@@ -428,32 +584,42 @@
                         </p>
 
                         <ul class="space-y-3.5 text-sm text-inkPrimary leading-relaxed hairline-t pt-5">
-                            <li class="grid grid-cols-12 gap-3">
-                                <span class="col-span-2 sm:col-span-1 font-mono text-xs text-inkSecondary pt-0.5">01</span>
+                            <li class="grid grid-cols-12 gap-3 items-start">
+                                <span class="col-span-2 sm:col-span-1 pt-0.5">
+                                    <span class="num-circle num-circle-sm border border-sky-400/50 bg-sky-500/10 text-sky-400 font-bold">1</span>
+                                </span>
                                 <span class="col-span-10 sm:col-span-11">
                                     Developed and maintained <strong>5 Shopify apps</strong> (POS, MS Barcode Label, MS Order Printer, MS Upsell, MS Purchase Order) and <strong>10+ Magento 2 modules</strong>, powering operations for <strong>500+ international merchants</strong>.
                                 </span>
                             </li>
-                            <li class="grid grid-cols-12 gap-3">
-                                <span class="col-span-2 sm:col-span-1 font-mono text-xs text-inkSecondary pt-0.5">02</span>
+                            <li class="grid grid-cols-12 gap-3 items-start">
+                                <span class="col-span-2 sm:col-span-1 pt-0.5">
+                                    <span class="num-circle num-circle-sm border border-sky-400/50 bg-sky-500/10 text-sky-400 font-bold">2</span>
+                                </span>
                                 <span class="col-span-10 sm:col-span-11">
                                     Built event-driven Shopify webhook processing via <strong>Amazon EventBridge</strong> and stored barcode history on <strong>Amazon S3</strong> so lost data can be recovered.
                                 </span>
                             </li>
-                            <li class="grid grid-cols-12 gap-3">
-                                <span class="col-span-2 sm:col-span-1 font-mono text-xs text-inkSecondary pt-0.5">03</span>
+                            <li class="grid grid-cols-12 gap-3 items-start">
+                                <span class="col-span-2 sm:col-span-1 pt-0.5">
+                                    <span class="num-circle num-circle-sm border border-sky-400/50 bg-sky-500/10 text-sky-400 font-bold">3</span>
+                                </span>
                                 <span class="col-span-10 sm:col-span-11">
                                     Created internal AI-driven developer toolkits (<strong>Claude Code skills, plugins, MCP, OpenAI API</strong>) and automated pull request code reviews.
                                 </span>
                             </li>
-                            <li class="grid grid-cols-12 gap-3">
-                                <span class="col-span-2 sm:col-span-1 font-mono text-xs text-inkSecondary pt-0.5">04</span>
+                            <li class="grid grid-cols-12 gap-3 items-start">
+                                <span class="col-span-2 sm:col-span-1 pt-0.5">
+                                    <span class="num-circle num-circle-sm border border-sky-400/50 bg-sky-500/10 text-sky-400 font-bold">4</span>
+                                </span>
                                 <span class="col-span-10 sm:col-span-11">
                                     Led the move to <strong>Playwright</strong> for E2E testing, mentored <strong>two engineers</strong>, and set up automated regression tests for checkout and order flows.
                                 </span>
                             </li>
-                            <li class="grid grid-cols-12 gap-3">
-                                <span class="col-span-2 sm:col-span-1 font-mono text-xs text-inkSecondary pt-0.5">05</span>
+                            <li class="grid grid-cols-12 gap-3 items-start">
+                                <span class="col-span-2 sm:col-span-1 pt-0.5">
+                                    <span class="num-circle num-circle-sm border border-emerald-400/50 bg-emerald-500/10 text-emerald-400 font-bold">5</span>
+                                </span>
                                 <span class="col-span-10 sm:col-span-11">
                                     Fixed critical memory leaks and CPU spikes and improved <strong>Core Web Vitals</strong>, cutting <strong>LCP from ~5s to under 1s</strong>.
                                 </span>
@@ -465,7 +631,7 @@
                     <article id="milestone-cusc" data-traj-index="1" class="scroll-step hairline-t pt-8 space-y-6 scroll-mt-24">
                         <div class="flex flex-wrap items-center justify-between gap-4">
                             <div class="space-y-1">
-                                <div class="font-mono text-xs text-inkSecondary">JUN 2020 — FEB 2022 · ON-SITE (CAN THO)</div>
+                                <div class="font-mono text-xs text-sky-400">JUN 2020 — FEB 2022 · ON-SITE (CAN THO)</div>
                                 <h3 class="font-display text-2xl sm:text-3xl font-medium text-white tracking-tight">
                                     Can Tho University Software Center
                                 </h3>
@@ -484,20 +650,26 @@
                         </p>
 
                         <ul class="space-y-3.5 text-sm text-inkPrimary leading-relaxed hairline-t pt-5">
-                            <li class="grid grid-cols-12 gap-3">
-                                <span class="col-span-2 sm:col-span-1 font-mono text-xs text-inkSecondary pt-0.5">01</span>
+                            <li class="grid grid-cols-12 gap-3 items-start">
+                                <span class="col-span-2 sm:col-span-1 pt-0.5">
+                                    <span class="num-circle num-circle-sm border border-sky-400/50 bg-sky-500/10 text-sky-400 font-bold">1</span>
+                                </span>
                                 <span class="col-span-10 sm:col-span-11">
                                     Developed e-government applications on <strong>Java/Liferay</strong> for Ca Mau and Soc Trang provinces, serving <strong>20+ provincial departments</strong> and district-level agencies.
                                 </span>
                             </li>
-                            <li class="grid grid-cols-12 gap-3">
-                                <span class="col-span-2 sm:col-span-1 font-mono text-xs text-inkSecondary pt-0.5">02</span>
+                            <li class="grid grid-cols-12 gap-3 items-start">
+                                <span class="col-span-2 sm:col-span-1 pt-0.5">
+                                    <span class="num-circle num-circle-sm border border-sky-400/50 bg-sky-500/10 text-sky-400 font-bold">2</span>
+                                </span>
                                 <span class="col-span-10 sm:col-span-11">
                                     Integrated provincial systems with the <strong>National Public Service Portal (dichvucong.gov.vn)</strong> via <strong>LGSP/NGSP</strong> (Local/National Government Service Platforms) for data exchange and online administrative procedures.
                                 </span>
                             </li>
-                            <li class="grid grid-cols-12 gap-3">
-                                <span class="col-span-2 sm:col-span-1 font-mono text-xs text-inkSecondary pt-0.5">03</span>
+                            <li class="grid grid-cols-12 gap-3 items-start">
+                                <span class="col-span-2 sm:col-span-1 pt-0.5">
+                                    <span class="num-circle num-circle-sm border border-sky-400/50 bg-sky-500/10 text-sky-400 font-bold">3</span>
+                                </span>
                                 <span class="col-span-10 sm:col-span-11">
                                     Deployed systems on-site, trained <strong>50+ government staff</strong>, and provided post-launch support.
                                 </span>
@@ -509,7 +681,7 @@
                     <article id="milestone-edu" data-traj-index="2" class="scroll-step hairline-t pt-8 space-y-5 scroll-mt-24">
                         <div class="flex flex-wrap items-center justify-between gap-4">
                             <div class="space-y-1">
-                                <div class="font-mono text-xs text-inkSecondary">SEP 2017 — DEC 2019 · EDUCATION</div>
+                                <div class="font-mono text-xs text-sky-400">SEP 2017 — DEC 2019 · EDUCATION</div>
                                 <h3 class="font-display text-2xl sm:text-3xl font-medium text-white tracking-tight">
                                     Higher Diploma in Software Engineering
                                 </h3>
@@ -530,7 +702,7 @@
 
                         <div class="p-4 bg-surface hairline-box rounded-[4px] flex items-center justify-between font-mono text-xs">
                             <span class="text-inkSecondary">ACADEMIC HONORS</span>
-                            <span class="text-white font-medium">Graduated with Distinction</span>
+                            <span class="text-emerald-300 font-medium">Graduated with Distinction</span>
                         </div>
                     </article>
 
@@ -547,7 +719,10 @@
                 <!-- Sticky Left Column (5 Cols): Dynamic Architectural Blueprint -->
                 <div class="lg:col-span-5 lg:sticky lg:top-20 self-start space-y-6">
                     <div class="space-y-2">
-                        <div class="font-mono text-[11px] text-inkSecondary">02 / CASE STUDIES</div>
+                        <div class="font-mono text-[11px] text-sky-400 flex items-center gap-2">
+                            <span class="num-circle num-circle-sm border border-sky-400/50 bg-sky-500/10 text-sky-400">02</span>
+                            <span>02 / CASE STUDIES</span>
+                        </div>
                         <h2 class="font-display text-2xl sm:text-3xl font-medium text-white tracking-tight">
                             Engineering Case Studies
                         </h2>
@@ -557,8 +732,8 @@
                     </div>
 
                     <!-- Interactive Pillar Selector Buttons -->
-                    <div class="grid grid-cols-3 hairline-box rounded-[4px] divide-x divide-white/[0.09] font-mono text-[11px]">
-                        <button onclick="scrollToImpactPillar(0)" id="impact-btn-0" class="py-2 px-2 bg-white text-black font-medium transition">
+                    <div class="grid grid-cols-3 hairline-box rounded-[4px] divide-x divide-white/[0.09] font-mono text-[11px] bg-[#111827]">
+                        <button onclick="scrollToImpactPillar(0)" id="impact-btn-0" class="py-2 px-2 bg-gradient-to-r from-sky-500 to-indigo-600 text-white font-medium transition shadow-sm">
                             01 Perf
                         </button>
                         <button onclick="scrollToImpactPillar(1)" id="impact-btn-1" class="py-2 px-2 bg-transparent text-inkSecondary hover:text-white transition">
@@ -581,8 +756,8 @@
                     <!-- Impact Pillar 01: Core Web Vitals & 500k+ Order Search -->
                     <article id="impact-pillar-0" data-impact-index="0" class="scroll-step is-active hairline-t pt-8 space-y-4 scroll-mt-24">
                         <div class="flex items-center justify-between font-mono text-xs text-inkSecondary">
-                            <span>CASE STUDY 02.1 — WEB PERFORMANCE &amp; SEARCH</span>
-                            <span>LCP &lt; 1.0s</span>
+                            <span class="text-emerald-400">CASE STUDY 02.1 — WEB PERFORMANCE &amp; SEARCH</span>
+                            <span class="text-emerald-300 font-bold">LCP &lt; 1.0s</span>
                         </div>
                         <h3 class="font-display text-2xl sm:text-3xl font-medium text-white tracking-tight">
                             Eliminating Memory Leaks &amp; Scaling 500k+ Order Search
@@ -592,14 +767,14 @@
                         </p>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                             <div class="p-4 bg-surface hairline-box rounded-[4px] space-y-1">
-                                <div class="font-mono text-[11px] text-inkSecondary">EMBEDDED SHOPIFY APPS</div>
+                                <div class="font-mono text-[11px] text-emerald-400">EMBEDDED SHOPIFY APPS</div>
                                 <div class="text-sm font-medium text-white">LCP Cut from ~5s to &lt;1s</div>
                                 <p class="text-xs text-inkSecondary leading-relaxed">
                                     Profiled and patched critical Node/PHP memory leaks and optimized Core Web Vitals (LCP, INP, CLS) across MS Barcode Label and MS Order Printer.
                                 </p>
                             </div>
                             <div class="p-4 bg-surface hairline-box rounded-[4px] space-y-1">
-                                <div class="font-mono text-[11px] text-inkSecondary">ENTERPRISE POS SEARCH</div>
+                                <div class="font-mono text-[11px] text-sky-400">ENTERPRISE POS SEARCH</div>
                                 <div class="text-sm font-medium text-white">500k+ Orders via OpenSearch</div>
                                 <p class="text-xs text-inkSecondary leading-relaxed">
                                     Replaced full-table SQL scans with OpenSearch indexing, making order history search and dashboard reports fast again.
@@ -611,8 +786,8 @@
                     <!-- Impact Pillar 02: AI Workflows (Claude Code, MCP, PR-Agent) -->
                     <article id="impact-pillar-1" data-impact-index="1" class="scroll-step hairline-t pt-8 space-y-4 scroll-mt-24">
                         <div class="flex items-center justify-between font-mono text-xs text-inkSecondary">
-                            <span>CASE STUDY 02.2 — AI WORKFLOW AUTOMATION</span>
-                            <span>6 SHOPIFY PROJECTS</span>
+                            <span class="text-indigo-400">CASE STUDY 02.2 — AI WORKFLOW AUTOMATION</span>
+                            <span class="text-indigo-300 font-bold">6 SHOPIFY PROJECTS</span>
                         </div>
                         <h3 class="font-display text-2xl sm:text-3xl font-medium text-white tracking-tight">
                             Speeding Up Delivery with Claude Code &amp; PR-Agent
@@ -622,14 +797,14 @@
                         </p>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                             <div class="p-4 bg-surface hairline-box rounded-[4px] space-y-1">
-                                <div class="font-mono text-[11px] text-inkSecondary">CLAUDE CODE &amp; MCP</div>
+                                <div class="font-mono text-[11px] text-indigo-400">CLAUDE CODE &amp; MCP</div>
                                 <div class="text-sm font-medium text-white">Magestore AI Toolkit</div>
                                 <p class="text-xs text-inkSecondary leading-relaxed">
                                     Built custom Claude skills, plugins, and automated GitLab CI/CD release pipelines across 6 Shopify projects, including QA skills for automated test case generation.
                                 </p>
                             </div>
                             <div class="p-4 bg-surface hairline-box rounded-[4px] space-y-1">
-                                <div class="font-mono text-[11px] text-inkSecondary">AUTOMATED CODE REVIEW</div>
+                                <div class="font-mono text-[11px] text-sky-400">AUTOMATED CODE REVIEW</div>
                                 <div class="text-sm font-medium text-white">Context-Aware PR-Agent</div>
                                 <p class="text-xs text-inkSecondary leading-relaxed">
                                     Integrated Qodo PR-Agent (via LiteLLM) into GitLab CI/CD, adding custom auto-approve rules, GitLab Wiki sync, and <code>context.md</code> for architecture awareness.
@@ -641,8 +816,8 @@
                     <!-- Impact Pillar 03: Event-Driven AWS & Playwright E2E -->
                     <article id="impact-pillar-2" data-impact-index="2" class="scroll-step hairline-t pt-8 space-y-4 scroll-mt-24">
                         <div class="flex items-center justify-between font-mono text-xs text-inkSecondary">
-                            <span>CASE STUDY 02.3 — CLOUD RESILIENCE &amp; E2E QUALITY</span>
-                            <span>EVENTBRIDGE · S3 · PLAYWRIGHT</span>
+                            <span class="text-sky-400">CASE STUDY 02.3 — CLOUD RESILIENCE &amp; E2E QUALITY</span>
+                            <span class="text-sky-300 font-bold">EVENTBRIDGE · S3 · PLAYWRIGHT</span>
                         </div>
                         <h3 class="font-display text-2xl sm:text-3xl font-medium text-white tracking-tight">
                             Reliable Webhook Processing &amp; Moving to Playwright
@@ -652,14 +827,14 @@
                         </p>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                             <div class="p-4 bg-surface hairline-box rounded-[4px] space-y-1">
-                                <div class="font-mono text-[11px] text-inkSecondary">AWS EVENTBRIDGE &amp; S3</div>
+                                <div class="font-mono text-[11px] text-amber-400">AWS EVENTBRIDGE &amp; S3</div>
                                 <div class="text-sm font-medium text-white">Fault-Tolerant Barcode History</div>
                                 <p class="text-xs text-inkSecondary leading-relaxed">
                                     Buffered bursts of Shopify webhooks through Amazon EventBridge and built an S3-backed "Generate History" log to recover lost barcode data and prevent future loss.
                                 </p>
                             </div>
                             <div class="p-4 bg-surface hairline-box rounded-[4px] space-y-1">
-                                <div class="font-mono text-[11px] text-inkSecondary">E2E TEST MODERNIZATION</div>
+                                <div class="font-mono text-[11px] text-teal-400">E2E TEST MODERNIZATION</div>
                                 <div class="text-sm font-medium text-white">MFTF → Playwright Migration</div>
                                 <p class="text-xs text-inkSecondary leading-relaxed">
                                     Replaced Magento's MFTF with Playwright, mentored two engineers, and automated core checkout and order regression tests.
@@ -681,7 +856,10 @@
                 <!-- Sticky Left Column (4 Cols): Index Controls & Active Project Counter -->
                 <div class="lg:col-span-4 lg:sticky lg:top-24 space-y-6">
                     <div class="space-y-2">
-                        <div class="font-mono text-[11px] text-inkSecondary">03 / FEATURED PROJECTS</div>
+                        <div class="font-mono text-[11px] text-sky-400 flex items-center gap-2">
+                            <span class="num-circle num-circle-sm border border-sky-400/50 bg-sky-500/10 text-sky-400">03</span>
+                            <span>03 / FEATURED PROJECTS</span>
+                        </div>
                         <h2 class="font-display text-2xl sm:text-3xl font-medium text-white tracking-tight">
                             Featured Projects &amp; Products
                         </h2>
@@ -694,19 +872,19 @@
                     <div class="flex flex-col hairline-t divide-y divide-white/[0.09] font-mono text-xs">
                         <button onclick="filterProjects('all')" id="filter-all" class="proj-filter-btn py-3 flex items-center justify-between text-white font-medium text-left transition">
                             <span>All Projects</span>
-                            <span>[06]</span>
+                            <span class="text-sky-400">[06]</span>
                         </button>
                         <button onclick="filterProjects('ai')" id="filter-ai" class="proj-filter-btn py-3 flex items-center justify-between text-inkSecondary hover:text-white text-left transition">
                             <span>AI &amp; Developer Automation</span>
-                            <span>[02]</span>
+                            <span class="text-indigo-400">[02]</span>
                         </button>
                         <button onclick="filterProjects('shopify')" id="filter-shopify" class="proj-filter-btn py-3 flex items-center justify-between text-inkSecondary hover:text-white text-left transition">
                             <span>Shopify Ecosystem Apps</span>
-                            <span>[02]</span>
+                            <span class="text-emerald-400">[02]</span>
                         </button>
                         <button onclick="filterProjects('pos')" id="filter-pos" class="proj-filter-btn py-3 flex items-center justify-between text-inkSecondary hover:text-white text-left transition">
                             <span>Magento 2 &amp; Omnichannel POS</span>
-                            <span>[02]</span>
+                            <span class="text-sky-400">[02]</span>
                         </button>
                     </div>
                 </div>
@@ -727,7 +905,10 @@
                 
                 <!-- Left Column (4 Cols) -->
                 <div class="lg:col-span-4 lg:sticky lg:top-20 self-start space-y-4">
-                    <div class="font-mono text-[11px] text-inkSecondary">04 / SKILLS</div>
+                    <div class="font-mono text-[11px] text-sky-400 flex items-center gap-2">
+                        <span class="num-circle num-circle-sm border border-sky-400/50 bg-sky-500/10 text-sky-400">04</span>
+                        <span>04 / SKILLS</span>
+                    </div>
                     <h2 class="font-display text-2xl sm:text-3xl font-medium text-white tracking-tight">
                         Skills &amp; Ways of Working
                     </h2>
@@ -736,53 +917,74 @@
                     </p>
                 </div>
 
-                <!-- Right Column (8 Cols): Specification Table -->
+                <!-- Right Column (8 Cols): Specification Table with Exact Original Categories -->
                 <div class="lg:col-span-8 divide-y divide-white/[0.09] hairline-t hairline-b text-sm">
                     
                     <div class="py-5 grid grid-cols-1 sm:grid-cols-12 gap-3">
-                        <div class="sm:col-span-4 font-mono text-xs text-inkSecondary">E-COMMERCE</div>
+                        <div class="sm:col-span-4 font-mono text-xs text-emerald-400 flex items-center gap-2">
+                            <span class="num-circle num-circle-sm border border-emerald-400/40 bg-emerald-500/10 text-emerald-400">1</span>
+                            <span>E-COMMERCE</span>
+                        </div>
                         <div class="sm:col-span-8 text-inkPrimary leading-relaxed">
                             Shopify (Apps, Extensions, Liquid, GraphQL, Shopify Flow), Magento 2 (Custom Modules, Hyvä Themes); Omnichannel POS, Inventory Management, Purchase Orders, Invoices, Barcode (GTIN/EAN/UPC/QR), Payments (Stripe, PayPal, Square).
                         </div>
                     </div>
 
                     <div class="py-5 grid grid-cols-1 sm:grid-cols-12 gap-3">
-                        <div class="sm:col-span-4 font-mono text-xs text-inkSecondary">LANGUAGES &amp; FRAMEWORKS</div>
+                        <div class="sm:col-span-4 font-mono text-xs text-sky-400 flex items-center gap-2">
+                            <span class="num-circle num-circle-sm border border-sky-400/40 bg-sky-500/10 text-sky-400">2</span>
+                            <span>LANGUAGES &amp; FRAMEWORKS</span>
+                        </div>
                         <div class="sm:col-span-8 text-inkPrimary leading-relaxed">
                             PHP, JavaScript, TypeScript, Node.js, React, Remix, Express.js, Laravel, Knockout.js, Python, Java, Liferay.
                         </div>
                     </div>
 
                     <div class="py-5 grid grid-cols-1 sm:grid-cols-12 gap-3">
-                        <div class="sm:col-span-4 font-mono text-xs text-inkSecondary">AI &amp; AUTOMATION</div>
+                        <div class="sm:col-span-4 font-mono text-xs text-amber-400 flex items-center gap-2">
+                            <span class="num-circle num-circle-sm border border-amber-400/40 bg-amber-500/10 text-amber-400">3</span>
+                            <span>DATABASES &amp; SEARCH</span>
+                        </div>
+                        <div class="sm:col-span-8 text-inkPrimary leading-relaxed">
+                            MySQL, PostgreSQL, Redis, OpenSearch / Elasticsearch, Query Optimization, Full-Table Scan Elimination.
+                        </div>
+                    </div>
+
+                    <div class="py-5 grid grid-cols-1 sm:grid-cols-12 gap-3">
+                        <div class="sm:col-span-4 font-mono text-xs text-teal-400 flex items-center gap-2">
+                            <span class="num-circle num-circle-sm border border-teal-400/40 bg-teal-500/10 text-teal-400">4</span>
+                            <span>TESTING, CLOUD &amp; DEVOPS</span>
+                        </div>
+                        <div class="sm:col-span-8 text-inkPrimary leading-relaxed">
+                            Playwright (E2E Test Suites), Vitest, AWS (Amazon S3, Amazon EventBridge), Docker, Git, GitLab CI/CD Automated Release Pipelines.
+                        </div>
+                    </div>
+
+                    <div class="py-5 grid grid-cols-1 sm:grid-cols-12 gap-3">
+                        <div class="sm:col-span-4 font-mono text-xs text-indigo-400 flex items-center gap-2">
+                            <span class="num-circle num-circle-sm border border-indigo-400/40 bg-indigo-500/10 text-indigo-400">5</span>
+                            <span>AI &amp; AUTOMATION</span>
+                        </div>
                         <div class="sm:col-span-8 text-inkPrimary leading-relaxed">
                             Claude Code (Agent Skills, Plugins), MCP (Model Context Protocol), OpenAI API, LiteLLM, Automated PR Code Review (PR-Agent), AI-Assisted Test Case Generation.
                         </div>
                     </div>
 
                     <div class="py-5 grid grid-cols-1 sm:grid-cols-12 gap-3">
-                        <div class="sm:col-span-4 font-mono text-xs text-inkSecondary">DATABASES &amp; SEARCH</div>
-                        <div class="sm:col-span-8 text-inkPrimary leading-relaxed">
-                            MySQL, PostgreSQL, Redis, OpenSearch / Elasticsearch.
+                        <div class="sm:col-span-4 font-mono text-xs text-rose-400 flex items-center gap-2">
+                            <span class="num-circle num-circle-sm border border-rose-400/40 bg-rose-500/10 text-rose-400">6</span>
+                            <span>PERFORMANCE &amp; OPTIMIZATION</span>
                         </div>
-                    </div>
-
-                    <div class="py-5 grid grid-cols-1 sm:grid-cols-12 gap-3">
-                        <div class="sm:col-span-4 font-mono text-xs text-inkSecondary">TESTING, CLOUD &amp; DEVOPS</div>
-                        <div class="sm:col-span-8 text-inkPrimary leading-relaxed">
-                            Playwright (E2E), Vitest, AWS (Amazon S3, Amazon EventBridge), Docker, Git, GitLab CI/CD Pipelines.
-                        </div>
-                    </div>
-
-                    <div class="py-5 grid grid-cols-1 sm:grid-cols-12 gap-3">
-                        <div class="sm:col-span-4 font-mono text-xs text-inkSecondary">PERFORMANCE</div>
                         <div class="sm:col-span-8 text-inkPrimary leading-relaxed">
                             Core Web Vitals Optimization (LCP, INP, CLS), High-Volume Database Query Tuning, Memory Leak &amp; CPU Spike Troubleshooting.
                         </div>
                     </div>
 
                     <div class="py-5 grid grid-cols-1 sm:grid-cols-12 gap-3">
-                        <div class="sm:col-span-4 font-mono text-xs text-inkSecondary">ENGLISH &amp; AGILE</div>
+                        <div class="sm:col-span-4 font-mono text-xs text-neutral-300 flex items-center gap-2">
+                            <span class="num-circle num-circle-sm border border-white/20 bg-white/5 text-neutral-300">7</span>
+                            <span>ENGLISH &amp; AGILE</span>
+                        </div>
                         <div class="sm:col-span-8 text-inkPrimary leading-relaxed">
                             English: strong reading and technical writing (architecture docs, async updates); conversational speaking. Agile/Scrum, remote collaboration, and mentoring.
                         </div>
@@ -791,10 +993,13 @@
                 </div>
             </div>
 
-            <!-- Epilogue / Direct Contact Footer -->
+            <!-- Epilogue / Direct Contact Footer with Exact User Text -->
             <div class="mt-24 pt-12 hairline-t flex flex-col md:flex-row md:items-end justify-between gap-8">
                 <div class="space-y-3">
-                    <div class="font-mono text-[11px] text-inkSecondary">EPILOGUE — GET IN TOUCH</div>
+                    <div class="font-mono text-[11px] text-sky-400 flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                        <span>EPILOGUE — GET IN TOUCH</span>
+                    </div>
                     <h3 class="font-display text-3xl sm:text-4xl font-normal text-white tracking-tight">
                         Open to new engineering roles — let's talk.
                     </h3>
@@ -804,28 +1009,28 @@
                 </div>
 
                 <div class="flex flex-wrap items-center gap-3 font-mono text-xs">
-                    <a href="mailto:huynhdinhqui@gmail.com" class="px-4 py-2.5 bg-white text-black font-medium rounded-[4px] hover:bg-neutral-200 transition">
+                    <a href="mailto:huynhdinhqui@gmail.com" class="px-4 py-2.5 bg-gradient-to-r from-sky-500 to-indigo-600 text-white font-medium rounded-[4px] hover:from-sky-400 hover:to-indigo-500 transition shadow-[0_0_12px_rgba(56,189,248,0.25)] whitespace-nowrap">
                         huynhdinhqui@gmail.com ↗
                     </a>
-                    <a href="https://fb.com/Quihuynh1309" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 hairline-box hover:border-white/40 text-inkPrimary rounded-[4px] transition">
+                    <a href="https://fb.com/Quihuynh1309" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 hairline-box hover:border-white/40 text-inkPrimary rounded-[4px] transition bg-[#111827] whitespace-nowrap">
                         Facebook ↗
                     </a>
-                    <a href="https://linkedin.com/in/huynhdinhqui" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 hairline-box hover:border-white/40 text-inkPrimary rounded-[4px] transition">
+                    <a href="https://linkedin.com/in/huynhdinhqui" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 hairline-box hover:border-white/40 text-inkPrimary rounded-[4px] transition bg-[#111827] whitespace-nowrap">
                         LinkedIn ↗
                     </a>
-                    <button onclick="copyText('huynhdinhqui@gmail.com', 'email address')" class="px-4 py-2.5 hairline-box hover:border-white/40 text-inkPrimary rounded-[4px] transition">
+                    <button onclick="copyText('huynhdinhqui@gmail.com', 'email address')" class="px-4 py-2.5 hairline-box hover:border-white/40 text-inkPrimary rounded-[4px] transition bg-[#111827] whitespace-nowrap">
                         Copy Email
                     </button>
-                    <button onclick="copyText('+84776813641', 'phone number')" class="px-4 py-2.5 hairline-box hover:border-white/40 text-inkPrimary rounded-[4px] transition">
+                    <button onclick="copyText('+84776813641', 'phone number')" class="px-4 py-2.5 hairline-box hover:border-white/40 text-inkPrimary rounded-[4px] transition bg-[#111827] whitespace-nowrap">
                         (+84) 776 813 641
                     </button>
-                    <button onclick="openCVModal()" class="px-4 py-2.5 hairline-box hover:border-white/40 text-inkPrimary rounded-[4px] transition">
+                    <button onclick="openCVModal()" class="px-4 py-2.5 hairline-box hover:border-white/40 text-inkPrimary rounded-[4px] transition bg-[#111827] whitespace-nowrap">
                         Download CV (PDF)
                     </button>
                 </div>
             </div>
 
-            <!-- Clean Bottom Footer without Swiss edition tag -->
+            <!-- Clean Bottom Footer -->
             <div class="mt-12 pt-6 hairline-t flex flex-wrap items-center justify-between gap-4 font-mono text-[11px] text-inkSecondary">
                 <span>© 2026 HUYNH DINH QUI</span>
                 <div class="flex items-center gap-6">
@@ -956,11 +1161,45 @@
     </div>
 
     <!-- =========================================================
-         SCROLLYTELLING & INTERACTION SCRIPT
+         JAVASCRIPT MOTION & INTERACTION ENGINE
          ========================================================= -->
     <script>
         /* -----------------------------------------------------------
-         * 1. TRAJECTORY STICKY PANEL DATA (CHAPTER 01)
+         * 1. LENIS SMOOTH SCROLL ENGINE & GSAP BINDING
+         * ----------------------------------------------------------- */
+        let lenis;
+        if (typeof Lenis !== 'undefined') {
+            lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                smoothWheel: true,
+                orientation: 'vertical'
+            });
+
+            lenis.on('scroll', ScrollTrigger.update);
+
+            gsap.ticker.add((time) => {
+                lenis.raf(time * 1000);
+            });
+
+            gsap.ticker.lagSmoothing(0);
+        }
+
+        /* -----------------------------------------------------------
+         * 2. LIVE CLOCK TICKER
+         * ----------------------------------------------------------- */
+        function updateClock() {
+            const el = document.getElementById('header-clock');
+            if (!el) return;
+            const now = new Date();
+            const timeStr = now.toLocaleTimeString('en-GB', { timeZone: 'Asia/Ho_Chi_Minh' });
+            el.textContent = `${timeStr} ICT`;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        /* -----------------------------------------------------------
+         * 3. TRAJECTORY STICKY DATA (CHAPTER 01)
          * ----------------------------------------------------------- */
         const trajectoryMeta = [
             {
@@ -998,7 +1237,7 @@
                         <img src="images/logo-cusc.png" alt="CUSC" class="h-5 w-auto object-contain">
                     </a>
                     <a href="https://aptech-edu.org" target="_blank" rel="noopener noreferrer" class="logo-pill active-logo" title="Aptech Computer Education">
-                        <img src="images/logo-aptech.svg" alt="CUSC APTECH" class="h-5 w-auto object-contain">
+                        <img src="images/logo-aptech.svg" alt="CUSC APTECH Logo" class="h-5 w-auto object-contain">
                     </a>
                 `
             }
@@ -1022,107 +1261,115 @@
                 const ind = document.getElementById(`traj-indicator-${i}`);
                 if (!ind) continue;
                 if (i === index) {
-                    ind.className = "flex items-center justify-between py-1.5 px-2 text-white border-l-2 border-white pl-3 transition";
+                    ind.className = "flex items-center justify-between py-2 px-3 text-white border-l-2 border-sky-400 bg-[#161F30] pl-3 transition hover:text-white rounded-r-[3px]";
+                    const circ = ind.querySelector('.num-circle');
+                    if (circ) {
+                        circ.className = "num-circle num-circle-sm border border-sky-400/50 bg-sky-500/10 text-sky-400 font-bold";
+                    }
                 } else {
-                    ind.className = "flex items-center justify-between py-1.5 px-2 text-inkSecondary border-l-2 border-white/10 pl-3 transition";
+                    ind.className = "flex items-center justify-between py-2 px-3 text-inkSecondary border-l-2 border-white/10 pl-3 transition hover:text-white bg-[#111827] rounded-r-[3px]";
+                    const circ = ind.querySelector('.num-circle');
+                    if (circ) {
+                        circ.className = "num-circle num-circle-sm border border-white/20 text-neutral-400";
+                    }
                 }
             }
         }
 
         /* -----------------------------------------------------------
-         * 2. ARCHITECTURAL IMPACT TELEMETRY DIAGRAMS (CHAPTER 02)
+         * 4. ARCHITECTURAL IMPACT TELEMETRY (CHAPTER 02)
          * ----------------------------------------------------------- */
         const impactDiagrams = [
-            // 0: Core Web Vitals & 500k+ Order Search
+            // 0: Web Perf & Search (Exact Original Copy & Metrics)
             `
                 <div class="space-y-4">
-                    <div class="flex items-center justify-between text-[11px] text-inkSecondary hairline-b pb-2">
-                        <span>METRICS // CORE WEB VITALS &amp; SEARCH</span>
-                        <span class="text-white">VERIFIED</span>
+                    <div class="flex items-center justify-between text-[11px] hairline-b pb-2">
+                        <span class="text-emerald-400 font-semibold tracking-wider">TELEMETRY // PERF &amp; SEARCH</span>
+                        <span class="px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 font-bold text-[10px]">VERIFIED PRODUCTION</span>
                     </div>
-                    <div class="space-y-3">
+                    <div class="space-y-3 pt-1">
                         <div>
-                            <div class="flex justify-between text-[11px] mb-1">
-                                <span class="text-inkSecondary">Legacy App LCP</span>
-                                <span class="text-inkSecondary">~5.00s</span>
+                            <div class="flex justify-between text-[11px] mb-1.5">
+                                <span class="text-inkSecondary">Legacy Shopify App LCP</span>
+                                <span class="text-rose-400 font-mono">~5.00s (Slow)</span>
                             </div>
-                            <div class="w-full h-1.5 bg-white/10">
-                                <div class="h-full bg-neutral-600" style="width: 96%"></div>
+                            <div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
+                                <div class="h-full bg-rose-500/70 rounded-full" style="width: 95%"></div>
                             </div>
                         </div>
                         <div>
-                            <div class="flex justify-between text-[11px] mb-1">
-                                <span class="text-white">Optimized LCP (Patched Leaks)</span>
-                                <span class="text-white font-medium">0.82s (-83%)</span>
+                            <div class="flex justify-between text-[11px] mb-1.5">
+                                <span class="text-white font-medium">Optimized LCP (Patched Leaks)</span>
+                                <span class="text-emerald-400 font-mono font-bold">0.82s (-83%)</span>
                             </div>
-                            <div class="w-full h-1.5 bg-white/10">
-                                <div class="h-full bg-white" style="width: 17%"></div>
+                            <div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-emerald-500 to-teal-400 rounded-full shadow-[0_0_12px_rgba(16,185,129,0.5)]" style="width: 17%"></div>
                             </div>
                         </div>
                     </div>
                     <div class="pt-3 hairline-t space-y-1.5 text-[11px]">
-                        <div class="flex justify-between">
+                        <div class="flex justify-between items-center p-2 rounded bg-white/[0.02] border border-white/[0.06]">
                             <span class="text-inkSecondary">500k+ POS Order Search:</span>
-                            <span class="text-white">SQL → OpenSearch</span>
+                            <span class="text-emerald-300 font-mono font-medium">SQL → OpenSearch</span>
                         </div>
-                        <div class="flex justify-between">
+                        <div class="flex justify-between items-center p-2 rounded bg-white/[0.02] border border-white/[0.06]">
                             <span class="text-inkSecondary">Target Apps:</span>
-                            <span class="text-white">MS Barcode Label &amp; Order Printer</span>
+                            <span class="text-sky-300 font-mono font-medium">MS Barcode Label &amp; Order Printer</span>
                         </div>
                     </div>
                 </div>
             `,
-            // 1: AI Workflow Automation
+            // 1: AI Workflow Automation (Exact Original Copy & Metrics)
             `
                 <div class="space-y-4">
                     <div class="flex items-center justify-between text-[11px] text-inkSecondary hairline-b pb-2">
-                        <span>TOPOLOGY // AI ENGINEERING PIPELINE</span>
-                        <span class="text-white">6 SHOPIFY PROJECTS</span>
+                        <span class="text-indigo-400 font-semibold tracking-wider">TOPOLOGY // AI ENGINEERING PIPELINE</span>
+                        <span class="text-white font-bold">6 SHOPIFY PROJECTS</span>
                     </div>
-                    <div class="space-y-2 text-[11px]">
-                        <div class="p-2.5 hairline-box flex items-center justify-between">
-                            <span class="text-white">01. Claude Code Skills + MCP</span>
-                            <span class="text-inkSecondary">Standardized</span>
+                    <div class="space-y-2 text-[11px] pt-1">
+                        <div class="p-2.5 hairline-box flex items-center justify-between rounded-[3px] bg-indigo-500/10 border-indigo-500/25">
+                            <span class="text-white font-medium">01. Claude Code Skills + MCP</span>
+                            <span class="text-indigo-300 font-mono text-[10px]">Standardized</span>
                         </div>
-                        <div class="p-2.5 hairline-box flex items-center justify-between">
-                            <span class="text-white">02. context.md + GitLab Wiki</span>
-                            <span class="text-inkSecondary">Domain Rules</span>
+                        <div class="p-2.5 hairline-box flex items-center justify-between rounded-[3px] bg-white/[0.02]">
+                            <span class="text-white font-medium">02. context.md + GitLab Wiki</span>
+                            <span class="text-inkSecondary font-mono text-[10px]">Domain Rules</span>
                         </div>
-                        <div class="p-2.5 hairline-box flex items-center justify-between bg-white/[0.04]">
-                            <span class="text-white">03. PR-Agent (LiteLLM)</span>
-                            <span class="text-white">Auto-Approve</span>
+                        <div class="p-2.5 hairline-box flex items-center justify-between rounded-[3px] bg-emerald-500/10 border-emerald-500/25">
+                            <span class="text-white font-medium">03. PR-Agent (LiteLLM)</span>
+                            <span class="text-emerald-400 font-mono text-[10px] font-bold">Auto-Approve</span>
                         </div>
                     </div>
                     <div class="pt-2 hairline-t flex justify-between text-[11px] text-inkSecondary">
                         <span>CI/CD Auto-Release</span>
-                        <span class="text-white">GitLab Pipelines</span>
+                        <span class="text-sky-300 font-mono">GitLab Pipelines</span>
                     </div>
                 </div>
             `,
-            // 2: Cloud & E2E Reliability
+            // 2: Cloud & E2E Reliability (Exact Original Copy & Metrics)
             `
                 <div class="space-y-4">
                     <div class="flex items-center justify-between text-[11px] text-inkSecondary hairline-b pb-2">
-                        <span>ARCHITECTURE // EVENT-DRIVEN &amp; E2E</span>
-                        <span class="text-white">AWS + PLAYWRIGHT</span>
+                        <span class="text-sky-400 font-semibold tracking-wider">ARCHITECTURE // EVENT-DRIVEN &amp; E2E</span>
+                        <span class="text-white font-bold">AWS + PLAYWRIGHT</span>
                     </div>
-                    <div class="space-y-2 text-[11px]">
-                        <div class="p-2.5 hairline-box flex items-center justify-between">
-                            <span class="text-white">Shopify Webhook Bursts</span>
-                            <span class="text-inkSecondary">→ EventBridge</span>
+                    <div class="space-y-2 text-[11px] pt-1">
+                        <div class="p-2.5 hairline-box flex items-center justify-between rounded-[3px] bg-white/[0.02]">
+                            <span class="text-white font-medium">Shopify Webhook Bursts</span>
+                            <span class="text-amber-300 font-mono text-[10px]">→ EventBridge</span>
                         </div>
-                        <div class="p-2.5 hairline-box flex items-center justify-between">
-                            <span class="text-white">"Generate History" Log</span>
-                            <span class="text-inkSecondary">→ Amazon S3</span>
+                        <div class="p-2.5 hairline-box flex items-center justify-between rounded-[3px] bg-white/[0.02]">
+                            <span class="text-white font-medium">"Generate History" Log</span>
+                            <span class="text-amber-300 font-mono text-[10px]">→ Amazon S3</span>
                         </div>
-                        <div class="p-2.5 hairline-box flex items-center justify-between bg-white/[0.04]">
-                            <span class="text-white">Checkout &amp; POS Regression</span>
-                            <span class="text-white">MFTF → Playwright</span>
+                        <div class="p-2.5 hairline-box flex items-center justify-between rounded-[3px] bg-teal-500/10 border-teal-500/25">
+                            <span class="text-white font-medium">Checkout &amp; POS Regression</span>
+                            <span class="text-teal-300 font-mono text-[10px] font-bold">MFTF → Playwright</span>
                         </div>
                     </div>
                     <div class="pt-2 hairline-t flex justify-between text-[11px] text-inkSecondary">
                         <span>Payment Gateways</span>
-                        <span class="text-white">Stripe · Square · PayPal</span>
+                        <span class="text-emerald-400 font-mono font-medium">Stripe · Square · PayPal</span>
                     </div>
                 </div>
             `
@@ -1158,7 +1405,11 @@
             if (el) {
                 isManualScroll = true;
                 updateTrajectoryActive(index);
-                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                if (lenis) {
+                    lenis.scrollTo(el, { offset: -80, duration: 1.2 });
+                } else {
+                    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
                 clearTimeout(manualScrollTimer);
                 manualScrollTimer = setTimeout(() => { isManualScroll = false; }, 850);
             }
@@ -1176,7 +1427,7 @@
                 const btn = document.getElementById(`impact-btn-${i}`);
                 if (!btn) continue;
                 if (i === index) {
-                    btn.className = "py-2 px-2 bg-white text-black font-medium transition";
+                    btn.className = "py-2 px-2 bg-gradient-to-r from-sky-500 to-indigo-600 text-white font-medium transition shadow-sm";
                 } else {
                     btn.className = "py-2 px-2 bg-transparent text-inkSecondary hover:text-white transition";
                 }
@@ -1198,13 +1449,16 @@
             if (el) {
                 isManualScroll = true;
                 updateImpactActive(index);
-                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                if (lenis) {
+                    lenis.scrollTo(el, { offset: -80, duration: 1.2 });
+                } else {
+                    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
                 clearTimeout(manualScrollTimer);
                 manualScrollTimer = setTimeout(() => { isManualScroll = false; }, 850);
             }
         }
 
-        // Backward compatibility
         function setImpactDiagram(index) {
             updateImpactActive(index);
         }
@@ -1303,6 +1557,25 @@
 
         let currentWorkFilter = 'all';
 
+        function getTechBadge(tech) {
+            if (/claude|mcp|openai|python|ai/i.test(tech)) {
+                return `<span class="px-2.5 py-1 bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 rounded-[3px] text-[11px] font-mono hover:border-indigo-400 transition select-none">${tech}</span>`;
+            }
+            if (/shopify|liquid/i.test(tech)) {
+                return `<span class="px-2.5 py-1 bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 rounded-[3px] text-[11px] font-mono hover:border-emerald-400 transition select-none">${tech}</span>`;
+            }
+            if (/react|typescript|node|javascript|remix/i.test(tech)) {
+                return `<span class="px-2.5 py-1 bg-sky-500/10 border border-sky-500/30 text-sky-300 rounded-[3px] text-[11px] font-mono hover:border-sky-400 transition select-none">${tech}</span>`;
+            }
+            if (/aws|redis|mysql|postgres|opensearch/i.test(tech)) {
+                return `<span class="px-2.5 py-1 bg-amber-500/10 border border-amber-500/30 text-amber-300 rounded-[3px] text-[11px] font-mono hover:border-amber-400 transition select-none">${tech}</span>`;
+            }
+            if (/playwright|vitest|docker/i.test(tech)) {
+                return `<span class="px-2.5 py-1 bg-teal-500/10 border border-teal-500/30 text-teal-300 rounded-[3px] text-[11px] font-mono hover:border-teal-400 transition select-none">${tech}</span>`;
+            }
+            return `<span class="px-2.5 py-1 bg-surface hairline-box text-inkSecondary rounded-[3px] transition hover:border-white/40 hover:text-white select-none">${tech}</span>`;
+        }
+
         function renderProjectsIndex() {
             const container = document.getElementById('projects-index-list');
             if (!container) return;
@@ -1311,17 +1584,18 @@
                 ? worksData
                 : worksData.filter(w => w.category === currentWorkFilter);
 
+            // Clean title WITHOUT [01], exactly as requested
             container.innerHTML = filtered.map(item => `
-                <article class="scroll-step is-active py-8 space-y-4 group">
+                <article class="scroll-step is-active py-8 space-y-4 group project-row px-4 sm:px-6 rounded-[4px] transition">
                     <div class="flex flex-wrap items-baseline justify-between gap-2">
                         <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                            <span class="font-mono text-xs text-inkSecondary">${item.index}</span>
                             ${item.link ? `
-                                <a href="${item.link}" target="_blank" rel="noopener noreferrer" class="font-display text-xl sm:text-2xl font-medium text-white tracking-tight hover:text-neutral-300 transition">
-                                    ${item.title}
+                                <a href="${item.link}" target="_blank" rel="noopener noreferrer" class="row-title font-display text-xl sm:text-2xl font-medium text-white tracking-tight hover:text-sky-300 transition flex items-center gap-2">
+                                    <span>${item.title}</span>
+                                    <span class="text-xs text-sky-400 font-mono">↗</span>
                                 </a>
                             ` : `
-                                <h3 class="font-display text-xl sm:text-2xl font-medium text-white tracking-tight">
+                                <h3 class="row-title font-display text-xl sm:text-2xl font-medium text-white tracking-tight">
                                     ${item.title}
                                 </h3>
                             `}
@@ -1330,31 +1604,27 @@
                         <span class="font-mono text-xs text-inkSecondary">${item.period}</span>
                     </div>
 
-                    <p class="text-sm text-inkSecondary leading-relaxed pl-0 sm:pl-8">
+                    <p class="text-sm text-inkSecondary leading-relaxed">
                         ${item.summary}
                     </p>
 
-                    <ul class="space-y-2 text-sm text-inkPrimary leading-relaxed pl-0 sm:pl-8 pt-1">
+                    <ul class="space-y-2 text-sm text-inkPrimary leading-relaxed pt-1">
                         ${item.bullets.map(b => `
                             <li class="flex items-start gap-2.5">
-                                <span class="font-mono text-xs text-inkSecondary mt-0.5">—</span>
+                                <span class="font-mono text-xs text-sky-400 mt-0.5 font-bold">—</span>
                                 <span>${b}</span>
                             </li>
                         `).join('')}
                     </ul>
 
-                    <div class="flex flex-wrap items-center justify-between gap-3 pl-0 sm:pl-8 pt-2">
+                    <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
                         <div class="flex flex-wrap gap-2 font-mono text-[11px]">
-                            ${item.stack.map(tech => `
-                                <span class="px-2.5 py-1 bg-surface hairline-box text-inkSecondary rounded-[3px] transition-all duration-200 hover:border-white/40 hover:bg-white/[0.06] hover:text-white hover:-translate-y-[1px] hover:shadow-[0_0_12px_rgba(255,255,255,0.08)] select-none cursor-default">
-                                    ${tech}
-                                </span>
-                            `).join('')}
+                            ${item.stack.map(tech => getTechBadge(tech)).join('')}
                         </div>
                         ${item.link ? `
-                            <a href="${item.link}" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 hairline-box hover:border-white/50 hover:bg-white/[0.05] text-inkPrimary hover:text-white text-xs font-mono rounded-[4px] inline-flex items-center gap-1.5 transition">
+                            <a href="${item.link}" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 hairline-box hover:border-sky-400/50 hover:bg-sky-500/10 text-white text-xs font-mono rounded-[3px] inline-flex items-center gap-1.5 transition">
                                 <span>Visit Project</span>
-                                <span class="text-inkSecondary">↗</span>
+                                <span class="text-sky-400">↗</span>
                             </a>
                         ` : ''}
                     </div>
@@ -1380,7 +1650,6 @@
         function syncScrollytelling() {
             if (isManualScroll) return;
 
-            // Trigger threshold at 45% of viewport height (reading focal area)
             const triggerY = window.innerHeight * 0.45;
 
             // 1. Sync Chapter 01 (Experience Timeline)
@@ -1426,12 +1695,19 @@
                     if (entry.isIntersecting) {
                         const id = entry.target.getAttribute('data-chapter');
                         document.querySelectorAll('.chapter-nav-item').forEach(link => {
+                            const circ = link.querySelector('.num-circle');
                             if (link.getAttribute('data-chapter-link') === id) {
                                 link.classList.remove('text-inkSecondary');
                                 link.classList.add('text-white');
+                                if (circ) {
+                                    circ.className = "num-circle num-circle-sm border border-sky-400/50 bg-sky-500/10 text-sky-400 font-bold";
+                                }
                             } else {
                                 link.classList.remove('text-white');
                                 link.classList.add('text-inkSecondary');
+                                if (circ) {
+                                    circ.className = "num-circle num-circle-sm border border-white/20 text-neutral-400";
+                                }
                             }
                         });
                     }
@@ -1498,6 +1774,7 @@
             if (modal) {
                 modal.classList.remove('hidden');
                 document.body.style.overflow = 'hidden';
+                if (lenis) lenis.stop();
             }
         }
 
@@ -1506,6 +1783,7 @@
             if (modal) {
                 modal.classList.add('hidden');
                 document.body.style.overflow = '';
+                if (lenis) lenis.start();
             }
         }
 
