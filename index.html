@@ -1,592 +1,1551 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Huynh Dinh Qui — Software Engineer</title>
+    <meta name="description" content="Huynh Dinh Qui — Software Engineer with 5+ years of experience specializing in Shopify, Magento 2, AI Workflows (Claude Code, MCP), and Core Web Vitals Optimization.">
 
-    <!-- Google Fonts: Inter Tight, Inter, JetBrains Mono -->
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Inter Tight, Inter & JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        display: ['"Inter Tight"', 'sans-serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                    colors: {
+                        obsidian: '#0a0a0a',
+                        surface: '#111111',
+                        surfaceElevated: '#161616',
+                        inkPrimary: '#ededed',
+                        inkSecondary: '#8a8a8a',
+                        inkMuted: '#52525b',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            color-scheme: dark;
+            --hairline: rgba(255, 255, 255, 0.09);
+            --hairline-strong: rgba(255, 255, 255, 0.22);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: clip;
+        }
+
+        body {
+            background-color: #0a0a0a;
+            color: #ededed;
+            font-family: 'Inter', sans-serif;
+            overflow-x: clip;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Swiss Hairline Borders */
+        .hairline-t { border-top: 1px solid var(--hairline); }
+        .hairline-b { border-bottom: 1px solid var(--hairline); }
+        .hairline-l { border-left: 1px solid var(--hairline); }
+        .hairline-r { border-right: 1px solid var(--hairline); }
+        .hairline-box { border: 1px solid var(--hairline); }
+
+        /* Scrollytelling Progressive Reveal Transitions */
+        .scroll-step {
+            opacity: 0.45;
+            transform: translateY(4px);
+            transition: opacity 0.35s ease,
+                        transform 0.35s ease,
+                        border-color 0.25s ease;
+        }
+        .scroll-step:hover {
+            opacity: 0.85;
+        }
+        .scroll-step.is-active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* On mobile / tablet screens (<1024px), everything is full opacity so no text is faded or hard to read */
+        @media (max-width: 1023px) {
+            .scroll-step {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+
+        /* Portrait Image Subtle Warmth & Soft Rounded Corners */
+        .portrait-frame {
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            background: #141414;
+        }
+        .portrait-img {
+            border-radius: 11px;
+            filter: contrast(1.03) saturate(0.92);
+            transition: filter 0.5s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .portrait-frame:hover .portrait-img {
+            filter: contrast(1.02) saturate(1.02);
+            transform: scale(1.015);
+        }
+
+        /* Company Logo Container: Cohesive Monochrome by default, Original Color on Active/Hover */
+        .logo-pill {
+            background: rgba(255, 255, 255, 0.94);
+            border-radius: 6px;
+            padding: 6px 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 36px;
+            filter: grayscale(100%) contrast(1.08);
+            opacity: 0.75;
+            transition: filter 0.3s ease, opacity 0.3s ease, transform 0.2s ease, border-color 0.2s ease;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .logo-pill img {
+            max-height: 22px;
+            max-width: 85px;
+            width: auto;
+            object-fit: contain;
+        }
+        .scroll-step.is-active .logo-pill,
+        .logo-pill:hover,
+        .logo-pill.active-logo {
+            filter: grayscale(0%) contrast(1);
+            opacity: 1;
+        }
+        .logo-pill:hover {
+            transform: translateY(-1px);
+        }
+
+        /* Minimalist Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #262626;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #404040;
+        }
+
+        /* Print Stylesheet for clean A4 ATS Resume export */
+        @media print {
+            body {
+                background: #ffffff !important;
+                color: #000000 !important;
+                font-size: 10.5pt;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .print-only {
+                display: block !important;
+            }
+        }
+    </style>
 </head>
-<body>
+<body class="selection:bg-white selection:text-black">
 
-    <!-- =========================================================
-         FIXED HEADER
-         ========================================================= -->
-    <header class="site-header">
-        <div class="header-brand">
-            <span>HUYNH DINH QUI</span>
-            <span class="separator">/</span>
-            <span class="header-role">Software Engineer</span>
-        </div>
+    <!-- Top Viewport Reading Progress Line (1px Swiss Indicator) -->
+    <div class="fixed top-0 left-0 right-0 h-[2px] bg-white/[0.04] z-50 no-print">
+        <div id="reading-progress-bar" class="h-full bg-white transition-all duration-100 ease-out" style="width: 0%"></div>
+    </div>
 
-        <nav class="header-nav" id="headerNav">
-            <a href="#slide-0" onclick="goToSlide(0); return false;" class="active">01 About</a>
-            <a href="#slide-1" onclick="goToSlide(1); return false;">02 Career</a>
-            <a href="#slide-2" onclick="goToSlide(2); return false;">03 Impact</a>
-            <a href="#slide-3" onclick="goToSlide(3); return false;">04 Projects</a>
-            <a href="#slide-4" onclick="goToSlide(4); return false;">05 Matrix</a>
-        </nav>
+    <!-- Sticky Minimalist Top Header -->
+    <header class="sticky top-0 z-40 bg-[#0a0a0a]/90 backdrop-blur-md hairline-b no-print">
+        <div class="max-w-6xl mx-auto px-5 sm:px-8 h-14 flex items-center justify-between text-xs">
+            <!-- Left Identity -->
+            <a href="#chapter-00" class="flex items-center gap-2.5 group">
+                <span class="font-display font-medium tracking-tight text-white text-sm group-hover:text-neutral-300 transition">Huynh Dinh Qui</span>
+                <span class="text-white/20">/</span>
+                <span class="font-mono text-[11px] text-inkSecondary">Software Engineer</span>
+            </a>
 
-        <div style="display: flex; align-items: center; gap: 10px;">
-            <button onclick="goToSlide(4)" class="btn-resume" style="background: transparent; color: var(--text-primary); border: 1px solid var(--border-hairline);">
-                Contact
-            </button>
-            <button onclick="openModal()" class="btn-resume">
-                View ATS CV ↗
-            </button>
+            <!-- Center Scrollytelling Chapter Progress Nav -->
+            <nav class="hidden md:flex items-center gap-6 font-mono text-[11px] text-inkSecondary">
+                <a href="#chapter-00" data-chapter-link="chapter-00" class="chapter-nav-item text-white transition hover:text-white">00 Prologue</a>
+                <a href="#chapter-01" data-chapter-link="chapter-01" class="chapter-nav-item transition hover:text-white">01 Experience</a>
+                <a href="#chapter-02" data-chapter-link="chapter-02" class="chapter-nav-item transition hover:text-white">02 Case Studies</a>
+                <a href="#chapter-03" data-chapter-link="chapter-03" class="chapter-nav-item transition hover:text-white">03 Projects</a>
+                <a href="#chapter-04" data-chapter-link="chapter-04" class="chapter-nav-item transition hover:text-white">04 Skills</a>
+            </nav>
+
+            <!-- Right Direct Actions -->
+            <div class="flex items-center gap-4">
+                <a href="mailto:huynhdinhqui@gmail.com" class="hidden sm:inline-block font-mono text-[11px] text-inkSecondary hover:text-white transition">
+                    huynhdinhqui@gmail.com
+                </a>
+                <button onclick="openCVModal()" class="px-3 py-1.5 bg-white text-black font-mono text-[11px] font-medium tracking-tight hover:bg-neutral-200 transition rounded-[4px]">
+                    Resume PDF ↗
+                </button>
+            </div>
         </div>
     </header>
 
-    <!-- SIDE PAGINATION DOTS -->
-    <div class="side-indicators" id="sideIndicators">
-        <div class="indicator-dot active" onclick="goToSlide(0)"><span class="indicator-tooltip">01 About</span></div>
-        <div class="indicator-dot" onclick="goToSlide(1)"><span class="indicator-tooltip">02 Career</span></div>
-        <div class="indicator-dot" onclick="goToSlide(2)"><span class="indicator-tooltip">03 Impact</span></div>
-        <div class="indicator-dot" onclick="goToSlide(3)"><span class="indicator-tooltip">04 Projects</span></div>
-        <div class="indicator-dot" onclick="goToSlide(4)"><span class="indicator-tooltip">05 Matrix</span></div>
-    </div>
-
     <!-- =========================================================
-         SCROLL SLIDES CONTAINER
+         MAIN SCROLLYTELLING CONTAINER
          ========================================================= -->
-    <div class="slides-container" id="slidesContainer">
+    <main class="max-w-6xl mx-auto px-5 sm:px-8 no-print">
 
         <!-- =====================================================
-             SLIDE 00: PROLOGUE / HERO
+             CHAPTER 00: PROLOGUE (IDENTITY, PORTRAIT & METRICS)
              ===================================================== -->
-        <section class="slide" id="slide-0" data-index="0">
-            <div class="slide-inner">
-                <div class="section-eyebrow">
-                    <span>01 / PROLOGUE</span>
-                    <span class="status-pill">
-                        <span class="status-dot"></span>
-                        Available for Hybrid (HCMC) &amp; Remote
-                    </span>
+        <section id="chapter-00" data-chapter="chapter-00" class="py-14 sm:py-24 hairline-b">
+            <!-- Top Chapter Meta Bar -->
+            <div class="flex flex-wrap items-center justify-between gap-2 pb-8 mb-10 hairline-b font-mono text-[11px] text-inkSecondary">
+                <span>00 / PROLOGUE — PROFILE</span>
+                <span class="inline-flex items-center gap-2 text-inkPrimary">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#22c55e]"></span>
+                    Can Tho, Vietnam · Open to Hybrid (HCMC) &amp; Remote
+                </span>
+            </div>
+
+            <!-- Main Split Grid (4 Cols Portrait / 8 Cols Editorial Statement) -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+                
+                <!-- Left Column: Portrait & Direct Links -->
+                <div class="lg:col-span-4 space-y-5">
+                    <div class="portrait-frame p-1.5">
+                        <img 
+                            src="images/avatar.jpg" 
+                            alt="Huynh Dinh Qui — Software Engineer" 
+                            class="portrait-img w-full aspect-[4/4.3] object-cover object-center block"
+                            onerror="this.onerror=null; this.src='https://placehold.co/600x650/141414/ededed?text=Huynh+Dinh+Qui';"
+                        >
+                    </div>
+
+                    <!-- Minimalist Caption & Direct Contact Channels -->
+                    <div class="space-y-3 pt-1">
+                        <div class="flex items-center justify-between font-mono text-[11px] text-inkSecondary">
+                            <span>HUYNH DINH QUI</span>
+                            <span>(+84) 776 813 641</span>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-2 pt-1 font-mono text-[11px]">
+                            <a href="mailto:huynhdinhqui@gmail.com" class="px-3 py-2 hairline-box hover:border-white/40 text-inkPrimary flex items-center justify-between transition rounded-[4px]">
+                                <span>Email</span>
+                                <span class="text-inkSecondary">↗</span>
+                            </a>
+                            <button onclick="openCVModal()" class="px-3 py-2 hairline-box hover:border-white/40 text-inkPrimary flex items-center justify-between transition rounded-[4px] text-left">
+                                <span>ATS CV</span>
+                                <span class="text-inkSecondary">PDF</span>
+                            </button>
+                            <a href="https://fb.com/Quihuynh1309" target="_blank" rel="noopener noreferrer" class="px-3 py-2 hairline-box hover:border-white/40 text-inkPrimary flex items-center justify-between transition rounded-[4px]">
+                                <span>Facebook</span>
+                                <span class="text-inkSecondary">↗</span>
+                            </a>
+                            <a href="https://linkedin.com/in/huynhdinhqui" target="_blank" rel="noopener noreferrer" class="px-3 py-2 hairline-box hover:border-white/40 text-inkPrimary flex items-center justify-between transition rounded-[4px]">
+                                <span>LinkedIn</span>
+                                <span class="text-inkSecondary">↗</span>
+                            </a>
+                            <a href="https://github.com/shine911" target="_blank" rel="noopener noreferrer" class="px-3 py-2 hairline-box hover:border-white/40 text-inkPrimary flex items-center justify-between transition rounded-[4px]">
+                                <span>GitHub</span>
+                                <span class="text-inkSecondary">↗</span>
+                            </a>
+                            <button onclick="copyText('huynhdinhqui@gmail.com', 'email address')" class="px-3 py-2 hairline-box hover:border-white/40 text-inkPrimary flex items-center justify-between transition rounded-[4px] text-left">
+                                <span>Copy Email</span>
+                                <span class="text-inkSecondary">⧉</span>
+                            </button>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="hero-grid">
-                    <!-- Avatar Column -->
-                    <div class="avatar-card">
-                        <img 
-                            src="IMG_1118.jpg" 
-                            alt="Huynh Dinh Qui" 
-                            class="avatar-img"
-                            onerror="this.onerror=null; this.src='https://placehold.co/400x420/161616/ededed?text=Huynh+Dinh+Qui';"
-                        >
-                        <div class="hero-meta">
-                            <div class="hero-links-grid">
-                                <a href="https://fb.com/Quihuynh1309" target="_blank" rel="noopener noreferrer" class="social-link">
-                                    <span>Facebook</span>
-                                    <span>↗</span>
-                                </a>
-                                <a href="https://linkedin.com/in/huynhdinhqui" target="_blank" rel="noopener noreferrer" class="social-link">
-                                    <span>LinkedIn</span>
-                                    <span>↗</span>
-                                </a>
-                                <a href="https://github.com/shine911" target="_blank" rel="noopener noreferrer" class="social-link">
-                                    <span>GitHub</span>
-                                    <span>↗</span>
-                                </a>
-                                <button onclick="copyToClipboard('huynhdinhqui@gmail.com', 'Email copied!')" class="social-link" style="text-align: left;">
-                                    <span>Copy Email</span>
-                                    <span>⧉</span>
-                                </button>
-                            </div>
+                <!-- Right Column: Editorial Headline, Narrative & Hairline Metric Strip -->
+                <div class="lg:col-span-8 flex flex-col justify-between space-y-10">
+                    <div class="space-y-6">
+                        <div class="font-mono text-xs uppercase tracking-widest text-inkSecondary">
+                            Software Engineer · E-Commerce &amp; AI Systems
+                        </div>
+
+                        <h1 class="font-display font-normal text-3xl sm:text-5xl lg:text-[52px] text-white tracking-[-0.03em] leading-[1.12]">
+                            I build fast, reliable <span class="text-neutral-400">Shopify &amp; Magento 2</span> apps — and AI tools that help engineering teams <span class="text-neutral-400">ship faster</span>.
+                        </h1>
+
+                        <p class="text-inkSecondary text-base sm:text-lg leading-[1.7] max-w-2xl font-normal">
+                            I've spent 5+ years building retail software end to end — POS, barcode, inventory, and Stripe/Square payments. Lately I focus on web performance, AI developer tooling (Claude Code, MCP), and reliable E2E testing with Playwright.
+                        </p>
+                    </div>
+
+                    <!-- 4-Column Metric Strip separated by 1px Hairlines -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 hairline-t hairline-b divide-y sm:divide-y-0 sm:divide-x divide-white/[0.09]">
+                        <div class="py-5 pr-4">
+                            <div class="font-mono text-[11px] text-inkSecondary mb-1">EXPERIENCE</div>
+                            <div class="font-display text-2xl sm:text-3xl font-medium text-white tracking-tight">5+ Yrs</div>
+                            <div class="text-xs text-inkSecondary mt-1">Software Engineering</div>
+                        </div>
+                        <div class="py-5 sm:px-5">
+                            <div class="font-mono text-[11px] text-inkSecondary mb-1">MERCHANT SCALE</div>
+                            <div class="font-display text-2xl sm:text-3xl font-medium text-white tracking-tight">500+</div>
+                            <div class="text-xs text-inkSecondary mt-1">Merchants Worldwide</div>
+                        </div>
+                        <div class="py-5 pr-4 sm:px-5">
+                            <div class="font-mono text-[11px] text-inkSecondary mb-1">CORE WEB VITALS</div>
+                            <div class="font-display text-2xl sm:text-3xl font-medium text-white tracking-tight">5s → &lt;1s</div>
+                            <div class="text-xs text-inkSecondary mt-1">Faster App LCP</div>
+                        </div>
+                        <div class="py-5 sm:pl-5">
+                            <div class="font-mono text-[11px] text-inkSecondary mb-1">HIGH-VOLUME POS</div>
+                            <div class="font-display text-2xl sm:text-3xl font-medium text-white tracking-tight">500k+</div>
+                            <div class="text-xs text-inkSecondary mt-1">Orders via OpenSearch</div>
                         </div>
                     </div>
 
-                    <!-- Intro & Metrics Column -->
-                    <div>
-                        <h1 class="headline-display">
-                            Architecting resilient e-commerce solutions, powered by <em>AI workflows</em> and rigorous automated testing.
-                        </h1>
-                        <p class="body-desc">
-                            Software Engineer with 5+ years of experience specializing in Shopify and Magento 2 platforms. Proven track record in solving complex retail challenges—from POS and multi-warehouse inventory to Amazon EventBridge webhooks and Playwright E2E pipelines.
+                    <!-- Affiliated Organizations Bar with Image Links -->
+                    <div class="space-y-3 pt-2">
+                        <div class="font-mono text-[11px] text-inkSecondary uppercase tracking-wider">
+                            Where I've Worked &amp; Studied
+                        </div>
+                        <div class="flex flex-wrap items-center gap-4">
+                            <a href="https://bssgroup.vn" target="_blank" rel="noopener noreferrer" class="logo-pill" title="BSS Group">
+                                <img src="images/logo-bssgroup.png" alt="BSS Group Logo" class="h-6 w-auto object-contain">
+                            </a>
+                            <a href="https://www.magestore.com" target="_blank" rel="noopener noreferrer" class="logo-pill" title="Magestore">
+                                <img src="images/logo-magestore.png" alt="Magestore Logo" class="h-6 w-auto object-contain">
+                            </a>
+                            <a href="https://cusc.vn/cms" target="_blank" rel="noopener noreferrer" class="logo-pill" title="Can Tho University Software Center (CUSC)">
+                                <img src="images/logo-cusc.png" alt="CUSC Logo" class="h-6 w-auto object-contain">
+                            </a>
+                            <a href="https://aptech-edu.org" target="_blank" rel="noopener noreferrer" class="logo-pill" title="Can Tho University Software Center — APTECH">
+                                <img src="images/logo-aptech.svg" alt="CUSC APTECH Logo" class="h-6 w-auto object-contain">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- =====================================================
+             CHAPTER 01: CAREER TRAJECTORY (STICKY SPLIT-SCREEN)
+             ===================================================== -->
+        <section id="chapter-01" data-chapter="chapter-01" class="py-20 sm:py-28 hairline-b">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+                
+                <!-- Sticky Left Column (4 Cols): Dynamic Organization Telemetry -->
+                <div class="lg:col-span-4 lg:sticky lg:top-20 self-start space-y-6">
+                    <div class="space-y-2">
+                        <div class="font-mono text-[11px] text-inkSecondary">01 / EXPERIENCE</div>
+                        <h2 class="font-display text-2xl sm:text-3xl font-medium text-white tracking-tight">
+                            Professional &amp; Academic Timeline
+                        </h2>
+                        <p class="text-xs font-mono text-inkSecondary">2017 — PRESENT</p>
+                    </div>
+
+                    <!-- Dynamic Active Milestone Card (Updates as user scrolls) -->
+                    <div class="p-5 bg-surface hairline-box rounded-[6px] space-y-4">
+                        <div class="flex items-center justify-between font-mono text-[11px] text-inkSecondary hairline-b pb-3">
+                            <span id="traj-active-period">MAR 2022 — PRESENT</span>
+                            <span id="traj-active-mode" class="text-white">REMOTE</span>
+                        </div>
+                        <div id="traj-active-logos" class="flex flex-wrap items-center gap-2.5 py-1">
+                            <a href="https://bssgroup.vn" target="_blank" rel="noopener noreferrer" class="logo-pill active-logo" title="BSS Group">
+                                <img src="images/logo-bssgroup.png" alt="BSS Group" class="h-5 w-auto object-contain">
+                            </a>
+                            <a href="https://www.magestore.com" target="_blank" rel="noopener noreferrer" class="logo-pill active-logo" title="Magestore">
+                                <img src="images/logo-magestore.png" alt="Magestore" class="h-5 w-auto object-contain">
+                            </a>
+                        </div>
+                        <div>
+                            <div id="traj-active-org" class="font-display font-medium text-white text-base">
+                                BSS Group / Magestore
+                            </div>
+                            <p id="traj-active-summary" class="text-xs text-inkSecondary mt-1 leading-relaxed">
+                                Global e-commerce product engineering — 5 Shopify apps, 10+ Magento 2 modules, and internal AI developer tooling.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Minimalist Step Indicator -->
+                    <div class="hidden lg:flex flex-col gap-2 font-mono text-[11px] text-inkSecondary pt-2">
+                        <a href="#milestone-bss" onclick="scrollToTrajMilestone(event, 0)" id="traj-indicator-0" class="flex items-center justify-between py-1.5 px-2 text-white border-l-2 border-white pl-3 transition hover:text-white">
+                            <span>01.1 BSS Group / Magestore</span>
+                            <span>2022—Now</span>
+                        </a>
+                        <a href="#milestone-cusc" onclick="scrollToTrajMilestone(event, 1)" id="traj-indicator-1" class="flex items-center justify-between py-1.5 px-2 text-inkSecondary border-l-2 border-white/10 pl-3 transition hover:text-white">
+                            <span>01.2 CUSC Software Center</span>
+                            <span>2020—2022</span>
+                        </a>
+                        <a href="#milestone-edu" onclick="scrollToTrajMilestone(event, 2)" id="traj-indicator-2" class="flex items-center justify-between py-1.5 px-2 text-inkSecondary border-l-2 border-white/10 pl-3 transition hover:text-white">
+                            <span>01.3 CUSC — APTECH Education</span>
+                            <span>2017—2019</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Scrolling Right Column (8 Cols): The 3 Career Chapters -->
+                <div class="lg:col-span-8 space-y-16">
+                    
+                    <!-- Milestone 1: BSS Group / Magestore -->
+                    <article id="milestone-bss" data-traj-index="0" class="scroll-step is-active hairline-t pt-8 space-y-6 scroll-mt-24">
+                        <div class="flex flex-wrap items-center justify-between gap-4">
+                            <div class="space-y-1">
+                                <div class="font-mono text-xs text-inkSecondary">MAR 2022 — PRESENT · REMOTE</div>
+                                <h3 class="font-display text-2xl sm:text-3xl font-medium text-white tracking-tight">
+                                    BSS Group / Magestore
+                                </h3>
+                                <div class="text-sm text-neutral-300 font-medium">Software Engineer</div>
+                            </div>
+                            <!-- BSS Group & Magestore Logos with direct links -->
+                            <div class="flex items-center gap-3">
+                                <a href="https://bssgroup.vn" target="_blank" rel="noopener noreferrer" class="logo-pill" title="BSS Group">
+                                    <img src="images/logo-bssgroup.png" alt="BSS Group" class="h-6 w-auto object-contain">
+                                </a>
+                                <a href="https://www.magestore.com" target="_blank" rel="noopener noreferrer" class="logo-pill" title="Magestore">
+                                    <img src="images/logo-magestore.png" alt="Magestore" class="h-6 w-auto object-contain">
+                                </a>
+                            </div>
+                        </div>
+
+                        <p class="text-sm sm:text-base text-inkSecondary leading-relaxed">
+                            Building and maintaining Shopify and Magento 2 products for retailers, with a focus on performance, and leading internal AI tooling for the dev team.
                         </p>
 
-                        <div class="metrics-row">
-                            <div class="metric-item">
-                                <div class="metric-value">500+</div>
-                                <div class="metric-label">Global Merchants Powered</div>
-                            </div>
-                            <div class="metric-item">
-                                <div class="metric-value">&lt; 1.0s</div>
-                                <div class="metric-label">Storefront LCP Slashing</div>
-                            </div>
-                            <div class="metric-item">
-                                <div class="metric-value">&gt;500k</div>
-                                <div class="metric-label">Orders Search Scaled</div>
-                            </div>
-                            <div class="metric-item">
-                                <div class="metric-value">6 Apps</div>
-                                <div class="metric-label">Standardized AI Pipelines</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+                        <ul class="space-y-3.5 text-sm text-inkPrimary leading-relaxed hairline-t pt-5">
+                            <li class="grid grid-cols-12 gap-3">
+                                <span class="col-span-2 sm:col-span-1 font-mono text-xs text-inkSecondary pt-0.5">01</span>
+                                <span class="col-span-10 sm:col-span-11">
+                                    Developed and maintained <strong>5 Shopify apps</strong> (POS, MS Barcode Label, MS Order Printer, MS Upsell, MS Purchase Order) and <strong>10+ Magento 2 modules</strong>, powering operations for <strong>500+ international merchants</strong>.
+                                </span>
+                            </li>
+                            <li class="grid grid-cols-12 gap-3">
+                                <span class="col-span-2 sm:col-span-1 font-mono text-xs text-inkSecondary pt-0.5">02</span>
+                                <span class="col-span-10 sm:col-span-11">
+                                    Built event-driven Shopify webhook processing via <strong>Amazon EventBridge</strong> and stored barcode history on <strong>Amazon S3</strong> so lost data can be recovered.
+                                </span>
+                            </li>
+                            <li class="grid grid-cols-12 gap-3">
+                                <span class="col-span-2 sm:col-span-1 font-mono text-xs text-inkSecondary pt-0.5">03</span>
+                                <span class="col-span-10 sm:col-span-11">
+                                    Created internal AI-driven developer toolkits (<strong>Claude Code skills, plugins, MCP, OpenAI API</strong>) and automated pull request code reviews.
+                                </span>
+                            </li>
+                            <li class="grid grid-cols-12 gap-3">
+                                <span class="col-span-2 sm:col-span-1 font-mono text-xs text-inkSecondary pt-0.5">04</span>
+                                <span class="col-span-10 sm:col-span-11">
+                                    Led the move to <strong>Playwright</strong> for E2E testing, mentored <strong>two engineers</strong>, and set up automated regression tests for checkout and order flows.
+                                </span>
+                            </li>
+                            <li class="grid grid-cols-12 gap-3">
+                                <span class="col-span-2 sm:col-span-1 font-mono text-xs text-inkSecondary pt-0.5">05</span>
+                                <span class="col-span-10 sm:col-span-11">
+                                    Fixed critical memory leaks and CPU spikes and improved <strong>Core Web Vitals</strong>, cutting <strong>LCP from ~5s to under 1s</strong>.
+                                </span>
+                            </li>
+                        </ul>
+                    </article>
 
-        <!-- =====================================================
-             SLIDE 01: CAREER JOURNEY & EDUCATION
-             ===================================================== -->
-        <section class="slide" id="slide-1" data-index="1">
-            <div class="slide-inner">
-                <div class="section-eyebrow">
-                    <span>02 / CAREER TRAJECTORY &amp; EDUCATION</span>
-                    <span>2017 — 2026</span>
-                </div>
-
-                <div class="trajectory-section-wrapper">
-                    <!-- Top Row: Professional Experience (2 Cards) -->
-                    <div class="career-cards-grid">
-                        <!-- Card 1: BSS Group / Magestore -->
-                        <div class="timeline-card">
-                            <div>
-                                <div class="org-header">
-                                    <div class="org-logos-group">
-                                        <a href="https://bssgroup.vn" target="_blank" rel="noopener noreferrer" class="org-logo-wrapper" title="BSS Group">
-                                            <img 
-                                                src="images/logo-bssgroup.png" 
-                                                alt="BSS Group Logo"
-                                                onerror="this.onerror=null; this.src='https://placehold.co/100x100/ffffff/000000?text=BSS';"
-                                            >
-                                        </a>
-                                        <a href="https://www.magestore.com" target="_blank" rel="noopener noreferrer" class="org-logo-wrapper" title="Magestore">
-                                            <img 
-                                                src="images/logo-magestore.png" 
-                                                alt="Magestore Logo"
-                                                onerror="this.onerror=null; this.src='https://placehold.co/100x100/ffffff/000000?text=MS';"
-                                            >
-                                        </a>
-                                    </div>
-                                    <div>
-                                        <div class="org-title">BSS Group / Magestore</div>
-                                        <div class="org-period">Software Engineer · Mar 2022 — Present (Remote)</div>
-                                    </div>
-                                </div>
-                                <ul class="org-bullets">
-                                    <li>Developed &amp; maintained 5 Shopify apps (POS, MS Barcode, Order Printer, Upsell, Purchase Order) and 10+ Magento 2 modules.</li>
-                                    <li>Engineered event-driven Shopify webhook consumers via AWS EventBridge and durable S3 barcode history.</li>
-                                    <li>Built internal AI developer toolkits (Claude Code skills, MCP, OpenAI API) and PR code review agents.</li>
-                                    <li>Championed Playwright E2E testing adoption across development teams, slashing test maintenance overhead.</li>
-                                </ul>
+                    <!-- Milestone 2: Can Tho University Software Center (CUSC) -->
+                    <article id="milestone-cusc" data-traj-index="1" class="scroll-step hairline-t pt-8 space-y-6 scroll-mt-24">
+                        <div class="flex flex-wrap items-center justify-between gap-4">
+                            <div class="space-y-1">
+                                <div class="font-mono text-xs text-inkSecondary">JUN 2020 — FEB 2022 · ON-SITE (CAN THO)</div>
+                                <h3 class="font-display text-2xl sm:text-3xl font-medium text-white tracking-tight">
+                                    Can Tho University Software Center
+                                </h3>
+                                <div class="text-sm text-neutral-300 font-medium">Software Engineer</div>
                             </div>
-                            <div class="org-tags">
-                                <span class="tag-pill">Shopify</span>
-                                <span class="tag-pill">Magento 2</span>
-                                <span class="tag-pill">Claude MCP</span>
-                                <span class="tag-pill">AWS EventBridge</span>
-                                <span class="tag-pill">Playwright</span>
-                            </div>
-                        </div>
-
-                        <!-- Card 2: Can Tho University Software Center -->
-                        <div class="timeline-card">
-                            <div>
-                                <div class="org-header">
-                                    <div class="org-logos-group">
-                                        <a href="https://cusc.vn/cms" target="_blank" rel="noopener noreferrer" class="org-logo-wrapper" title="CUSC Can Tho University">
-                                            <img 
-                                                src="images/logo-cusc.png" 
-                                                alt="CUSC Logo"
-                                                onerror="this.onerror=null; this.src='https://placehold.co/100x100/ffffff/000000?text=CUSC';"
-                                            >
-                                        </a>
-                                    </div>
-                                    <div>
-                                        <div class="org-title">Can Tho University Software Center</div>
-                                        <div class="org-period">Software Engineer · Jun 2020 — Feb 2022 (Onsite)</div>
-                                    </div>
-                                </div>
-                                <ul class="org-bullets">
-                                    <li>Developed e-government applications on Java/Liferay serving 20+ provincial departments across Ca Mau and Soc Trang.</li>
-                                    <li>Integrated provincial administrative systems with the National Public Service Portal via LGSP/NGSP gateways.</li>
-                                    <li>Deployed systems on-site and trained/supported 50+ government staff across provinces.</li>
-                                </ul>
-                            </div>
-                            <div class="org-tags">
-                                <span class="tag-pill">Java</span>
-                                <span class="tag-pill">Liferay</span>
-                                <span class="tag-pill">LGSP / NGSP</span>
-                                <span class="tag-pill">Oracle</span>
-                                <span class="tag-pill">Public Sector</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Bottom Row: Education & Academy -->
-                    <div class="education-card-full">
-                        <div style="display: flex; align-items: center; gap: 16px;">
-                            <div class="org-logos-group">
-                                <a href="https://cusc.vn/cms" target="_blank" rel="noopener noreferrer" class="org-logo-wrapper" title="CUSC">
-                                    <img 
-                                        src="images/logo-cusc.png" 
-                                        alt="CUSC Logo"
-                                        onerror="this.onerror=null; this.src='https://placehold.co/100x100/ffffff/000000?text=CUSC';"
-                                    >
-                                </a>
-                                <a href="https://aptech-edu.org" target="_blank" rel="noopener noreferrer" class="org-logo-wrapper" title="Aptech Computer Education">
-                                    <img 
-                                        src="images/logo-aptech.svg" 
-                                        alt="Aptech Logo"
-                                        onerror="this.onerror=null; this.src='https://placehold.co/100x100/ffffff/000000?text=APTECH';"
-                                    >
+                            <!-- CUSC Logo with direct link -->
+                            <div class="flex items-center gap-3">
+                                <a href="https://cusc.vn/cms" target="_blank" rel="noopener noreferrer" class="logo-pill" title="Can Tho University Software Center">
+                                    <img src="images/logo-cusc.png" alt="Can Tho University Software Center Logo" class="h-6 w-auto object-contain">
                                 </a>
                             </div>
-                            <div>
-                                <div class="org-title">Can Tho University Software Center — APTECH Computer Education</div>
-                                <div class="org-period">Higher Diploma in Software Engineering · Sep 2017 — Dec 2019</div>
-                                <div style="font-size: 12px; color: var(--text-secondary); margin-top: 3px;">
-                                    Graduated with <strong>Distinction</strong>. Core focus on OOP, Distributed Architecture, Relational Databases, and Software Engineering Principles.
+                        </div>
+
+                        <p class="text-sm sm:text-base text-inkSecondary leading-relaxed">
+                            Built e-government portals and data-exchange systems for provinces in the Mekong Delta.
+                        </p>
+
+                        <ul class="space-y-3.5 text-sm text-inkPrimary leading-relaxed hairline-t pt-5">
+                            <li class="grid grid-cols-12 gap-3">
+                                <span class="col-span-2 sm:col-span-1 font-mono text-xs text-inkSecondary pt-0.5">01</span>
+                                <span class="col-span-10 sm:col-span-11">
+                                    Developed e-government applications on <strong>Java/Liferay</strong> for Ca Mau and Soc Trang provinces, serving <strong>20+ provincial departments</strong> and district-level agencies.
+                                </span>
+                            </li>
+                            <li class="grid grid-cols-12 gap-3">
+                                <span class="col-span-2 sm:col-span-1 font-mono text-xs text-inkSecondary pt-0.5">02</span>
+                                <span class="col-span-10 sm:col-span-11">
+                                    Integrated provincial systems with the <strong>National Public Service Portal (dichvucong.gov.vn)</strong> via <strong>LGSP/NGSP</strong> (Local/National Government Service Platforms) for data exchange and online administrative procedures.
+                                </span>
+                            </li>
+                            <li class="grid grid-cols-12 gap-3">
+                                <span class="col-span-2 sm:col-span-1 font-mono text-xs text-inkSecondary pt-0.5">03</span>
+                                <span class="col-span-10 sm:col-span-11">
+                                    Deployed systems on-site, trained <strong>50+ government staff</strong>, and provided post-launch support.
+                                </span>
+                            </li>
+                        </ul>
+                    </article>
+
+                    <!-- Milestone 3: Education at CUSC - APTECH -->
+                    <article id="milestone-edu" data-traj-index="2" class="scroll-step hairline-t pt-8 space-y-5 scroll-mt-24">
+                        <div class="flex flex-wrap items-center justify-between gap-4">
+                            <div class="space-y-1">
+                                <div class="font-mono text-xs text-inkSecondary">SEP 2017 — DEC 2019 · EDUCATION</div>
+                                <h3 class="font-display text-2xl sm:text-3xl font-medium text-white tracking-tight">
+                                    Higher Diploma in Software Engineering
+                                </h3>
+                                <div class="text-sm text-neutral-300 font-medium">
+                                    Can Tho University Software Center — APTECH Computer Education
                                 </div>
                             </div>
+                            <!-- CUSC & Aptech Logos with direct links -->
+                            <div class="flex items-center gap-3">
+                                <a href="https://cusc.vn/cms" target="_blank" rel="noopener noreferrer" class="logo-pill" title="CUSC">
+                                    <img src="images/logo-cusc.png" alt="CUSC Logo" class="h-6 w-auto object-contain">
+                                </a>
+                                <a href="https://aptech-edu.org" target="_blank" rel="noopener noreferrer" class="logo-pill" title="Aptech Computer Education">
+                                    <img src="images/logo-aptech.svg" alt="CUSC APTECH Logo" class="h-6 w-auto object-contain">
+                                </a>
+                            </div>
                         </div>
-                        <div class="org-tags" style="margin-top: 0; padding-top: 0; border-top: none; flex-shrink: 0;">
-                            <span class="tag-pill" style="color: var(--accent-green); border-color: rgba(34,197,94,0.3);">Distinction</span>
-                            <span class="tag-pill">Higher Diploma</span>
+
+                        <div class="p-4 bg-surface hairline-box rounded-[4px] flex items-center justify-between font-mono text-xs">
+                            <span class="text-inkSecondary">ACADEMIC HONORS</span>
+                            <span class="text-white font-medium">Graduated with Distinction</span>
                         </div>
-                    </div>
+                    </article>
+
                 </div>
             </div>
         </section>
 
         <!-- =====================================================
-             SLIDE 02: ARCHITECTURAL IMPACT
+             CHAPTER 02: ARCHITECTURAL IMPACT (3 CASE STUDIES)
              ===================================================== -->
-        <section class="slide" id="slide-2" data-index="2">
-            <div class="slide-inner">
-                <div class="section-eyebrow">
-                    <span>03 / ARCHITECTURAL IMPACT</span>
-                    <span>CORE ENGINEERING CASE STUDIES</span>
-                </div>
-
-                <div class="impact-grid">
-                    <!-- Impact 01: Core Web Vitals -->
-                    <div class="impact-card">
-                        <div>
-                            <div class="impact-number">CASE / 01</div>
-                            <h3 class="impact-title">Storefront Core Web Vitals &amp; Search Scale</h3>
-                            <p class="impact-desc">
-                                Resolved critical memory leaks and CPU spikes across high-traffic apps. Slashed Largest Contentful Paint (LCP) from ~5.0s to under 1.0s, and re-architected 500k+ order search from slow SQL table scans to OpenSearch.
-                            </p>
-                        </div>
-                        <div class="stat-badge">
-                            <div>
-                                <div class="stat-num">~5.0s → 0.82s</div>
-                                <div class="metric-label">LCP Slashing</div>
-                            </div>
-                            <span class="stat-note">PASSING CWV</span>
-                        </div>
+        <section id="chapter-02" data-chapter="chapter-02" class="py-20 sm:py-28 hairline-b">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+                
+                <!-- Sticky Left Column (5 Cols): Dynamic Architectural Blueprint -->
+                <div class="lg:col-span-5 lg:sticky lg:top-20 self-start space-y-6">
+                    <div class="space-y-2">
+                        <div class="font-mono text-[11px] text-inkSecondary">02 / CASE STUDIES</div>
+                        <h2 class="font-display text-2xl sm:text-3xl font-medium text-white tracking-tight">
+                            Engineering Case Studies
+                        </h2>
+                        <p class="text-xs text-inkSecondary leading-relaxed">
+                            Scroll through the three pillars on the right—or select a pillar below—to see the key metrics behind each one.
+                        </p>
                     </div>
 
-                    <!-- Impact 02: AI Developer Toolkits -->
-                    <div class="impact-card">
-                        <div>
-                            <div class="impact-number">CASE / 02</div>
-                            <h3 class="impact-title">Autonomous AI Developer Toolkits</h3>
-                            <p class="impact-desc">
-                                Built an ecosystem of Claude Code skills, custom MCP plugins, and automated PR-Agent code reviews across 6 Shopify projects. Implemented auto-approve rules and context.md to enforce architectural consistency.
-                            </p>
-                        </div>
-                        <div class="stat-badge">
-                            <div>
-                                <div class="stat-num">6 Projects</div>
-                                <div class="metric-label">Standardized AI Pipeline</div>
-                            </div>
-                            <span class="stat-note">CLAUDE + MCP</span>
-                        </div>
-                    </div>
-
-                    <!-- Impact 03: Playwright & Event-Driven Reliability -->
-                    <div class="impact-card">
-                        <div>
-                            <div class="impact-number">CASE / 03</div>
-                            <h3 class="impact-title">Playwright E2E &amp; Event-Driven Reliability</h3>
-                            <p class="impact-desc">
-                                Replaced bloated legacy test suites with Playwright E2E automation for mission-critical POS and checkout flows. Engineered resilient webhook consumers using AWS EventBridge and S3 for zero-loss barcode history.
-                            </p>
-                        </div>
-                        <div class="stat-badge">
-                            <div>
-                                <div class="stat-num">Zero Data Loss</div>
-                                <div class="metric-label">Resilient Webhook Pipeline</div>
-                            </div>
-                            <span class="stat-note">EVENTBRIDGE + S3</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- =====================================================
-             SLIDE 03: SELECTED PROJECTS
-             ===================================================== -->
-        <section class="slide" id="slide-3" data-index="3">
-            <div class="slide-inner">
-                <div class="section-eyebrow">
-                    <span>04 / SELECTED WORKS</span>
-                    <span>PRODUCTION RELEASES (2022 — 2026)</span>
-                </div>
-
-                <div class="projects-grid">
-                    <!-- Project 1 -->
-                    <div class="project-card">
-                        <div>
-                            <div class="project-top">
-                                <span class="project-title">Magestore AI Toolkit</span>
-                                <span class="project-role">Maintainer</span>
-                            </div>
-                            <p class="project-summary">Claude AI skills and plugins standardizing AI-generated code, automated test cases, and GitLab CI/CD release updates across 6 Shopify teams.</p>
-                        </div>
-                        <div class="project-tech">Claude Code · MCP · Node.js · GitLab CI/CD</div>
-                    </div>
-
-                    <!-- Project 2 -->
-                    <a href="https://github.com/shine911/pr-agent" target="_blank" rel="noopener noreferrer" class="project-card">
-                        <div>
-                            <div class="project-top">
-                                <span class="project-title">AI Review Agent ↗</span>
-                                <span class="project-role">Maintainer</span>
-                            </div>
-                            <p class="project-summary">Automated PR code reviews based on PR-Agent (Qodo), featuring custom auto-approve rules and context.md integration for enhanced review accuracy.</p>
-                        </div>
-                        <div class="project-tech">Python · LiteLLM · Docker · Git APIs</div>
-                    </a>
-
-                    <!-- Project 3 -->
-                    <a href="https://apps.shopify.com/barcode-management" target="_blank" rel="noopener noreferrer" class="project-card">
-                        <div>
-                            <div class="project-top">
-                                <span class="project-title">MS Barcode Label ↗</span>
-                                <span class="project-role">Developer</span>
-                            </div>
-                            <p class="project-summary">Custom barcode generation and printing (GTIN, UPC, QR) with Stocky sync, generate history safeguards, and sub-second Core Web Vitals.</p>
-                        </div>
-                        <div class="project-tech">React · Express · PostgreSQL · Redis · AWS</div>
-                    </a>
-
-                    <!-- Project 4 -->
-                    <a href="https://apps.shopify.com/ms-order-printers" target="_blank" rel="noopener noreferrer" class="project-card">
-                        <div>
-                            <div class="project-top">
-                                <span class="project-title">MS Order Printer ↗</span>
-                                <span class="project-role">Developer</span>
-                            </div>
-                            <p class="project-summary">Automated branded invoicing engine supporting multi-currency, B2B tax compliance, multi-layout customization, and Shopify Flow automation.</p>
-                        </div>
-                        <div class="project-tech">Shopify Liquid · React · Node.js · PDF Engine</div>
-                    </a>
-
-                    <!-- Project 5 -->
-                    <a href="https://www.magestore.com/products/magento-pos" target="_blank" rel="noopener noreferrer" class="project-card">
-                        <div>
-                            <div class="project-top">
-                                <span class="project-title">Magestore POS ↗</span>
-                                <span class="project-role">Maintainer</span>
-                            </div>
-                            <p class="project-summary">Omnichannel POS platform for Magento 2. Integrated Stripe &amp; Square payment terminals, converted testing to Playwright, and scaled 500k+ orders search.</p>
-                        </div>
-                        <div class="project-tech">PHP · Hyva Theme · React · GraphQL · MySQL</div>
-                    </a>
-
-                    <!-- Project 6 -->
-                    <a href="https://www.magestore.com/products/retail-management-software" target="_blank" rel="noopener noreferrer" class="project-card">
-                        <div>
-                            <div class="project-top">
-                                <span class="project-title">Retail Management (RMS) ↗</span>
-                                <span class="project-role">Maintainer</span>
-                            </div>
-                            <p class="project-summary">Enterprise inventory and multi-warehouse software. Optimized complex reporting dashboards, eliminated query bottlenecks, and mentored engineers.</p>
-                        </div>
-                        <div class="project-tech">PHP · React · GraphQL · MySQL Tuning</div>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- =====================================================
-             SLIDE 04: TECHNICAL MATRIX & DIRECT CONTACT
-             ===================================================== -->
-        <section class="slide" id="slide-4" data-index="4">
-            <div class="slide-inner">
-                <div class="section-eyebrow">
-                    <span>05 / TECHNICAL MATRIX &amp; EPILOGUE</span>
-                    <span>INITIATE CONTACT</span>
-                </div>
-
-                <!-- Skills Categorical Matrix -->
-                <div class="skills-grid">
-                    <div class="skill-group">
-                        <div class="skill-group-title">E-Commerce Architecture</div>
-                        <div class="skill-list">
-                            Shopify Apps &amp; Extensions<br>
-                            Liquid, Storefront &amp; Admin GraphQL<br>
-                            Magento 2 Custom Modules<br>
-                            POS &amp; Inventory Workflows<br>
-                            Stripe &amp; Square Payments
-                        </div>
-                    </div>
-
-                    <div class="skill-group">
-                        <div class="skill-group-title">Languages &amp; Frameworks</div>
-                        <div class="skill-list">
-                            TypeScript &amp; JavaScript (ESNext)<br>
-                            PHP (OOP, Design Patterns)<br>
-                            Node.js &amp; Express<br>
-                            React &amp; Remix<br>
-                            Java &amp; Liferay Enterprise
-                        </div>
-                    </div>
-
-                    <div class="skill-group">
-                        <div class="skill-group-title">AI &amp; Automation</div>
-                        <div class="skill-list">
-                            Claude Code Agent Skills<br>
-                            Model Context Protocol (MCP)<br>
-                            LiteLLM &amp; OpenAI API Integrations<br>
-                            PR-Agent Automated Code Reviews<br>
-                            Playwright E2E Pipelines
-                        </div>
-                    </div>
-
-                    <div class="skill-group">
-                        <div class="skill-group-title">Cloud, Data &amp; Performance</div>
-                        <div class="skill-list">
-                            AWS (S3, EventBridge)<br>
-                            OpenSearch &amp; Elasticsearch<br>
-                            PostgreSQL, MySQL, Redis<br>
-                            Core Web Vitals (LCP, INP, FCP)<br>
-                            Docker, CI/CD, Git Workflows
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Call to Action Box -->
-                <div class="contact-box">
-                    <div>
-                        <h3 class="contact-info-title">Let’s build high-scale, reliable software together.</h3>
-                        <p class="contact-info-sub">Available for Hybrid roles in Ho Chi Minh City or Remote Worldwide.</p>
-                    </div>
-
-                    <div class="contact-actions">
-                        <a href="mailto:huynhdinhqui@gmail.com" class="btn-contact primary">
-                            huynhdinhqui@gmail.com ↗
-                        </a>
-                        <a href="https://fb.com/Quihuynh1309" target="_blank" rel="noopener noreferrer" class="btn-contact">
-                            Facebook ↗
-                        </a>
-                        <a href="https://linkedin.com/in/huynhdinhqui" target="_blank" rel="noopener noreferrer" class="btn-contact">
-                            LinkedIn ↗
-                        </a>
-                        <button onclick="copyToClipboard('huynhdinhqui@gmail.com', 'Email copied!')" class="btn-contact">
-                            Copy Email
+                    <!-- Interactive Pillar Selector Buttons -->
+                    <div class="grid grid-cols-3 hairline-box rounded-[4px] divide-x divide-white/[0.09] font-mono text-[11px]">
+                        <button onclick="scrollToImpactPillar(0)" id="impact-btn-0" class="py-2 px-2 bg-white text-black font-medium transition">
+                            01 Perf
                         </button>
-                        <button onclick="openModal()" class="btn-contact">
-                            ATS Resume PDF
+                        <button onclick="scrollToImpactPillar(1)" id="impact-btn-1" class="py-2 px-2 bg-transparent text-inkSecondary hover:text-white transition">
+                            02 AI Ops
+                        </button>
+                        <button onclick="scrollToImpactPillar(2)" id="impact-btn-2" class="py-2 px-2 bg-transparent text-inkSecondary hover:text-white transition">
+                            03 Cloud/QA
+                        </button>
+                    </div>
+
+                    <!-- Minimalist Telemetry Box (Morphs on Scroll) -->
+                    <div id="impact-telemetry-box" class="p-6 bg-surface hairline-box rounded-[6px] font-mono text-xs space-y-5 min-h-[250px] flex flex-col justify-between">
+                        <!-- Dynamically populated by setImpactDiagram() -->
+                    </div>
+                </div>
+
+                <!-- Scrolling Right Column (7 Cols): 3 Deep-Dive Narratives -->
+                <div class="lg:col-span-7 space-y-16">
+                    
+                    <!-- Impact Pillar 01: Core Web Vitals & 500k+ Order Search -->
+                    <article id="impact-pillar-0" data-impact-index="0" class="scroll-step is-active hairline-t pt-8 space-y-4 scroll-mt-24">
+                        <div class="flex items-center justify-between font-mono text-xs text-inkSecondary">
+                            <span>CASE STUDY 02.1 — WEB PERFORMANCE &amp; SEARCH</span>
+                            <span>LCP &lt; 1.0s</span>
+                        </div>
+                        <h3 class="font-display text-2xl sm:text-3xl font-medium text-white tracking-tight">
+                            Eliminating Memory Leaks &amp; Scaling 500k+ Order Search
+                        </h3>
+                        <p class="text-sm sm:text-base text-inkSecondary leading-relaxed">
+                            Our Shopify apps took ~5s to load (LCP) and hit CPU spikes, while Magento 2 POS order search crawled on tables with 500k+ rows.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                            <div class="p-4 bg-surface hairline-box rounded-[4px] space-y-1">
+                                <div class="font-mono text-[11px] text-inkSecondary">EMBEDDED SHOPIFY APPS</div>
+                                <div class="text-sm font-medium text-white">LCP Cut from ~5s to &lt;1s</div>
+                                <p class="text-xs text-inkSecondary leading-relaxed">
+                                    Profiled and patched critical Node/PHP memory leaks and optimized Core Web Vitals (LCP, INP, CLS) across MS Barcode Label and MS Order Printer.
+                                </p>
+                            </div>
+                            <div class="p-4 bg-surface hairline-box rounded-[4px] space-y-1">
+                                <div class="font-mono text-[11px] text-inkSecondary">ENTERPRISE POS SEARCH</div>
+                                <div class="text-sm font-medium text-white">500k+ Orders via OpenSearch</div>
+                                <p class="text-xs text-inkSecondary leading-relaxed">
+                                    Replaced full-table SQL scans with OpenSearch indexing, making order history search and dashboard reports fast again.
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Impact Pillar 02: AI Workflows (Claude Code, MCP, PR-Agent) -->
+                    <article id="impact-pillar-1" data-impact-index="1" class="scroll-step hairline-t pt-8 space-y-4 scroll-mt-24">
+                        <div class="flex items-center justify-between font-mono text-xs text-inkSecondary">
+                            <span>CASE STUDY 02.2 — AI WORKFLOW AUTOMATION</span>
+                            <span>6 SHOPIFY PROJECTS</span>
+                        </div>
+                        <h3 class="font-display text-2xl sm:text-3xl font-medium text-white tracking-tight">
+                            Speeding Up Delivery with Claude Code &amp; PR-Agent
+                        </h3>
+                        <p class="text-sm sm:text-base text-inkSecondary leading-relaxed">
+                            AI-generated code didn't follow team conventions, and manual code reviews slowed down delivery across repos. I built an internal AI toolkit that brings those conventions into developers' IDEs and GitLab CI/CD.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                            <div class="p-4 bg-surface hairline-box rounded-[4px] space-y-1">
+                                <div class="font-mono text-[11px] text-inkSecondary">CLAUDE CODE &amp; MCP</div>
+                                <div class="text-sm font-medium text-white">Magestore AI Toolkit</div>
+                                <p class="text-xs text-inkSecondary leading-relaxed">
+                                    Built custom Claude skills, plugins, and automated GitLab CI/CD release pipelines across 6 Shopify projects, including QA skills for automated test case generation.
+                                </p>
+                            </div>
+                            <div class="p-4 bg-surface hairline-box rounded-[4px] space-y-1">
+                                <div class="font-mono text-[11px] text-inkSecondary">AUTOMATED CODE REVIEW</div>
+                                <div class="text-sm font-medium text-white">Context-Aware PR-Agent</div>
+                                <p class="text-xs text-inkSecondary leading-relaxed">
+                                    Integrated Qodo PR-Agent (via LiteLLM) into GitLab CI/CD, adding custom auto-approve rules, GitLab Wiki sync, and <code>context.md</code> for architecture awareness.
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Impact Pillar 03: Event-Driven AWS & Playwright E2E -->
+                    <article id="impact-pillar-2" data-impact-index="2" class="scroll-step hairline-t pt-8 space-y-4 scroll-mt-24">
+                        <div class="flex items-center justify-between font-mono text-xs text-inkSecondary">
+                            <span>CASE STUDY 02.3 — CLOUD RESILIENCE &amp; E2E QUALITY</span>
+                            <span>EVENTBRIDGE · S3 · PLAYWRIGHT</span>
+                        </div>
+                        <h3 class="font-display text-2xl sm:text-3xl font-medium text-white tracking-tight">
+                            Reliable Webhook Processing &amp; Moving to Playwright
+                        </h3>
+                        <p class="text-sm sm:text-base text-inkSecondary leading-relaxed">
+                            Retail apps can't afford to lose webhook events or ship regressions in payments (Stripe, Square, PayPal) and inventory sync.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                            <div class="p-4 bg-surface hairline-box rounded-[4px] space-y-1">
+                                <div class="font-mono text-[11px] text-inkSecondary">AWS EVENTBRIDGE &amp; S3</div>
+                                <div class="text-sm font-medium text-white">Fault-Tolerant Barcode History</div>
+                                <p class="text-xs text-inkSecondary leading-relaxed">
+                                    Buffered bursts of Shopify webhooks through Amazon EventBridge and built an S3-backed "Generate History" log to recover lost barcode data and prevent future loss.
+                                </p>
+                            </div>
+                            <div class="p-4 bg-surface hairline-box rounded-[4px] space-y-1">
+                                <div class="font-mono text-[11px] text-inkSecondary">E2E TEST MODERNIZATION</div>
+                                <div class="text-sm font-medium text-white">MFTF → Playwright Migration</div>
+                                <p class="text-xs text-inkSecondary leading-relaxed">
+                                    Replaced Magento's MFTF with Playwright, mentored two engineers, and automated core checkout and order regression tests.
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             CHAPTER 03: SELECTED WORKS (6 CV PROJECTS INDEX)
+             ===================================================== -->
+        <section id="chapter-03" data-chapter="chapter-03" class="py-20 sm:py-28 hairline-b">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+                
+                <!-- Sticky Left Column (4 Cols): Index Controls & Active Project Counter -->
+                <div class="lg:col-span-4 lg:sticky lg:top-24 space-y-6">
+                    <div class="space-y-2">
+                        <div class="font-mono text-[11px] text-inkSecondary">03 / FEATURED PROJECTS</div>
+                        <h2 class="font-display text-2xl sm:text-3xl font-medium text-white tracking-tight">
+                            Featured Projects &amp; Products
+                        </h2>
+                        <p class="text-xs text-inkSecondary leading-relaxed">
+                            E-commerce apps, merchant tools, and engineering automation used by merchants worldwide.
+                        </p>
+                    </div>
+
+                    <!-- Filter List -->
+                    <div class="flex flex-col hairline-t divide-y divide-white/[0.09] font-mono text-xs">
+                        <button onclick="filterProjects('all')" id="filter-all" class="proj-filter-btn py-3 flex items-center justify-between text-white font-medium text-left transition">
+                            <span>All Projects</span>
+                            <span>[06]</span>
+                        </button>
+                        <button onclick="filterProjects('ai')" id="filter-ai" class="proj-filter-btn py-3 flex items-center justify-between text-inkSecondary hover:text-white text-left transition">
+                            <span>AI &amp; Developer Automation</span>
+                            <span>[02]</span>
+                        </button>
+                        <button onclick="filterProjects('shopify')" id="filter-shopify" class="proj-filter-btn py-3 flex items-center justify-between text-inkSecondary hover:text-white text-left transition">
+                            <span>Shopify Ecosystem Apps</span>
+                            <span>[02]</span>
+                        </button>
+                        <button onclick="filterProjects('pos')" id="filter-pos" class="proj-filter-btn py-3 flex items-center justify-between text-inkSecondary hover:text-white text-left transition">
+                            <span>Magento 2 &amp; Omnichannel POS</span>
+                            <span>[02]</span>
                         </button>
                     </div>
                 </div>
 
-                <!-- Footer -->
-                <div class="footer-bottom">
-                    <span>© HUYNH DINH QUI</span>
-                    <span>CAN THO, VIETNAM · (+84) 776 813 641</span>
+                <!-- Scrolling Right Column (8 Cols): Project Specifications with External Links -->
+                <div id="projects-index-list" class="lg:col-span-8 divide-y divide-white/[0.09] hairline-t hairline-b">
+                    <!-- Populated by renderProjectsIndex() -->
+                </div>
+
+            </div>
+        </section>
+
+        <!-- =====================================================
+             CHAPTER 04: TECHNICAL SPECIFICATION & EPILOGUE
+             ===================================================== -->
+        <section id="chapter-04" data-chapter="chapter-04" class="py-20 sm:py-28">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+                
+                <!-- Left Column (4 Cols) -->
+                <div class="lg:col-span-4 lg:sticky lg:top-20 self-start space-y-4">
+                    <div class="font-mono text-[11px] text-inkSecondary">04 / SKILLS</div>
+                    <h2 class="font-display text-2xl sm:text-3xl font-medium text-white tracking-tight">
+                        Skills &amp; Ways of Working
+                    </h2>
+                    <p class="text-xs text-inkSecondary leading-relaxed">
+                        Structured overview of languages, commerce ecosystems, infrastructure, and remote engineering practices.
+                    </p>
+                </div>
+
+                <!-- Right Column (8 Cols): Specification Table -->
+                <div class="lg:col-span-8 divide-y divide-white/[0.09] hairline-t hairline-b text-sm">
+                    
+                    <div class="py-5 grid grid-cols-1 sm:grid-cols-12 gap-3">
+                        <div class="sm:col-span-4 font-mono text-xs text-inkSecondary">E-COMMERCE</div>
+                        <div class="sm:col-span-8 text-inkPrimary leading-relaxed">
+                            Shopify (Apps, Extensions, Liquid, GraphQL, Shopify Flow), Magento 2 (Custom Modules, Hyvä Themes); Omnichannel POS, Inventory Management, Purchase Orders, Invoices, Barcode (GTIN/EAN/UPC/QR), Payments (Stripe, PayPal, Square).
+                        </div>
+                    </div>
+
+                    <div class="py-5 grid grid-cols-1 sm:grid-cols-12 gap-3">
+                        <div class="sm:col-span-4 font-mono text-xs text-inkSecondary">LANGUAGES &amp; FRAMEWORKS</div>
+                        <div class="sm:col-span-8 text-inkPrimary leading-relaxed">
+                            PHP, JavaScript, TypeScript, Node.js, React, Remix, Express.js, Laravel, Knockout.js, Python, Java, Liferay.
+                        </div>
+                    </div>
+
+                    <div class="py-5 grid grid-cols-1 sm:grid-cols-12 gap-3">
+                        <div class="sm:col-span-4 font-mono text-xs text-inkSecondary">AI &amp; AUTOMATION</div>
+                        <div class="sm:col-span-8 text-inkPrimary leading-relaxed">
+                            Claude Code (Agent Skills, Plugins), MCP (Model Context Protocol), OpenAI API, LiteLLM, Automated PR Code Review (PR-Agent), AI-Assisted Test Case Generation.
+                        </div>
+                    </div>
+
+                    <div class="py-5 grid grid-cols-1 sm:grid-cols-12 gap-3">
+                        <div class="sm:col-span-4 font-mono text-xs text-inkSecondary">DATABASES &amp; SEARCH</div>
+                        <div class="sm:col-span-8 text-inkPrimary leading-relaxed">
+                            MySQL, PostgreSQL, Redis, OpenSearch / Elasticsearch.
+                        </div>
+                    </div>
+
+                    <div class="py-5 grid grid-cols-1 sm:grid-cols-12 gap-3">
+                        <div class="sm:col-span-4 font-mono text-xs text-inkSecondary">TESTING, CLOUD &amp; DEVOPS</div>
+                        <div class="sm:col-span-8 text-inkPrimary leading-relaxed">
+                            Playwright (E2E), Vitest, AWS (Amazon S3, Amazon EventBridge), Docker, Git, GitLab CI/CD Pipelines.
+                        </div>
+                    </div>
+
+                    <div class="py-5 grid grid-cols-1 sm:grid-cols-12 gap-3">
+                        <div class="sm:col-span-4 font-mono text-xs text-inkSecondary">PERFORMANCE</div>
+                        <div class="sm:col-span-8 text-inkPrimary leading-relaxed">
+                            Core Web Vitals Optimization (LCP, INP, CLS), High-Volume Database Query Tuning, Memory Leak &amp; CPU Spike Troubleshooting.
+                        </div>
+                    </div>
+
+                    <div class="py-5 grid grid-cols-1 sm:grid-cols-12 gap-3">
+                        <div class="sm:col-span-4 font-mono text-xs text-inkSecondary">ENGLISH &amp; AGILE</div>
+                        <div class="sm:col-span-8 text-inkPrimary leading-relaxed">
+                            English: strong reading and technical writing (architecture docs, async updates); conversational speaking. Agile/Scrum, remote collaboration, and mentoring.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Epilogue / Direct Contact Footer -->
+            <div class="mt-24 pt-12 hairline-t flex flex-col md:flex-row md:items-end justify-between gap-8">
+                <div class="space-y-3">
+                    <div class="font-mono text-[11px] text-inkSecondary">EPILOGUE — GET IN TOUCH</div>
+                    <h3 class="font-display text-3xl sm:text-4xl font-normal text-white tracking-tight">
+                        Open to new engineering roles — let's talk.
+                    </h3>
+                    <p class="text-sm text-inkSecondary">
+                        Can Tho, Vietnam · Open to Hybrid (HCMC) &amp; Remote.
+                    </p>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-3 font-mono text-xs">
+                    <a href="mailto:huynhdinhqui@gmail.com" class="px-4 py-2.5 bg-white text-black font-medium rounded-[4px] hover:bg-neutral-200 transition">
+                        huynhdinhqui@gmail.com ↗
+                    </a>
+                    <a href="https://fb.com/Quihuynh1309" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 hairline-box hover:border-white/40 text-inkPrimary rounded-[4px] transition">
+                        Facebook ↗
+                    </a>
+                    <a href="https://linkedin.com/in/huynhdinhqui" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 hairline-box hover:border-white/40 text-inkPrimary rounded-[4px] transition">
+                        LinkedIn ↗
+                    </a>
+                    <button onclick="copyText('huynhdinhqui@gmail.com', 'email address')" class="px-4 py-2.5 hairline-box hover:border-white/40 text-inkPrimary rounded-[4px] transition">
+                        Copy Email
+                    </button>
+                    <button onclick="copyText('+84776813641', 'phone number')" class="px-4 py-2.5 hairline-box hover:border-white/40 text-inkPrimary rounded-[4px] transition">
+                        (+84) 776 813 641
+                    </button>
+                    <button onclick="openCVModal()" class="px-4 py-2.5 hairline-box hover:border-white/40 text-inkPrimary rounded-[4px] transition">
+                        Download CV (PDF)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Clean Bottom Footer without Swiss edition tag -->
+            <div class="mt-12 pt-6 hairline-t flex flex-wrap items-center justify-between gap-4 font-mono text-[11px] text-inkSecondary">
+                <span>© 2026 HUYNH DINH QUI</span>
+                <div class="flex items-center gap-6">
+                    <a href="https://fb.com/Quihuynh1309" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">Facebook ↗</a>
+                    <a href="https://linkedin.com/in/huynhdinhqui" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">LinkedIn ↗</a>
+                    <a href="https://github.com/shine911" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">GitHub (shine911) ↗</a>
+                    <a href="#chapter-00" class="hover:text-white transition">Back to Top ↑</a>
                 </div>
             </div>
         </section>
 
-    </div>
+    </main>
 
     <!-- =========================================================
-         PRINTABLE ATS RESUME MODAL
+         ATS-READY PRINTABLE CV MODAL
          ========================================================= -->
-    <div class="modal-overlay" id="cvModal" onclick="closeModalOnBackdrop(event)">
-        <div class="modal-card">
-            <div class="modal-header-actions">
-                <button onclick="window.print()" class="btn-modal primary">Print / Save as PDF</button>
-                <button onclick="closeModal()" class="btn-modal">Close [ESC]</button>
+    <div id="cv-modal" onclick="closeCVModalOnBackdrop(event)" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6 no-print">
+        <div class="bg-[#111111] hairline-box rounded-[6px] max-w-4xl w-full max-h-[92vh] flex flex-col shadow-2xl overflow-hidden">
+            <!-- Modal Header -->
+            <div class="flex items-center justify-between px-5 py-3.5 bg-[#0a0a0a] hairline-b">
+                <div class="font-mono text-xs text-inkPrimary">
+                    Huynh_Dinh_Qui_Software_Engineer_CV.pdf — ATS Standard Format
+                </div>
+                <div class="flex items-center gap-2">
+                    <button onclick="window.print()" class="px-3.5 py-1.5 bg-white text-black font-mono text-xs font-medium rounded-[4px] hover:bg-neutral-200 transition">
+                        Save as PDF / Print
+                    </button>
+                    <button onclick="closeCVModal()" class="px-2.5 py-1.5 hairline-box text-inkSecondary hover:text-white font-mono text-xs rounded-[4px]">
+                        ESC
+                    </button>
+                </div>
             </div>
 
-            <!-- ATS Resume Content -->
-            <div id="printableCV">
-                <h1 class="cv-name">Huynh Dinh Qui</h1>
-                <div class="cv-subtitle">SOFTWARE ENGINEER — FULL-STACK &amp; E-COMMERCE</div>
-                <div class="cv-contact">
-                    <span>(+84) 776 813 641</span>
-                    <span>•</span>
-                    <span>huynhdinhqui@gmail.com</span>
-                    <span>•</span>
-                    <span>Can Tho, Vietnam (Open to Hybrid HCMC &amp; Remote)</span>
-                    <span>•</span>
-                    <span>linkedin.com/in/huynhdinhqui</span>
-                    <span>•</span>
-                    <span>github.com/shine911</span>
-                </div>
-
-                <div class="cv-section-title">Professional Summary</div>
-                <p class="cv-text">
-                    Software Engineer with 5+ years of experience specializing in Shopify and Magento 2 platforms. Strong background in architecting end-to-end e-commerce solutions, from POS and inventory management to custom payment integrations. Proven track record of boosting engineering productivity by designing custom AI workflows (Claude Code, MCP, AI-driven automation) and championing Playwright automated testing best practices across development teams.
-                </p>
-
-                <div class="cv-section-title">Work Experience</div>
-
-                <div class="cv-item">
-                    <div class="cv-item-header">
-                        <span>BSS GROUP / MAGESTORE — Software Engineer (Remote)</span>
-                        <span>Mar 2022 — Present</span>
+            <!-- Scrollable A4 Resume Sheet -->
+            <div class="overflow-y-auto p-4 sm:p-8 bg-[#161616]">
+                <div id="cv-paper-content" class="bg-white text-black max-w-3xl mx-auto p-6 sm:p-10 shadow-xl text-xs sm:text-[13px] space-y-5 leading-relaxed font-sans">
+                    <div class="border-b border-black pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                        <div>
+                            <h1 class="text-2xl font-bold tracking-tight text-black">HUYNH DINH QUI</h1>
+                            <p class="font-semibold text-neutral-700">SOFTWARE ENGINEER</p>
+                        </div>
+                        <div class="text-xs text-neutral-700 sm:text-right space-y-0.5 font-mono">
+                            <div>(+84) 776 813 641 | Can Tho, Vietnam · Open to Hybrid (HCMC) &amp; Remote</div>
+                            <div>huynhdinhqui@gmail.com | linkedin.com/in/huynhdinhqui | github.com/shine911</div>
+                        </div>
                     </div>
-                    <ul class="cv-list">
-                        <li>Developed and maintained 5 Shopify apps (POS, MS Barcode, MS Order Printer, MS Upsell, MS Purchase Order) and 10+ Magento 2 modules, powering operations for 500+ international merchants.</li>
-                        <li>Engineered event-driven Shopify webhook processing via Amazon EventBridge and robust barcode history storage on Amazon S3.</li>
-                        <li>Built internal AI-driven developer toolkits (Claude Code skills, plugins, MCP, OpenAI API) and automated PR code reviews.</li>
-                        <li>Spearheaded Playwright E2E testing adoption; mentored 2+ engineers and established automated regression pipelines for core checkout and order flows.</li>
-                        <li>Resolved critical memory leaks/CPU spikes and optimized storefront Core Web Vitals, slashing LCP from ~5s to under 1s.</li>
-                    </ul>
-                </div>
 
-                <div class="cv-item">
-                    <div class="cv-item-header">
-                        <span>CAN THO UNIVERSITY SOFTWARE CENTER (CUSC) — Software Engineer (Onsite)</span>
-                        <span>Jun 2020 — Feb 2022</span>
+                    <div>
+                        <h2 class="text-xs font-bold uppercase tracking-wider text-black border-b border-neutral-300 pb-1 mb-2">PROFILE</h2>
+                        <p class="text-neutral-800 text-xs leading-relaxed">
+                            <strong>Software Engineer</strong> with 5+ years of experience specializing in Shopify and Magento 2 platforms. Strong background in architecting end-to-end e-commerce solutions, from POS and inventory management to custom payment integrations. I've improved team productivity by building AI developer tools (Claude Code, MCP) and leading the move to Playwright for automated testing.
+                        </p>
                     </div>
-                    <ul class="cv-list">
-                        <li>Developed e-government applications on Java/Liferay for Ca Mau and Soc Trang provinces, serving 20+ provincial departments and district-level agencies.</li>
-                        <li>Integrated provincial systems with the National Public Service Portal (dichvucong.gov.vn) via LGSP/NGSP for reliable data exchange and public procedures.</li>
-                        <li>Deployed systems on-site and trained/supported 50+ government staff across provinces; handled post-launch support and issue resolution.</li>
-                    </ul>
-                </div>
 
-                <div class="cv-section-title">Technical Skills</div>
-                <p class="cv-text">
-                    <strong>E-Commerce:</strong> Shopify (Apps, Extensions, Liquid, GraphQL), Magento 2 (Custom Modules), POS, Inventory, Payments (Stripe, PayPal)<br>
-                    <strong>Languages &amp; Frameworks:</strong> PHP, JavaScript, TypeScript, Node.js, React, Remix, Laravel, Java, Liferay<br>
-                    <strong>Databases &amp; Search:</strong> MySQL, PostgreSQL, Redis, OpenSearch / Elasticsearch<br>
-                    <strong>Testing &amp; Cloud:</strong> Playwright, Vitest, AWS (S3, EventBridge), Docker, Git, CI/CD<br>
-                    <strong>AI &amp; Automation:</strong> Claude Code (agent skills, plugins), MCP, OpenAI API, AI code review agents
-                </p>
+                    <div>
+                        <h2 class="text-xs font-bold uppercase tracking-wider text-black border-b border-neutral-300 pb-1 mb-2">EXPERIENCE</h2>
+                        <div class="space-y-3 text-xs">
+                            <div>
+                                <div class="flex justify-between font-bold text-black">
+                                    <span>BSS Group / Magestore - Software Engineer - Remote</span>
+                                    <span>Mar 2022 - Present</span>
+                                </div>
+                                <ul class="list-disc list-inside text-neutral-800 space-y-1 mt-1">
+                                    <li>Developed and maintained 5 Shopify apps (POS, MS Barcode Label, MS Order Printer, MS Upsell, MS Purchase Order) and 10+ Magento 2 modules, powering operations for 500+ international merchants.</li>
+                                    <li>Built event-driven Shopify webhook processing via Amazon EventBridge and stored barcode history on Amazon S3 so lost data can be recovered.</li>
+                                    <li>Created internal AI-driven developer toolkits (Claude Code skills, plugins, MCP, OpenAI API) and automated PR code reviews.</li>
+                                    <li>Led the move to Playwright for E2E testing, mentored two engineers, and set up automated regression tests for checkout and order flows.</li>
+                                    <li>Fixed critical memory leaks and CPU spikes and improved Core Web Vitals, cutting LCP from ~5s to under 1s.</li>
+                                </ul>
+                            </div>
 
-                <div class="cv-section-title">Education</div>
-                <div class="cv-item-header">
-                    <span>CAN THO UNIVERSITY SOFTWARE CENTER — APTECH COMPUTER EDUCATION</span>
-                    <span>Sep 2017 — Dec 2019</span>
+                            <div>
+                                <div class="flex justify-between font-bold text-black">
+                                    <span>Can Tho University Software Center - Software Engineer - On-site</span>
+                                    <span>Jun 2020 - Feb 2022</span>
+                                </div>
+                                <ul class="list-disc list-inside text-neutral-800 space-y-1 mt-1">
+                                    <li>Developed e-government applications on Java/Liferay for Ca Mau and Soc Trang provinces, serving 20+ provincial departments and district-level agencies.</li>
+                                    <li>Integrated provincial systems with the National Public Service Portal (dichvucong.gov.vn) via LGSP/NGSP for data exchange and online administrative procedures.</li>
+                                    <li>Deployed systems on-site, trained 50+ government staff, and provided post-launch support.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h2 class="text-xs font-bold uppercase tracking-wider text-black border-b border-neutral-300 pb-1 mb-2">SKILLS</h2>
+                        <ul class="text-xs text-neutral-800 space-y-1">
+                            <li><strong>E-Commerce:</strong> Shopify (Apps, Extensions, Liquid, GraphQL), Magento 2 (Custom Modules, Hyvä Themes); POS, Inventory, Purchase Orders, Invoices, Barcode, Payments (Stripe, PayPal, Square)</li>
+                            <li><strong>Languages &amp; Frameworks:</strong> PHP, JavaScript, TypeScript, Node.js, React, Remix, Express.js, Laravel, Knockout.js, Java, Liferay</li>
+                            <li><strong>Databases &amp; Search:</strong> MySQL, PostgreSQL, Redis, OpenSearch/Elasticsearch</li>
+                            <li><strong>Testing, Cloud &amp; DevOps:</strong> Playwright, Vitest, AWS (S3, EventBridge), Docker, Git, GitLab CI/CD</li>
+                            <li><strong>AI &amp; Automation:</strong> Claude Code (agent skills, plugins), MCP, OpenAI API, AI code review, automated testing</li>
+                            <li><strong>Performance:</strong> Core Web Vitals (LCP, INP, CLS), database tuning, memory leak &amp; CPU spike troubleshooting</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h2 class="text-xs font-bold uppercase tracking-wider text-black border-b border-neutral-300 pb-1 mb-2">PROJECTS</h2>
+                        <div class="space-y-2 text-xs text-neutral-800">
+                            <div><strong>Magestore AI Toolkit | Creator &amp; Maintainer (Aug 2026 - Present):</strong> Claude Code, Claude Plugins, Node.js, Python, GitLab CI/CD. Standardized the AI skill system across 6 Shopify projects with automated update workflows and QA test generation skills.</div>
+                            <div><strong>AI Review Agent | Maintainer (Jan 2026 - Present):</strong> Python, LiteLLM, Docker, GitHub/GitLab APIs, LLM APIs. Customized and integrated PR-Agent into GitLab CI/CD with auto-approve mechanisms, GitLab Wiki config, and context.md support.</div>
+                            <div><strong>MS Barcode Label | Developer (Jun 2025 - Present):</strong> Express.js, React, PostgreSQL, Redis, AWS. Retail barcode app with Stocky integration, S3 "Generate History" recovery feature, and Core Web Vitals optimization.</div>
+                            <div><strong>MS Order Printer | Developer (Jun 2025 - Present):</strong> Branded B2B PDF invoices, multi-language/currency, Shopify Flow integration, and Core Web Vitals optimization.</div>
+                            <div><strong>Magestore POS | Maintainer (Mar 2022 - Dec 2025):</strong> PHP, Knockout.js, Hyvä Themes, React, MySQL, GraphQL. Upgraded Stripe/Square integrations, replaced Magento's MFTF with Playwright, and optimized 500k+ order search with OpenSearch.</div>
+                            <div><strong>Retail Management Software (RMS) | Maintainer (Sep 2023 - Dec 2025):</strong> PHP, React, MySQL, GraphQL. Resolved dashboard order/report query bottlenecks and mentored junior developers and interns.</div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h2 class="text-xs font-bold uppercase tracking-wider text-black border-b border-neutral-300 pb-1 mb-1">EDUCATION</h2>
+                        <div class="flex justify-between text-xs font-bold text-black">
+                            <span>HIGHER DIPLOMA IN SOFTWARE ENGINEERING | Distinction — Can Tho University Software Center - APTECH</span>
+                            <span>Sep 2017 - Dec 2019</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="cv-item-sub">Higher Diploma in Software Engineering — Graduated with Distinction</div>
             </div>
         </div>
     </div>
 
-    <!-- FEEDBACK TOAST -->
-    <div id="toast" class="toast">Copied to clipboard</div>
+    <!-- Print-Only Container -->
+    <div id="print-clone-container" class="hidden print-only p-4"></div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 pointer-events-none opacity-0 translate-y-2 transition-all duration-200 bg-white text-black px-4 py-2.5 rounded-[4px] shadow-xl font-mono text-xs no-print">
+        <span id="toast-message">Copied to clipboard</span>
+    </div>
 
     <!-- =========================================================
-         SCRIPT INTERACTION & SLIDE CONTROLLER
+         SCROLLYTELLING & INTERACTION SCRIPT
          ========================================================= -->
-    <script src="js/script.js"></script>
+    <script>
+        /* -----------------------------------------------------------
+         * 1. TRAJECTORY STICKY PANEL DATA (CHAPTER 01)
+         * ----------------------------------------------------------- */
+        const trajectoryMeta = [
+            {
+                period: "MAR 2022 — PRESENT",
+                mode: "REMOTE",
+                org: "BSS Group / Magestore",
+                summary: "Global e-commerce product engineering — 5 Shopify apps, 10+ Magento 2 modules, and internal AI developer tooling.",
+                logosHtml: `
+                    <a href="https://bssgroup.vn" target="_blank" rel="noopener noreferrer" class="logo-pill active-logo" title="BSS Group">
+                        <img src="images/logo-bssgroup.png" alt="BSS Group" class="h-5 w-auto object-contain">
+                    </a>
+                    <a href="https://www.magestore.com" target="_blank" rel="noopener noreferrer" class="logo-pill active-logo" title="Magestore">
+                        <img src="images/logo-magestore.png" alt="Magestore" class="h-5 w-auto object-contain">
+                    </a>
+                `
+            },
+            {
+                period: "JUN 2020 — FEB 2022",
+                mode: "ON-SITE · CAN THO",
+                org: "Can Tho University Software Center (CUSC)",
+                summary: "E-government platforms on Java/Liferay for 20+ provincial departments, integrated with the National Public Service Portal (LGSP/NGSP).",
+                logosHtml: `
+                    <a href="https://cusc.vn/cms" target="_blank" rel="noopener noreferrer" class="logo-pill active-logo" title="Can Tho University Software Center">
+                        <img src="images/logo-cusc.png" alt="CUSC" class="h-5 w-auto object-contain">
+                    </a>
+                `
+            },
+            {
+                period: "SEP 2017 — DEC 2019",
+                mode: "DISTINCTION",
+                org: "CUSC — APTECH Computer Education",
+                summary: "Higher Diploma in Software Engineering — Graduated with Distinction.",
+                logosHtml: `
+                    <a href="https://cusc.vn/cms" target="_blank" rel="noopener noreferrer" class="logo-pill active-logo" title="CUSC">
+                        <img src="images/logo-cusc.png" alt="CUSC" class="h-5 w-auto object-contain">
+                    </a>
+                    <a href="https://aptech-edu.org" target="_blank" rel="noopener noreferrer" class="logo-pill active-logo" title="Aptech Computer Education">
+                        <img src="images/logo-aptech.svg" alt="CUSC APTECH" class="h-5 w-auto object-contain">
+                    </a>
+                `
+            }
+        ];
+
+        function updateTrajectorySticky(index) {
+            const item = trajectoryMeta[index] || trajectoryMeta[0];
+            const elPeriod = document.getElementById('traj-active-period');
+            const elMode = document.getElementById('traj-active-mode');
+            const elOrg = document.getElementById('traj-active-org');
+            const elSummary = document.getElementById('traj-active-summary');
+            const elLogos = document.getElementById('traj-active-logos');
+
+            if (elPeriod) elPeriod.textContent = item.period;
+            if (elMode) elMode.textContent = item.mode;
+            if (elOrg) elOrg.textContent = item.org;
+            if (elSummary) elSummary.textContent = item.summary;
+            if (elLogos) elLogos.innerHTML = item.logosHtml;
+
+            for (let i = 0; i < 3; i++) {
+                const ind = document.getElementById(`traj-indicator-${i}`);
+                if (!ind) continue;
+                if (i === index) {
+                    ind.className = "flex items-center justify-between py-1.5 px-2 text-white border-l-2 border-white pl-3 transition";
+                } else {
+                    ind.className = "flex items-center justify-between py-1.5 px-2 text-inkSecondary border-l-2 border-white/10 pl-3 transition";
+                }
+            }
+        }
+
+        /* -----------------------------------------------------------
+         * 2. ARCHITECTURAL IMPACT TELEMETRY DIAGRAMS (CHAPTER 02)
+         * ----------------------------------------------------------- */
+        const impactDiagrams = [
+            // 0: Core Web Vitals & 500k+ Order Search
+            `
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between text-[11px] text-inkSecondary hairline-b pb-2">
+                        <span>METRICS // CORE WEB VITALS &amp; SEARCH</span>
+                        <span class="text-white">VERIFIED</span>
+                    </div>
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex justify-between text-[11px] mb-1">
+                                <span class="text-inkSecondary">Legacy App LCP</span>
+                                <span class="text-inkSecondary">~5.00s</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-white/10">
+                                <div class="h-full bg-neutral-600" style="width: 96%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-[11px] mb-1">
+                                <span class="text-white">Optimized LCP (Patched Leaks)</span>
+                                <span class="text-white font-medium">0.82s (-83%)</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-white/10">
+                                <div class="h-full bg-white" style="width: 17%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-3 hairline-t space-y-1.5 text-[11px]">
+                        <div class="flex justify-between">
+                            <span class="text-inkSecondary">500k+ POS Order Search:</span>
+                            <span class="text-white">SQL → OpenSearch</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-inkSecondary">Target Apps:</span>
+                            <span class="text-white">MS Barcode Label &amp; Order Printer</span>
+                        </div>
+                    </div>
+                </div>
+            `,
+            // 1: AI Workflow Automation
+            `
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between text-[11px] text-inkSecondary hairline-b pb-2">
+                        <span>TOPOLOGY // AI ENGINEERING PIPELINE</span>
+                        <span class="text-white">6 SHOPIFY PROJECTS</span>
+                    </div>
+                    <div class="space-y-2 text-[11px]">
+                        <div class="p-2.5 hairline-box flex items-center justify-between">
+                            <span class="text-white">01. Claude Code Skills + MCP</span>
+                            <span class="text-inkSecondary">Standardized</span>
+                        </div>
+                        <div class="p-2.5 hairline-box flex items-center justify-between">
+                            <span class="text-white">02. context.md + GitLab Wiki</span>
+                            <span class="text-inkSecondary">Domain Rules</span>
+                        </div>
+                        <div class="p-2.5 hairline-box flex items-center justify-between bg-white/[0.04]">
+                            <span class="text-white">03. PR-Agent (LiteLLM)</span>
+                            <span class="text-white">Auto-Approve</span>
+                        </div>
+                    </div>
+                    <div class="pt-2 hairline-t flex justify-between text-[11px] text-inkSecondary">
+                        <span>CI/CD Auto-Release</span>
+                        <span class="text-white">GitLab Pipelines</span>
+                    </div>
+                </div>
+            `,
+            // 2: Cloud & E2E Reliability
+            `
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between text-[11px] text-inkSecondary hairline-b pb-2">
+                        <span>ARCHITECTURE // EVENT-DRIVEN &amp; E2E</span>
+                        <span class="text-white">AWS + PLAYWRIGHT</span>
+                    </div>
+                    <div class="space-y-2 text-[11px]">
+                        <div class="p-2.5 hairline-box flex items-center justify-between">
+                            <span class="text-white">Shopify Webhook Bursts</span>
+                            <span class="text-inkSecondary">→ EventBridge</span>
+                        </div>
+                        <div class="p-2.5 hairline-box flex items-center justify-between">
+                            <span class="text-white">"Generate History" Log</span>
+                            <span class="text-inkSecondary">→ Amazon S3</span>
+                        </div>
+                        <div class="p-2.5 hairline-box flex items-center justify-between bg-white/[0.04]">
+                            <span class="text-white">Checkout &amp; POS Regression</span>
+                            <span class="text-white">MFTF → Playwright</span>
+                        </div>
+                    </div>
+                    <div class="pt-2 hairline-t flex justify-between text-[11px] text-inkSecondary">
+                        <span>Payment Gateways</span>
+                        <span class="text-white">Stripe · Square · PayPal</span>
+                    </div>
+                </div>
+            `
+        ];
+
+        // State trackers for active scrollytelling elements
+        let trajArticles = [];
+        let impactArticles = [];
+        let currentTrajIndex = -1;
+        let currentImpactIndex = -1;
+        let isManualScroll = false;
+        let manualScrollTimer = null;
+
+        function updateTrajectoryActive(index) {
+            if (currentTrajIndex === index) return;
+            currentTrajIndex = index;
+            updateTrajectorySticky(index);
+
+            if (trajArticles && trajArticles.length) {
+                trajArticles.forEach((article, i) => {
+                    if (i === index) {
+                        article.classList.add('is-active');
+                    } else {
+                        article.classList.remove('is-active');
+                    }
+                });
+            }
+        }
+
+        function scrollToTrajMilestone(e, index) {
+            if (e && e.preventDefault) e.preventDefault();
+            const el = (trajArticles && trajArticles[index]) || document.getElementById(`milestone-${['bss','cusc','edu'][index]}`);
+            if (el) {
+                isManualScroll = true;
+                updateTrajectoryActive(index);
+                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                clearTimeout(manualScrollTimer);
+                manualScrollTimer = setTimeout(() => { isManualScroll = false; }, 850);
+            }
+        }
+
+        function updateImpactActive(index) {
+            if (currentImpactIndex === index) return;
+            currentImpactIndex = index;
+
+            const box = document.getElementById('impact-telemetry-box');
+            if (box) {
+                box.innerHTML = impactDiagrams[index] || impactDiagrams[0];
+            }
+            for (let i = 0; i < 3; i++) {
+                const btn = document.getElementById(`impact-btn-${i}`);
+                if (!btn) continue;
+                if (i === index) {
+                    btn.className = "py-2 px-2 bg-white text-black font-medium transition";
+                } else {
+                    btn.className = "py-2 px-2 bg-transparent text-inkSecondary hover:text-white transition";
+                }
+            }
+
+            if (impactArticles && impactArticles.length) {
+                impactArticles.forEach((article, i) => {
+                    if (i === index) {
+                        article.classList.add('is-active');
+                    } else {
+                        article.classList.remove('is-active');
+                    }
+                });
+            }
+        }
+
+        function scrollToImpactPillar(index) {
+            const el = (impactArticles && impactArticles[index]) || document.getElementById(`impact-pillar-${index}`);
+            if (el) {
+                isManualScroll = true;
+                updateImpactActive(index);
+                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                clearTimeout(manualScrollTimer);
+                manualScrollTimer = setTimeout(() => { isManualScroll = false; }, 850);
+            }
+        }
+
+        // Backward compatibility
+        function setImpactDiagram(index) {
+            updateImpactActive(index);
+        }
+
+        /* -----------------------------------------------------------
+         * 3. SELECTED WORKS DATA & INDEX RENDERER (CHAPTER 03)
+         * ----------------------------------------------------------- */
+        const worksData = [
+            {
+                index: "01",
+                category: "ai",
+                title: "Magestore AI Toolkit",
+                role: "Creator & Maintainer",
+                period: "Aug 2026 — Present",
+                link: null,
+                stack: ["Claude Code", "Claude Plugins", "Node.js", "Python", "GitLab CI/CD"],
+                summary: "A suite of Claude Code skills and plugins that keep AI-generated code consistent with team conventions across 6 Shopify projects.",
+                bullets: [
+                    "Built custom Claude Code skills based on the Shopify AI Toolkit.",
+                    "Worked with QA to build skills that generate test cases automatically.",
+                    "Automated release and update pipelines for skills via GitLab CI/CD, establishing a standardized AI skill system across 6 Shopify projects."
+                ]
+            },
+            {
+                index: "02",
+                category: "ai",
+                title: "AI Review Agent",
+                role: "Maintainer",
+                period: "Jan 2026 — Present",
+                link: "https://github.com/shine911/pr-agent",
+                stack: ["Python", "LiteLLM", "Docker", "GitHub/GitLab APIs", "LLM APIs"],
+                summary: "Customized the open-source PR-Agent (by Qodo) and integrated it into the team's GitLab CI/CD pipeline to automate pull request code reviews.",
+                bullets: [
+                    "Configured and integrated PR-Agent into the team's GitLab CI/CD pipeline.",
+                    "Developed custom features including auto-approve mechanisms, GitLab Wiki integration, and context.md support, giving the reviewer project-specific context."
+                ]
+            },
+            {
+                index: "03",
+                category: "shopify",
+                title: "MS Barcode Label",
+                role: "Developer",
+                period: "Jun 2025 — Present",
+                link: "https://apps.shopify.com/barcode-management",
+                stack: ["Express.js", "React", "PostgreSQL", "Redis", "AWS S3"],
+                summary: "A retail app for creating, customizing, and printing barcode labels (GTIN, EAN, UPC, custom SKUs, QR codes) on any printer, with Stocky integration.",
+                bullets: [
+                    "Recovered lost barcode data and built a \"Generate History\" feature to track barcode creation and prevent future data loss.",
+                    "Optimized app performance and Core Web Vitals (LCP, INP, CLS), cutting LCP from ~5s to under 1s."
+                ]
+            },
+            {
+                index: "04",
+                category: "shopify",
+                title: "MS Order Printer",
+                role: "Developer",
+                period: "Jun 2025 — Present",
+                link: "https://apps.shopify.com/ms-order-printers",
+                stack: ["Shopify App", "React", "Liquid", "PDF Delivery", "Shopify Flow"],
+                summary: "A Shopify app for printing, downloading, and emailing branded invoices with custom logos, layouts, and automated PDF delivery. Supports B2B tax details, multi-language/currency, and Shopify Flow integration.",
+                bullets: [
+                    "Shipped new invoice features and handled support for merchants worldwide.",
+                    "Improved app performance and Core Web Vitals (LCP, INP, CLS) across MS Order Printer and MS Barcode Label."
+                ]
+            },
+            {
+                index: "05",
+                category: "pos",
+                title: "Magestore POS",
+                role: "Maintainer",
+                period: "Mar 2022 — Dec 2025",
+                link: "https://www.magestore.com/products/magento-pos",
+                stack: ["PHP", "Knockout.js", "Hyvä Themes", "React", "MySQL", "GraphQL", "OpenSearch", "Playwright"],
+                summary: "An omnichannel POS for Magento 2, offered in editions from Lite to Enterprise for businesses of every size.",
+                bullets: [
+                    "Upgraded and debugged payment integrations including Stripe and Square within the POS system.",
+                    "Replaced Magento's MFTF with Playwright, making UI tests faster to run and easier to maintain.",
+                    "Moved order search from SQL to OpenSearch for a merchant with 500k+ orders, and fixed slow dashboard reports."
+                ]
+            },
+            {
+                index: "06",
+                category: "pos",
+                title: "Retail Management Software (RMS)",
+                role: "Maintainer",
+                period: "Sep 2023 — Dec 2025",
+                link: "https://www.magestore.com/products/retail-management-software",
+                stack: ["PHP", "React", "MySQL", "GraphQL"],
+                summary: "An inventory and retail management system integrated with Magento 2.",
+                bullets: [
+                    "Developed features, fixed bugs, conducted code reviews, and mentored junior developers and interns.",
+                    "Resolved performance bottlenecks in dashboard order and report queries."
+                ]
+            }
+        ];
+
+        let currentWorkFilter = 'all';
+
+        function renderProjectsIndex() {
+            const container = document.getElementById('projects-index-list');
+            if (!container) return;
+
+            const filtered = currentWorkFilter === 'all'
+                ? worksData
+                : worksData.filter(w => w.category === currentWorkFilter);
+
+            container.innerHTML = filtered.map(item => `
+                <article class="scroll-step is-active py-8 space-y-4 group">
+                    <div class="flex flex-wrap items-baseline justify-between gap-2">
+                        <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                            <span class="font-mono text-xs text-inkSecondary">${item.index}</span>
+                            ${item.link ? `
+                                <a href="${item.link}" target="_blank" rel="noopener noreferrer" class="font-display text-xl sm:text-2xl font-medium text-white tracking-tight hover:text-neutral-300 transition">
+                                    ${item.title}
+                                </a>
+                            ` : `
+                                <h3 class="font-display text-xl sm:text-2xl font-medium text-white tracking-tight">
+                                    ${item.title}
+                                </h3>
+                            `}
+                            <span class="font-mono text-xs text-inkSecondary">/ ${item.role}</span>
+                        </div>
+                        <span class="font-mono text-xs text-inkSecondary">${item.period}</span>
+                    </div>
+
+                    <p class="text-sm text-inkSecondary leading-relaxed pl-0 sm:pl-8">
+                        ${item.summary}
+                    </p>
+
+                    <ul class="space-y-2 text-sm text-inkPrimary leading-relaxed pl-0 sm:pl-8 pt-1">
+                        ${item.bullets.map(b => `
+                            <li class="flex items-start gap-2.5">
+                                <span class="font-mono text-xs text-inkSecondary mt-0.5">—</span>
+                                <span>${b}</span>
+                            </li>
+                        `).join('')}
+                    </ul>
+
+                    <div class="flex flex-wrap items-center justify-between gap-3 pl-0 sm:pl-8 pt-2">
+                        <div class="flex flex-wrap gap-2 font-mono text-[11px]">
+                            ${item.stack.map(tech => `
+                                <span class="px-2.5 py-1 bg-surface hairline-box text-inkSecondary rounded-[3px] transition-all duration-200 hover:border-white/40 hover:bg-white/[0.06] hover:text-white hover:-translate-y-[1px] hover:shadow-[0_0_12px_rgba(255,255,255,0.08)] select-none cursor-default">
+                                    ${tech}
+                                </span>
+                            `).join('')}
+                        </div>
+                        ${item.link ? `
+                            <a href="${item.link}" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 hairline-box hover:border-white/50 hover:bg-white/[0.05] text-inkPrimary hover:text-white text-xs font-mono rounded-[4px] inline-flex items-center gap-1.5 transition">
+                                <span>Visit Project</span>
+                                <span class="text-inkSecondary">↗</span>
+                            </a>
+                        ` : ''}
+                    </div>
+                </article>
+            `).join('');
+        }
+
+        function filterProjects(category) {
+            currentWorkFilter = category;
+            document.querySelectorAll('.proj-filter-btn').forEach(btn => {
+                btn.className = "proj-filter-btn py-3 flex items-center justify-between text-inkSecondary hover:text-white text-left transition";
+            });
+            const activeBtn = document.getElementById(`filter-${category}`);
+            if (activeBtn) {
+                activeBtn.className = "proj-filter-btn py-3 flex items-center justify-between text-white font-medium text-left transition";
+            }
+            renderProjectsIndex();
+        }
+
+        /* -----------------------------------------------------------
+         * 4. SCROLLYTELLING ACTIVE ELEMENT DETECTION & SYNC
+         * ----------------------------------------------------------- */
+        function syncScrollytelling() {
+            if (isManualScroll) return;
+
+            // Trigger threshold at 45% of viewport height (reading focal area)
+            const triggerY = window.innerHeight * 0.45;
+
+            // 1. Sync Chapter 01 (Experience Timeline)
+            if (trajArticles && trajArticles.length) {
+                const sec01 = document.getElementById('chapter-01');
+                if (sec01) {
+                    const r01 = sec01.getBoundingClientRect();
+                    if (r01.top <= window.innerHeight && r01.bottom >= 0) {
+                        let activeIdx = 0;
+                        for (let i = 0; i < trajArticles.length; i++) {
+                            const rect = trajArticles[i].getBoundingClientRect();
+                            if (rect.top <= triggerY) {
+                                activeIdx = i;
+                            }
+                        }
+                        updateTrajectoryActive(activeIdx);
+                    }
+                }
+            }
+
+            // 2. Sync Chapter 02 (Case Studies)
+            if (impactArticles && impactArticles.length) {
+                const sec02 = document.getElementById('chapter-02');
+                if (sec02) {
+                    const r02 = sec02.getBoundingClientRect();
+                    if (r02.top <= window.innerHeight && r02.bottom >= 0) {
+                        let activeIdx = 0;
+                        for (let i = 0; i < impactArticles.length; i++) {
+                            const rect = impactArticles[i].getBoundingClientRect();
+                            if (rect.top <= triggerY) {
+                                activeIdx = i;
+                            }
+                        }
+                        updateImpactActive(activeIdx);
+                    }
+                }
+            }
+        }
+
+        function observeChapters() {
+            const chapterObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('data-chapter');
+                        document.querySelectorAll('.chapter-nav-item').forEach(link => {
+                            if (link.getAttribute('data-chapter-link') === id) {
+                                link.classList.remove('text-inkSecondary');
+                                link.classList.add('text-white');
+                            } else {
+                                link.classList.remove('text-white');
+                                link.classList.add('text-inkSecondary');
+                            }
+                        });
+                    }
+                });
+            }, {
+                rootMargin: '-20% 0px -60% 0px'
+            });
+
+            document.querySelectorAll('section[data-chapter]').forEach(sec => chapterObserver.observe(sec));
+        }
+
+        /* -----------------------------------------------------------
+         * 5. READING PROGRESS BAR, CLIPBOARD & MODAL UTILITIES
+         * ----------------------------------------------------------- */
+        let isScrollTicking = false;
+
+        function handleWindowScroll() {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const pct = docHeight > 0 ? Math.min(100, (scrollTop / docHeight) * 100) : 0;
+            const bar = document.getElementById('reading-progress-bar');
+            if (bar) bar.style.width = `${pct}%`;
+
+            if (!isScrollTicking) {
+                window.requestAnimationFrame(() => {
+                    try {
+                        syncScrollytelling();
+                    } catch (err) {
+                        console.error('Scrollytelling error:', err);
+                    } finally {
+                        isScrollTicking = false;
+                    }
+                });
+                isScrollTicking = true;
+            }
+        }
+
+        window.addEventListener('scroll', handleWindowScroll, { passive: true });
+        window.addEventListener('resize', handleWindowScroll, { passive: true });
+
+        function copyText(value, label) {
+            const temp = document.createElement('textarea');
+            temp.value = value;
+            document.body.appendChild(temp);
+            temp.select();
+            try {
+                document.execCommand('copy');
+                const toast = document.getElementById('toast');
+                document.getElementById('toast-message').textContent = `Copied ${label}: ${value}`;
+                toast.classList.remove('opacity-0', 'translate-y-2');
+                toast.classList.add('opacity-100', 'translate-y-0');
+                setTimeout(() => {
+                    toast.classList.remove('opacity-100', 'translate-y-0');
+                    toast.classList.add('opacity-0', 'translate-y-2');
+                }, 2400);
+            } catch (err) {
+                console.error('Copy failed', err);
+            }
+            document.body.removeChild(temp);
+        }
+
+        function openCVModal() {
+            const modal = document.getElementById('cv-modal');
+            if (modal) {
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeCVModal() {
+            const modal = document.getElementById('cv-modal');
+            if (modal) {
+                modal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }
+        }
+
+        function closeCVModalOnBackdrop(e) {
+            if (e.target.id === 'cv-modal') {
+                closeCVModal();
+            }
+        }
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeCVModal();
+        });
+
+        /* -----------------------------------------------------------
+         * 6. INITIALIZE ON LOAD
+         * ----------------------------------------------------------- */
+        function initApp() {
+            const cvPaper = document.getElementById('cv-paper-content');
+            const printClone = document.getElementById('print-clone-container');
+            if (cvPaper && printClone) {
+                printClone.innerHTML = cvPaper.innerHTML;
+            }
+
+            // Cache scrollytelling elements
+            trajArticles = Array.from(document.querySelectorAll('#chapter-01 [data-traj-index]'));
+            impactArticles = Array.from(document.querySelectorAll('#chapter-02 [data-impact-index]'));
+
+            updateTrajectoryActive(0);
+            updateImpactActive(0);
+
+            renderProjectsIndex();
+            observeChapters();
+            syncScrollytelling();
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initApp);
+        } else {
+            initApp();
+        }
+    </script>
 </body>
 </html>
